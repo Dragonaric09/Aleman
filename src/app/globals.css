@@ -11,7 +11,8 @@
   --ink-2: #55524b;
   --line: #e3ddd1;
   --line-strong: #cfc7b8;
-  --accent: #9a6a12;
+  --field-border: #8f8676; /* ≥ 3:1 sobre papel y superficie (WCAG 1.4.11) */
+  --accent: #8a5e0f;
   --accent-soft: #f4e7cc;
   --accent-ink: #fffdf9;
   --ok: #166534;
@@ -49,6 +50,7 @@
   --ink-2: #b4aea3;
   --line: #2e2f33;
   --line-strong: #3d3e43;
+  --field-border: #717278;
   --accent: #e2b04f;
   --accent-soft: #2e2512;
   --accent-ink: #1a1405;
@@ -79,6 +81,7 @@
   --color-ink-2: var(--ink-2);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
+  --color-field: var(--field-border);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-accent-ink: var(--accent-ink);

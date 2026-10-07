@@ -18,8 +18,9 @@ Wortschatz SRS se ve como un cuaderno de vocabulario alemán bien cuidado: papel
 | `--surface-2` | `#F0ECE3` | `#212226` | bandas, campos inactivos |
 | `--ink` | `#1C1B19` | `#ECE7DD` | texto principal |
 | `--ink-2` | `#55524B` | `#B4AEA3` | texto secundario (≥ 4.5:1) |
-| `--line` | `#E3DDD1` | `#2E2F33` | bordes y separadores |
-| `--accent` | `#9A6A12` | `#E2B04F` | dorado: foco, enlaces, acento |
+| `--line` | `#E3DDD1` | `#2E2F33` | bordes y separadores decorativos |
+| `--field-border` | `#8F8676` | `#717278` | borde de campos y casillas (≥ 3:1) |
+| `--accent` | `#8A5E0F` | `#E2B04F` | dorado: foco, enlaces, acento |
 | `--accent-ink` | `#FFFDF9` | `#1A1405` | texto sobre dorado |
 | `--ok` / `--ok-bg` | `#166534` / `#E8F3EA` | `#7BD69A` / `#13261A` | CORRECT |
 | `--almost` / `--almost-bg` | `#8A4B00` / `#FBF0DC` | `#F2BE6B` / `#2A2010` | ALMOST |

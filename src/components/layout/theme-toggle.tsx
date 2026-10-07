@@ -48,13 +48,12 @@ export function ThemeToggle({ className }: { className?: string }) {
   }
 
   return (
-    <div role="radiogroup" aria-label="Tema" className={cn("inline-flex rounded-md border border-line bg-surface-2 p-0.5", className)}>
+    <div role="group" aria-label="Tema" className={cn("inline-flex rounded-md border border-line bg-surface-2 p-0.5", className)}>
       {OPTIONS.map(({ value, label, icon: Icon }) => (
         <button
           key={value}
           type="button"
-          role="radio"
-          aria-checked={theme === value}
+          aria-pressed={theme === value}
           aria-label={label}
           title={label}
           onClick={() => choose(value)}

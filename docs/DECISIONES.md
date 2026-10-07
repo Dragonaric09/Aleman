@@ -49,3 +49,9 @@ Se añadió `UserSettings.ttsVoice` (nombre de la voz de-DE elegida) porque la s
 
 ## D-15 · Tests de integración sin `migrate reset`
 Prisma bloquea `migrate reset` cuando lo invoca un agente de IA. Como `db_test` es efímera (tmpfs), el setup global usa `prisma migrate deploy` + semilla idempotente, y cada test limpia usuarios y palabras propias.
+
+## D-16 · Atajos de una letra fuera de los campos
+Los atajos U, P, E, ? y 1–4 no actúan mientras el foco está en un campo de texto (si no, escribir «unten» o «Plural» dispararía acciones). Como el campo recibe el foco automáticamente en cada tarjeta, deshacer tras calificar se hace con el botón «Deshacer» o pulsando U en la pantalla de corrección. Enter funciona siempre.
+
+## D-17 · Accesibilidad de color
+El texto del artículo usa un tono AA del mismo matiz que el color fijo de género (que se reserva para punto, borde y subrayado). Se añadió `--field-border` para que los bordes de los campos cumplan 3:1 y se oscureció el dorado claro. Detalle en `docs/ACCESIBILIDAD.md`.

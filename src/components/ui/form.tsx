@@ -4,7 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/cn";
 
 const fieldBase =
-  "w-full rounded-md border border-line-strong bg-surface px-3 text-ink placeholder:text-ink-2/70 transition-[border-color,box-shadow] duration-150 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/25 disabled:cursor-not-allowed disabled:opacity-60 aria-[invalid=true]:border-bad aria-[invalid=true]:ring-bad/20";
+  "w-full rounded-md border border-field bg-surface px-3 text-ink placeholder:text-ink-2/70 transition-[border-color,box-shadow] duration-150 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/25 disabled:cursor-not-allowed disabled:opacity-60 aria-[invalid=true]:border-bad aria-[invalid=true]:ring-bad/20";
 
 export const Input = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
   ({ className, ...props }, ref) => <input ref={ref} className={cn(fieldBase, "h-10 text-sm", className)} {...props} />,
