@@ -314,9 +314,12 @@ export async function saveNote(userId: string, wordId: string, raw: unknown) {
   const input = noteInputSchema.parse(raw);
   const word = await findVisibleWord(userId, wordId);
   if (!word) throw notFound("Palabra no encontrada");
+  // Solo se actualizan los campos enviados (guardar la mnemotecnia no borra «mi frase»).
+  const sent = typeof raw === "object" && raw !== null ? raw : {};
+  const update = Object.fromEntries(Object.entries(input).filter(([k]) => k in sent));
   return prisma.wordNote.upsert({
     where: { userId_wordId: { userId, wordId } },
-    update: input,
+    update,
     create: { userId, wordId, ...input },
   });
 }

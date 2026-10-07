@@ -121,3 +121,5 @@ export function typeHint(word: { type: WordType; separablePrefix?: string | null
       return WORD_TYPE_LABELS[word.type];
   }
 }
+
+export { possibleCardKinds, cardPlan, type CardKindWord } from "./card-kinds";

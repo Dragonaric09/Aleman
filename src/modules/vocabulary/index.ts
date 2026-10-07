@@ -1,6 +1,6 @@
 export * from "./shared";
 export { computePriority, compareForIntroduction, type PriorityInput, type SortableNewWord } from "./priority";
-export { possibleCardKinds, cardPlan, type CardKindWord, type WordCardPlan } from "./card-kinds";
+export { type WordCardPlan } from "./card-kinds";
 export {
   wordInputSchema,
   noteInputSchema,

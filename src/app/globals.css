@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ───────────── Tokens «Cuaderno» (ver docs/DISENO.md) ───────────── */
+:root {
+  --paper: #f7f4ee;
+  --surface: #fffdf9;
+  --surface-2: #f0ece3;
+  --ink: #1c1b19;
+  --ink-2: #55524b;
+  --line: #e3ddd1;
+  --line-strong: #cfc7b8;
+  --accent: #9a6a12;
+  --accent-soft: #f4e7cc;
+  --accent-ink: #fffdf9;
+  --ok: #166534;
+  --ok-bg: #e8f3ea;
+  --almost: #8a4b00;
+  --almost-bg: #fbf0dc;
+  --bad: #a11b1b;
+  --bad-bg: #fbe9e7;
+
+  /* Género: color fijo de identidad + tono de texto AA */
+  --der: #2563eb;
+  --die: #dc2626;
+  --das: #16a34a;
+  --plural: #6b7280;
+  --der-text: #1d4ed8;
+  --die-text: #b91c1c;
+  --das-text: #15803d;
+  --plural-text: #4b5563;
+
+  /* Gráficos (validados con dataviz/validate_palette: CVD y contraste) */
+  --chart-1: #c88a12;
+  --chart-2: #1a9e8f;
+  --chart-grid: #e8e2d6;
+  --chart-axis: #7d786e;
+  --shadow-paper: 0 1px 0 rgb(28 27 25 / 0.04), 0 8px 24px -12px rgb(28 27 25 / 0.12);
+  --shadow-lift: 0 1px 0 rgb(28 27 25 / 0.05), 0 24px 48px -24px rgb(28 27 25 / 0.25);
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #111214;
+  --surface: #191a1d;
+  --surface-2: #212226;
+  --ink: #ece7dd;
+  --ink-2: #b4aea3;
+  --line: #2e2f33;
+  --line-strong: #3d3e43;
+  --accent: #e2b04f;
+  --accent-soft: #2e2512;
+  --accent-ink: #1a1405;
+  --ok: #7bd69a;
+  --ok-bg: #13261a;
+  --almost: #f2be6b;
+  --almost-bg: #2a2010;
+  --bad: #f29b93;
+  --bad-bg: #2c1514;
+  --der-text: #93b4ff;
+  --die-text: #ff9c9c;
+  --das-text: #7ee2a3;
+  --plural-text: #b6bcc6;
+  --chart-1: #c98500;
+  --chart-2: #1a9e8f;
+  --chart-grid: #2a2b2f;
+  --chart-axis: #8d877c;
+  --shadow-paper: 0 1px 0 rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --shadow-lift: 0 1px 0 rgb(0 0 0 / 0.3), 0 24px 48px -24px rgb(0 0 0 / 0.8);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-ok: var(--ok);
+  --color-ok-bg: var(--ok-bg);
+  --color-almost: var(--almost);
+  --color-almost-bg: var(--almost-bg);
+  --color-bad: var(--bad);
+  --color-bad-bg: var(--bad-bg);
+  --color-der: var(--der);
+  --color-die: var(--die);
+  --color-das: var(--das);
+  --color-plural: var(--plural);
+  --color-der-text: var(--der-text);
+  --color-die-text: var(--die-text);
+  --color-das-text: var(--das-text);
+  --color-plural-text: var(--plural-text);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-paper: var(--shadow-paper);
+  --shadow-lift: var(--shadow-lift);
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Textura de papel muy sutil en el fondo */
+  .paper-grain {
+    background-image: radial-gradient(rgb(28 27 25 / 0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+  .dark .paper-grain {
+    background-image: radial-gradient(rgb(255 255 255 / 0.018) 1px, transparent 1px);
+  }
+  .kbd {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1;
+    padding: 0.2rem 0.38rem;
+    border-radius: 6px;
+    border: 1px solid var(--line-strong);
+    border-bottom-width: 2px;
+    background: var(--surface);
+    color: var(--ink-2);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-rise {
+  animation: rise 250ms ease-out both;
+}

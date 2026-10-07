@@ -179,7 +179,7 @@ export function checkAnswer(kind: CardKind, word: CardWord, typedRaw: string, op
     }
     case "CLOZE": {
       const expected = word.clozeText ? clozeAnswer(word.clozeText) : "";
-      return compareGerman(typed, normalizeAnswer(expected), opts, /^\p{Lu}/u.test(expected));
+      return compareGerman(typed, normalizeAnswer(expected), opts, false);
     }
   }
 }
