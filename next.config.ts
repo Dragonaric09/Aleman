@@ -21,8 +21,14 @@ const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
   serverExternalPackages: ["@node-rs/argon2", "pino"],
+  // El cliente de Prisma generado y su motor linux-musl deben viajar en .next/standalone.
+  // Con pnpm viven dentro de node_modules/.pnpm/@prisma+client*/node_modules/.prisma/client.
   outputFileTracingIncludes: {
-    "/**/*": ["./node_modules/.prisma/client/**/*", "./node_modules/@prisma/client/**/*"],
+    "/**/*": [
+      "./node_modules/.prisma/client/**/*",
+      "./node_modules/.pnpm/@prisma+client*/node_modules/.prisma/client/**/*",
+      "./node_modules/.pnpm/@prisma+client*/node_modules/@prisma/client/**/*",
+    ],
   },
   experimental: {
     serverActions: {

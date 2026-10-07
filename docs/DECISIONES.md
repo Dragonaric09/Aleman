@@ -55,3 +55,6 @@ Los atajos U, P, E, ? y 1–4 no actúan mientras el foco está en un campo de t
 
 ## D-17 · Accesibilidad de color
 El texto del artículo usa un tono AA del mismo matiz que el color fijo de género (que se reserva para punto, borde y subrayado). Se añadió `--field-border` para que los bordes de los campos cumplan 3:1 y se oscureció el dorado claro. Detalle en `docs/ACCESIBILIDAD.md`.
+
+## D-18 · Cliente de Prisma en la imagen standalone
+Con pnpm, el cliente generado vive en `node_modules/.pnpm/@prisma+client*/node_modules/.prisma/client` y Next.js no lo incluía en `.next/standalone` (la app respondía 500 en Docker). Se añadieron esas rutas a `outputFileTracingIncludes` en `next.config.ts`, como prevé la sección 10.1.
