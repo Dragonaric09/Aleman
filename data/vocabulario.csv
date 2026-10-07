@@ -1,0 +1,482 @@
+lemma;type;gender;plural_suffix;plural_form;no_plural;translation_es;example_de;example_es;cloze_text;level;starred;goethe_level;frequency_rank;lesson;sources;is_cognate;is_false_friend;false_friend_note;separable_prefix;third_person;perfekt;auxiliary;is_irregular;governs_case;tags
+Ampel;noun;die;-n;Ampeln;0;semáforo;An der Ampel fahren Sie nach links.;En el semáforo gire a la izquierda.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Bank;noun;die;-en;Banken;0;banco;Die Bank ist neben der Post.;El banco está al lado del correo.;;A;0;;;13;KB13|AB13;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Brücke;noun;die;-n;Brücken;0;puente;Sie fahren unter einer Brücke durch.;Usted pasa por debajo de un puente.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Dom;noun;der;-e;Dome;0;catedral;Das Hotel ist zwischen dem Bahnhof und dem Dom.;El hotel está entre la estación y la catedral.;;B;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Hotel;noun;das;-s;Hotels;0;hotel;Wir suchen das Hotel Maritim.;Buscamos el hotel Maritim.;;A;1;;;13;KB13|AB13|KB16;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Mitte;noun;die;-n;Mitten;0;centro / medio;Der Tisch steht in der Mitte.;La mesa está en el medio.;;B;0;;;13;AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Stadtmitte;noun;die;;;1;centro de la ciudad;Das Hotel ist in der Stadtmitte.;El hotel está en el centro de la ciudad.;;B;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Plan;noun;der;-¨e;Pläne;0;plan / plano;Hast du einen Plan?;¿Tienes un plan?;;B;0;;;13;AB13;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Stadtplan;noun;der;-¨e;Stadtpläne;0;mapa de la ciudad / plano de la ciudad;Tragen Sie den Weg in den Stadtplan ein.;Marque el camino en el mapa de la ciudad.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Polizei;noun;die;;;1;policía;Die Polizei ist in der Nähe vom Bahnhof.;La policía está cerca de la estación.;;A;0;;;13;AB13;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Post;noun;die;;;1;correo / oficina de correos;Die Post ist neben der Bank.;El correo está al lado del banco.;;A;0;;;13;KB13|AB13|KB15;0;1;No significa «poste»: die Post es el correo o la oficina de correos.;;;;;0;;stadt|goethe-sin-verificar
+Zentrum;noun;das;;Zentren;0;centro;Ist das Hotel im Zentrum?;¿El hotel está en el centro?;;A;0;;;13;KB13|AB13;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Kilometer;noun;der;-;Kilometer;0;kilómetro;Sie fahren zwei Kilometer geradeaus.;Usted sigue dos kilómetros todo recto.;;A;0;;;13;KB13|AB13;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Meter;noun;der;-;Meter;0;metro (medida);Gehen Sie 50 Meter geradeaus.;Camine 50 metros todo recto.;;A;0;;;13;KB13|AB13|KB15;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Nähe;noun;die;;;1;cercanía;Gibt es hier in der Nähe eine Bank?;¿Hay un banco aquí cerca?;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Weg;noun;der;-e;Wege;0;camino;Können Sie mir den Weg beschreiben?;¿Me puede describir el camino?;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Wegbeschreibung;noun;die;-en;Wegbeschreibungen;0;indicaciones para llegar;Die Wegbeschreibung ist gut.;Las indicaciones para llegar son buenas.;;B;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Frage;noun;die;-n;Fragen;0;pregunta;Eine Frage bitte: Wo ist die Post?;Una pregunta, por favor: ¿dónde está el correo?;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;goethe-sin-verificar
+Moment;noun;der;-e;Momente;0;momento;Haben Sie einen Moment Zeit?;¿Tiene un momento?;;A;0;;;13;KB13|AB13;1;0;;;;;;0;;goethe-sin-verificar
+Bahnhof;noun;der;-¨e;Bahnhöfe;0;estación de tren;Das Hotel ist zwischen dem Bahnhof und dem Dom.;El hotel está entre la estación de tren y la catedral.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Café;noun;das;-s;Cafés;0;café (local);Das Café ist neben dem Dom.;El café está al lado de la catedral.;;A;0;;;13;KB13|AB13|KB15;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Restaurant;noun;das;-s;Restaurants;0;restaurante;Vor dem Restaurant fahren Sie nach rechts.;Delante del restaurante gire a la derecha.;;A;1;;;13;KB13|KB15|CLASE10;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Straße;noun;die;-n;Straßen;0;calle;Sie fahren die nächste Straße links.;Tome la próxima calle a la izquierda.;;A;1;;;13;KB13|KB15|CLASE4;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Ecke;noun;die;-n;Ecken;0;esquina;An der Ecke gehen Sie nach rechts.;En la esquina gire a la derecha.;;A;0;;;13;KB13|KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Haltestelle;noun;die;-n;Haltestellen;0;parada (de bus o tren);Ich fahre bis zur Haltestelle Münchner Freiheit.;Voy hasta la parada Münchner Freiheit.;;B;0;;;13;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Hilfe;noun;die;;;1;ayuda;Wir brauchen Ihre Hilfe.;Necesitamos su ayuda.;;A;0;;;13;KB13|KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+Entschuldigung;noun;die;-en;Entschuldigungen;0;disculpa / perdón;Entschuldigung, wo ist der Bahnhof?;Disculpe, ¿dónde está la estación?;;A;0;;;13;KB13|KB16;0;0;;;;;;0;;goethe-sin-verificar
+ab|biegen;verb;;;;0;girar (en una calle) / doblar;Sie biegen rechts ab.;Usted gira a la derecha.;;A;0;;;13;KB13|AB13;0;0;;ab;biegt ab;ist abgebogen;sein;1;;stadt|trennbar|goethe-sin-verificar
+beschreiben;verb;;;;0;describir;Können Sie mir den Weg beschreiben?;¿Me puede describir el camino?;;A;0;;;13;KB13|AB13;0;0;;;beschreibt;hat beschrieben;haben;1;;goethe-sin-verificar
+weiter|fahren;verb;;;;0;seguir (en vehículo);Morgen fahre ich weiter nach Mailand.;Mañana sigo viaje a Milán.;;B;0;;;13;AB13;0;0;;weiter;fährt weiter;ist weitergefahren;sein;1;;goethe-sin-verificar
+wenden;verb;;;;0;dar la vuelta (con el vehículo);Wenden Sie bitte hier.;Dé la vuelta aquí, por favor.;;B;0;;;13;KB13|AB13;0;0;;;wendet;hat gewendet;haben;0;;goethe-sin-verificar
+zurück|fahren;verb;;;;0;regresar (en vehículo) / volver;Sie fahren zurück zum Bahnhof.;Usted regresa a la estación.;;B;0;;;13;KB13|AB13;0;0;;zurück;fährt zurück;ist zurückgefahren;sein;1;;trennbar|goethe-sin-verificar
+an|machen;verb;;;;0;encender / prender;Ich mache das Licht an.;Prendo la luz.;;A;0;;;13;AB13;0;0;;an;macht an;hat angemacht;haben;0;;trennbar|goethe-sin-verificar
+finden;verb;;;;0;encontrar / parecer (opinión);Wo finde ich das Café Schiffer?;¿Dónde encuentro el café Schiffer?;;A;1;;;13;KB13|AB13|CLASE10;0;0;;;findet;hat gefunden;haben;1;;goethe-sin-verificar
+fragen;verb;;;;0;preguntar;Kann ich Sie etwas fragen?;¿Puedo preguntarle algo?;;A;1;;;13;KB13|AB13|CLASE10;0;0;;;fragt;hat gefragt;haben;0;;goethe-sin-verificar
+helfen;verb;;;;0;ayudar;Können Sie mir helfen?;¿Me puede ayudar?;;A;1;;;13;KB13|AB13|KB15;0;0;;;hilft;hat geholfen;haben;1;Dat.;goethe-sin-verificar
+stimmen;verb;;;;0;ser correcto / ser cierto;Das stimmt nicht.;Eso no es cierto.;;A;0;;;13;AB13;0;0;;;stimmt;hat gestimmt;haben;0;;goethe-sin-verificar
+suchen;verb;;;;0;buscar;Ich suche das Hotel Maritim.;Busco el hotel Maritim.;;A;0;;;13;KB13|CLASE4;0;0;;;sucht;hat gesucht;haben;0;;goethe-sin-verificar
+kennen;verb;;;;0;conocer;Kennen Sie das Café Schiffer?;¿Conoce el café Schiffer?;;A;0;;;13;KB13;0;0;;;kennt;hat gekannt;haben;1;;goethe-sin-verificar
+fahren;verb;;;;0;ir (en vehículo) / conducir / viajar;Wir sind nach La Paz gefahren.;Hemos viajado a La Paz.;;A;1;;;13;KB13|CLASE10;0;0;;;fährt;ist gefahren;sein;1;;perfekt-sein|goethe-sin-verificar
+gehen;verb;;;;0;ir / caminar;Ich bin nach Hause gegangen.;He ido a casa.;;A;1;;;13;KB13|CLASE10;0;0;;;geht;ist gegangen;sein;1;;perfekt-sein|goethe-sin-verificar
+fremd;adjective;;;;0;forastero / desconocido / extranjero;Ich bin auch fremd hier.;Yo tampoco soy de aquí.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;goethe-sin-verificar
+links;adverb;;;;0;a la izquierda / izquierda;Sie biegen links ab.;Usted gira a la izquierda.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+rechts;adverb;;;;0;a la derecha / derecha;Vor dem Restaurant fahren Sie nach rechts.;Delante del restaurante gire a la derecha.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+geradeaus;adverb;;;;0;todo recto / derecho;Sie fahren zuerst geradeaus.;Primero siga todo recto.;;A;0;;;13;KB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+zuerst;adverb;;;;0;primero;Sie fahren zuerst geradeaus und dann nach rechts.;Primero siga recto y luego a la derecha.;;A;0;;;13;KB13;0;0;;;;;;0;;goethe-sin-verificar
+dann;adverb;;;;0;luego / después / entonces;Und dann sehen Sie das Hotel schon.;Y luego ya ve el hotel.;;A;0;;;13;KB13;0;0;;;;;;0;;goethe-sin-verificar
+schon;adverb;;;;0;ya;Dann sehen Sie das Hotel schon.;Entonces ya ve el hotel.;;A;0;;;13;KB13|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+trotzdem;adverb;;;;0;de todas formas / aun así;Trotzdem: Dankeschön!;De todas formas, ¡muchas gracias!;;B;0;;;13;KB13;0;0;;;;;;0;;goethe-sin-verificar
+nett;adjective;;;;0;amable / simpático;Der Vermieter ist sehr nett.;El arrendador es muy amable.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;;goethe-sin-verificar
+beide;pronoun;;;;0;ambos / los dos;Die beiden warten im Aufzug.;Los dos esperan en el ascensor.;;A;0;;;13;AB13;0;0;;;;;;0;;goethe-sin-verificar
+an;preposition;;;;0;en / junto a (contacto lateral);An der Ampel fahren Sie nach links.;En el semáforo gire a la izquierda.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;Dat./Akk.;wechselpräposition|goethe-sin-verificar
+auf;preposition;;;;0;sobre / encima de (con contacto);Die Schlüssel sind auf dem Tisch.;Las llaves están sobre la mesa.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;Dat./Akk.;wechselpräposition|goethe-sin-verificar
+hinter;preposition;;;;0;detrás de;Hinter dem Haus ist ein Garten.;Detrás de la casa hay un jardín.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;Dat./Akk.;wechselpräposition|goethe-sin-verificar
+in;preposition;;;;0;en / dentro de;Das Hotel ist in der Stadtmitte.;El hotel está en el centro de la ciudad.;;A;1;;;13;KB13|AB13|KB16;0;0;;;;;;0;Dat./Akk.;wechselpräposition|goethe-sin-verificar
+neben;preposition;;;;0;al lado de;Das Café ist neben dem Dom.;El café está al lado de la catedral.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;Dat./Akk.;wechselpräposition|goethe-sin-verificar
+über;preposition;;;;0;sobre / encima de (sin contacto);Die Lampe hängt über dem Tisch.;La lámpara cuelga sobre la mesa.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;Dat./Akk.;wechselpräposition|goethe-sin-verificar
+unter;preposition;;;;0;debajo de;Die Brille ist unter der Zeitung.;Los lentes están debajo del periódico.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;Dat./Akk.;wechselpräposition|goethe-sin-verificar
+vor;preposition;;;;0;delante de / antes de / hace (tiempo);Vor dem Restaurant fahren Sie nach rechts.;Delante del restaurante gire a la derecha.;;A;1;;;13;KB13|AB13|KB16;0;0;;;;;;0;Dat./Akk.;wechselpräposition|goethe-sin-verificar
+zwischen;preposition;;;;0;entre;Das Hotel ist zwischen dem Bahnhof und dem Dom.;El hotel está entre la estación y la catedral.;;A;0;;;13;KB13|AB13;0;0;;;;;;0;Dat./Akk.;wechselpräposition|goethe-sin-verificar
+nach;preposition;;;;0;a (ciudades y países) / hacia / después de;Nach dem Essen gehen wir ins Kino.;Después de la comida vamos al cine.;;A;1;;;13;KB13|KB16|CLASE10;0;0;;;;;;0;Dat.;goethe-sin-verificar
+von;preposition;;;;0;de / desde;Das ist in der Nähe von dem Bahnhof.;Eso está cerca de la estación.;;A;0;;;13;KB13|CLASE4;0;0;;;;;;0;Dat.;goethe-sin-verificar
+zu;preposition;;;;0;a (hacia una persona o un lugar);Zur Post sind es keine 50 Meter.;Al correo no hay ni 50 metros.;;A;0;;;13;KB15;0;0;;;;;;0;Dat.;goethe-sin-verificar
+mit;preposition;;;;0;con;Ich wohne mit meiner Familie hier.;Vivo aquí con mi familia.;;A;0;;;13;KB15|CLASE10;0;0;;;;;;0;Dat.;goethe-sin-verificar
+Ach so.;expression;;;;0;ah, ya entiendo / ah, claro;Ach so. Vielen Dank!;Ah, ya entiendo. ¡Muchas gracias!;Ach {{so}}. Vielen Dank!;A;0;;;13;KB13|AB13;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Dankeschön!;expression;;;;0;¡muchas gracias!;Trotzdem: Dankeschön!;De todas formas, ¡muchas gracias!;Trotzdem: {{Dankeschön}}!;A;0;;;13;KB13|AB13;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Bitte, gern.;expression;;;;0;de nada / con gusto;Bitte, gern. Kein Problem.;De nada. No hay problema.;Bitte, {{gern}}. Kein Problem.;A;0;;;13;KB13|AB13;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Ja, bitte?;expression;;;;0;¿sí, dígame?;Ja, bitte? Was kann ich für Sie tun?;¿Sí, dígame? ¿En qué le puedo ayudar?;Ja, {{bitte}}? Was kann ich für Sie tun?;B;0;;;13;AB13;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Kein Problem.;expression;;;;0;no hay problema;Kein Problem, das mache ich gern.;No hay problema, lo hago con gusto.;{{Kein}} Problem, das mache ich gern.;A;1;;;13;KB13|AB13|KB16;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Schade.;expression;;;;0;qué pena / lástima;Ach so. Schade.;Ah, bueno. Qué pena.;Ach so. {{Schade}}.;A;1;;;13;KB13|AB13|KB16|CLASE4;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Sehr nett!;expression;;;;0;¡muy amable!;Sehr nett! Vielen Dank!;¡Muy amable! ¡Muchas gracias!;Sehr {{nett}}! Vielen Dank!;A;0;;;13;KB13|AB13;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+in der Nähe;expression;;;;0;cerca;Gibt es hier in der Nähe eine Bank?;¿Hay un banco aquí cerca?;Gibt es hier in der {{Nähe}} eine Bank?;A;0;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Einen Moment!;expression;;;;0;¡un momento!;Einen Moment, bitte!;¡Un momento, por favor!;{{Einen}} Moment, bitte!;A;0;;;13;AB13;0;0;;;;;;0;;goethe-sin-verificar
+Wie komme ich zum ...?;expression;;;;0;¿cómo llego a...?;Wie komme ich zum Bahnhof?;¿Cómo llego a la estación?;Wie {{komme}} ich zum Bahnhof?;A;1;;;13;KB13|AB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Entschuldigen Sie, ...;expression;;;;0;disculpe, ...;Entschuldigen Sie, wo ist die Post?;Disculpe, ¿dónde está el correo?;{{Entschuldigen}} Sie, wo ist die Post?;A;0;;;13;KB13|KB16;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Können Sie mir helfen?;expression;;;;0;¿me puede ayudar?;Können Sie mir helfen?;¿Me puede ayudar?;Können Sie mir {{helfen}}?;A;1;;;13;KB13|KB16;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Ich bin auch fremd hier.;expression;;;;0;yo tampoco soy de aquí;Ich bin auch fremd hier.;Yo tampoco soy de aquí.;Ich bin auch {{fremd}} hier.;A;0;;;13;KB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Tut mir leid.;expression;;;;0;lo siento;Tut mir leid, ich bin nicht von hier.;Lo siento, no soy de aquí.;{{Tut}} mir leid, ich bin nicht von hier.;A;1;;;13;KB13|KB16;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Kann ich Sie etwas fragen?;expression;;;;0;¿puedo preguntarle algo?;Kann ich Sie etwas fragen?;¿Puedo preguntarle algo?;Kann ich Sie etwas {{fragen}}?;A;0;;;13;KB13;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Haben Sie einen Moment Zeit?;expression;;;;0;¿tiene un momento?;Haben Sie einen Moment Zeit?;¿Tiene un momento?;Haben Sie einen Moment {{Zeit}}?;B;0;;;13;KB13;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Wo finde ich ...?;expression;;;;0;¿dónde encuentro...?;Wo finde ich das Café Schiffer?;¿Dónde encuentro el café Schiffer?;Wo {{finde}} ich das Café Schiffer?;A;0;;;13;KB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+die nächste Straße;expression;;;;0;la próxima calle;Sie fahren die nächste Straße rechts.;Tome la próxima calle a la derecha.;Sie fahren die {{nächste}} Straße rechts.;B;0;;;13;KB13;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Haus;noun;das;-¨er;Häuser;0;casa;Das Haus ist groß und hat sieben Zimmer.;La casa es grande y tiene siete habitaciones.;;A;1;;;14;KB14|AB14|CLASE10;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Wohnung;noun;die;-en;Wohnungen;0;departamento / vivienda;Ich suche eine Wohnung.;Busco un departamento.;;A;1;;;14;KB14|AB14|CLASE4;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Balkon;noun;der;-e;Balkone;0;balcón;Da oben ist sein Balkon.;Allá arriba está su balcón.;;A;1;;;14;KB14|AB14|CLASE4;1;0;;;;;;0;;wohnen|goethe-sin-verificar
+Baum;noun;der;-¨e;Bäume;0;árbol;Im Garten steht ein großer Baum.;En el jardín hay un árbol grande.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Blume;noun;die;-n;Blumen;0;flor;Sie liebt ihren Garten und ihre Blumen.;Ella ama su jardín y sus flores.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Erdgeschoss;noun;das;-e;Erdgeschosse;0;planta baja;Im Erdgeschoss sind drei Zimmer.;En la planta baja hay tres habitaciones.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Fenster;noun;das;-;Fenster;0;ventana;Das Bad hat kein Fenster.;El baño no tiene ventana.;;A;1;;;14;KB14|AB14|CLASE4;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Garage;noun;die;-n;Garagen;0;garaje;Neben dem Haus ist eine Garage.;Al lado de la casa hay un garaje.;;A;0;;;14;KB14|AB14;1;0;;;;;;0;;wohnen|goethe-sin-verificar
+Garten;noun;der;-¨;Gärten;0;jardín;Seinen Garten mag ich nicht so.;Su jardín no me gusta tanto.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Keller;noun;der;-;Keller;0;sótano;Die Fahrräder sind im Keller.;Las bicicletas están en el sótano.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Licht;noun;das;-er;Lichter;0;luz;Der Techniker macht das Licht aus.;El técnico apaga la luz.;;A;0;;;14;AB14|KB16;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Miete;noun;die;-n;Mieten;0;alquiler / renta;Die Miete ist 400 Euro im Monat.;El alquiler es de 400 euros al mes.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Müll;noun;der;;;1;basura;Die Nebenkosten sind für Wasser, Müll und Licht.;Los gastos comunes son para agua, basura y luz.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Nachbar;noun;der;-n;Nachbarn;0;vecino;Mein Nachbar ist sehr nett.;Mi vecino es muy amable.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Nachbarin;noun;die;-nen;Nachbarinnen;0;vecina;Vanilla ist Ottos Nachbarin.;Vanilla es la vecina de Otto.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Quadratmeter;noun;der;-;Quadratmeter;0;metro cuadrado;Die Wohnung hat 45 Quadratmeter.;El departamento tiene 45 metros cuadrados.;;B;0;;;14;KB14|AB14;1;0;;;;;;0;;wohnen|goethe-sin-verificar
+Stock;noun;der;;Stockwerke;0;piso / planta (de un edificio);Die Wohnung ist im dritten Stock.;El departamento está en el tercer piso.;;A;0;;;14;KB14|AB14;0;1;No significa «stock» (existencias): der Stock es el piso de un edificio.;;;;;0;;wohnen|goethe-sin-verificar
+Treppe;noun;die;-n;Treppen;0;escalera;Die Treppe ist sehr steil.;La escalera es muy empinada.;;A;0;;;14;AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Vermieter;noun;der;-;Vermieter;0;arrendador / dueño (de la vivienda);Ihr Vermieter ist sehr nett.;Su arrendador es muy amable.;;B;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Wasser;noun;das;;;1;agua;Ich möchte Wasser.;Quiero agua.;;A;1;;;14;KB14|AB14|CLASE2|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Arbeitszimmer;noun;das;-;Arbeitszimmer;0;estudio / oficina (en casa);Bruno liebt sein Arbeitszimmer im Erdgeschoss.;Bruno ama su estudio en la planta baja.;;B;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Bad;noun;das;-¨er;Bäder;0;baño;Die Wohnung hat eine Küche und ein Bad.;El departamento tiene una cocina y un baño.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Flur;noun;der;-e;Flure;0;pasillo / recibidor;Sie kommen zuerst in den Flur.;Primero entra al pasillo.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Kinderzimmer;noun;das;-;Kinderzimmer;0;cuarto de los niños;Die Kinder spielen im Kinderzimmer.;Los niños juegan en su cuarto.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Küche;noun;die;-n;Küchen;0;cocina;Hier vorne links ist die Küche.;Aquí adelante a la izquierda está la cocina.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Schlafzimmer;noun;das;-;Schlafzimmer;0;dormitorio;Im Schlafzimmer stehen ein Bett und ein Schrank.;En el dormitorio hay una cama y un armario.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Toilette;noun;die;-n;Toiletten;0;baño / inodoro;Die Toilette ist im Erdgeschoss.;El baño está en la planta baja.;;A;0;;;14;KB14|AB14;1;0;;;;;;0;;wohnen|goethe-sin-verificar
+Wohnzimmer;noun;das;-;Wohnzimmer;0;sala / living;Und rechts ist sein Wohnzimmer.;Y a la derecha está su sala.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Zimmer;noun;das;-;Zimmer;0;habitación / cuarto;Wir haben ein Zimmer mit Blick aufs Meer.;Tenemos una habitación con vista al mar.;;A;1;;;14;KB14|AB14|KB16;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Berg;noun;der;-e;Berge;0;montaña;Ich war in den Bergen.;Estuve en las montañas.;;A;0;;;14;AB14|KB15;0;0;;;;;;0;;natur|goethe-sin-verificar
+Fluss;noun;der;-¨e;Flüsse;0;río;Die Stadt liegt an einem Fluss.;La ciudad está a orillas de un río.;;A;0;;;14;AB14;0;0;;;;;;0;;natur|goethe-sin-verificar
+Meer;noun;das;-e;Meere;0;mar;Ich schwimme jeden Tag im Meer.;Nado todos los días en el mar.;;A;0;;;14;AB14|KB15;0;0;;;;;;0;;natur|goethe-sin-verificar
+Wald;noun;der;-¨er;Wälder;0;bosque;Hunde sind noch kein Wald.;Unos perros todavía no son un bosque.;;A;0;;;14;AB14|KB15;0;0;;;;;;0;;natur|goethe-sin-verificar
+Anzeige;noun;die;-n;Anzeigen;0;anuncio;Lesen Sie die Anzeigen noch einmal.;Lea los anuncios otra vez.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Fabrik;noun;die;-en;Fabriken;0;fábrica;Er arbeitet in einer Fabrik.;Él trabaja en una fábrica.;;B;0;;;14;AB14;1;0;;;;;;0;;goethe-sin-verificar
+Familie;noun;die;-n;Familien;0;familia;Ich wohne mit meiner Familie in Giesing.;Vivo con mi familia en Giesing.;;A;1;;;14;AB14|KB15|CLASE10;1;0;;;;;;0;;goethe-sin-verificar
+Stadt;noun;die;-¨e;Städte;0;ciudad;Meine Lieblingsstadt ist Hamburg.;Mi ciudad favorita es Hamburgo.;;A;1;;;14;AB14|KB15|CLASE10|CLASE4;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Zelt;noun;das;-e;Zelte;0;carpa / tienda de campaña;Im Urlaub schlafen wir im Zelt.;En las vacaciones dormimos en carpa.;;B;0;;;14;AB14;0;0;;;;;;0;;natur|goethe-sin-verificar
+Kühlschrank;noun;der;-¨e;Kühlschränke;0;refrigerador;Hier stehen der Kühlschrank und der Herd.;Aquí están el refrigerador y la cocina.;;B;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Herd;noun;der;-e;Herde;0;cocina (aparato) / estufa;Die Küche hat einen Kühlschrank und einen Herd.;La cocina tiene un refrigerador y una estufa.;;C;0;;;14;KB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Sofa;noun;das;-s;Sofas;0;sofá;Im Wohnzimmer stehen ein Sofa und ein Sessel.;En la sala hay un sofá y un sillón.;;B;0;;;14;AB14;1;0;;;;;;0;;wohnen|goethe-sin-verificar
+Sessel;noun;der;-;Sessel;0;sillón;Oft stehen hier ein Sofa und ein Sessel.;A menudo aquí hay un sofá y un sillón.;;B;0;;;14;AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Bett;noun;das;-en;Betten;0;cama;In diesem Raum gibt es ein Bett und einen Schrank.;En este cuarto hay una cama y un armario.;;A;0;;;14;AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Schrank;noun;der;-¨e;Schränke;0;armario / ropero;Der Schrank steht im Schlafzimmer.;El armario está en el dormitorio.;;A;0;;;14;AB14|CLASE4;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Tisch;noun;der;-e;Tische;0;mesa;In der Küche stehen ein Tisch und Stühle.;En la cocina hay una mesa y sillas.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Stuhl;noun;der;-¨e;Stühle;0;silla;Der Stuhl ist neben dem Tisch.;La silla está al lado de la mesa.;;A;0;;;14;KB14|CLASE4;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+vermieten;verb;;;;0;alquilar (dar en alquiler);Er vermietet eine Wohnung in der Stadtmitte.;Él alquila un departamento en el centro.;;B;0;;;14;KB14|AB14;0;0;;;vermietet;hat vermietet;haben;0;;wohnen|goethe-sin-verificar
+aus|sehen;verb;;;;0;verse / tener aspecto;Der Garten sieht toll aus.;El jardín se ve genial.;;A;0;;;14;KB14|AB14;0;0;;aus;sieht aus;hat ausgesehen;haben;1;;trennbar|goethe-sin-verificar
+bezahlen;verb;;;;0;pagar;Man bezahlt die Miete jeden Monat.;Se paga el alquiler cada mes.;;A;0;;;14;KB14|AB14;0;0;;;bezahlt;hat bezahlt;haben;0;;goethe-sin-verificar
+stehen;verb;;;;0;estar de pie / estar (colocado);In der Küche steht ein Tisch.;En la cocina hay una mesa.;;A;1;;;14;KB14|AB14|CLASE4;0;0;;;steht;hat gestanden;haben;1;;goethe-sin-verificar
+um|ziehen;verb;;;;0;mudarse;Ich bin umgezogen.;Me mudé.;;B;0;;;14;KB14;0;0;;um;zieht um;ist umgezogen;sein;1;;trennbar|wohnen|goethe-sin-verificar
+lieben;verb;;;;0;amar;Er liebt seine Katze.;Él ama a su gata.;;A;0;;;14;KB14|CLASE4;0;0;;;liebt;hat geliebt;haben;0;;goethe-sin-verificar
+putzen;verb;;;;0;limpiar;Er putzt seinen Balkon.;Él limpia su balcón.;;B;0;;;14;CLASE4;0;0;;;putzt;hat geputzt;haben;0;;goethe-sin-verificar
+kochen;verb;;;;0;cocinar;Hier kann man kochen.;Aquí se puede cocinar.;;A;0;;;14;AB14|CLASE4;0;0;;;kocht;hat gekocht;haben;0;;goethe-sin-verificar
+wohnen;verb;;;;0;vivir (residir);Wo wohnst du?;¿Dónde vives?;;A;1;;;14;KB14|CLASE7|CLASE4;0;0;;;wohnt;hat gewohnt;haben;0;;goethe-sin-verificar
+gemütlich;adjective;;;;0;acogedor / cómodo;Vanillas Haus ist gemütlich.;La casa de Vanilla es acogedora.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+leer;adjective;;;;0;vacío;Die neue Wohnung ist nicht leer.;El departamento nuevo no está vacío.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;goethe-sin-verificar
+möbliert;adjective;;;;0;amueblado;Gern auch möbliert.;Con gusto también amueblado.;;B;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+groß;adjective;;;;0;grande;Das Haus ist groß.;La casa es grande.;;A;0;;;14;KB14;0;0;;;;;;0;;goethe-sin-verificar
+klein;adjective;;;;0;pequeño;Ein nettes kleines Haus.;Una casita linda.;;A;0;;;14;KB14|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+schön;adjective;;;;0;bonito / lindo / hermoso;Sein Haus finde ich schön.;Su casa me parece bonita.;;A;1;;;14;KB14|AB14|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+interessant;adjective;;;;0;interesante;Ich finde das Haus interessant.;La casa me parece interesante.;;A;0;;;14;KB14;1;0;;;;;;0;;goethe-sin-verificar
+langweilig;adjective;;;;0;aburrido;Sie findet Computerspiele langweilig.;A ella los videojuegos le parecen aburridos.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;goethe-sin-verificar
+toll;adjective;;;;0;genial / fantástico;Der Blick vom Turm ist einfach toll!;¡La vista desde la torre es simplemente genial!;;A;0;;;14;KB14|KB15;0;0;;;;;;0;;goethe-sin-verificar
+besonders;adverb;;;;0;especialmente / sobre todo;Ihren Garten mag ich besonders.;Su jardín me gusta especialmente.;;A;0;;;14;KB14|KB15;0;0;;;;;;0;;goethe-sin-verificar
+hinten;adverb;;;;0;atrás / al fondo;Und da hinten ist die Garage.;Y allá al fondo está el garaje.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;goethe-sin-verificar
+oben;adverb;;;;0;arriba;Da oben ist sein Balkon.;Allá arriba está su balcón.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;goethe-sin-verificar
+unten;adverb;;;;0;abajo;Die Küche ist unten.;La cocina está abajo.;;A;0;;;14;AB14;0;0;;;;;;0;;goethe-sin-verificar
+vorn;adverb;;;;0;adelante / al frente;Hier vorn links ist die Küche.;Aquí adelante a la izquierda está la cocina.;;A;0;;;14;KB14|AB14;0;0;;;;;;0;;goethe-sin-verificar
+sein;pronoun;;;;0;su (de él);Das ist sein Balkon.;Ese es su balcón.;;A;0;;;14;KB14|CLASE4;0;0;;;;;;0;;possessiv|goethe-sin-verificar
+ihr;pronoun;;;;0;su (de ella / de ellos);Das ist ihr Hund.;Ese es su perro (de ella).;;A;0;;;14;KB14|CLASE4;0;0;;;;;;0;;possessiv|goethe-sin-verificar
+mein;pronoun;;;;0;mi;Das ist mein Buch.;Ese es mi libro.;;A;0;;;14;CLASE4;0;0;;;;;;0;;possessiv|goethe-sin-verificar
+dein;pronoun;;;;0;tu;Ist das dein Auto?;¿Ese es tu auto?;;A;0;;;14;CLASE4;0;0;;;;;;0;;possessiv|goethe-sin-verificar
+unser;pronoun;;;;0;nuestro;Unsere Wohnung ist klein.;Nuestro departamento es pequeño.;;A;0;;;14;CLASE4;0;0;;;;;;0;;possessiv|goethe-sin-verificar
+euer;pronoun;;;;0;su (de ustedes) / vuestro;Ist das euer Haus?;¿Esa es su casa (de ustedes)?;;B;0;;;14;CLASE4;0;0;;;;;;0;;possessiv|goethe-sin-verificar
+Wie findest du ...?;expression;;;;0;¿qué te parece...?;Wie findest du Ottos Haus?;¿Qué te parece la casa de Otto?;Wie {{findest}} du Ottos Haus?;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+im ersten Stock;expression;;;;0;en el primer piso;Die Wohnung ist im ersten Stock.;El departamento está en el primer piso.;Die Wohnung ist im ersten {{Stock}}.;A;0;;;14;KB14|AB14;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Herzliche Grüße;expression;;;;0;saludos cordiales;Herzliche Grüße, deine Anna;Saludos cordiales, tu Anna;{{Herzliche}} Grüße, deine Anna;B;0;;;14;KB14;0;0;;;;;;0;;brief|goethe-sin-verificar
+Liebe Grüße;expression;;;;0;saludos cariñosos / cariños;Liebe Grüße und bis bald!;¡Cariños y hasta pronto!;{{Liebe}} Grüße und bis bald!;B;0;;;14;KB14;0;0;;;;;;0;;brief|goethe-sin-verificar
+Bibliothek;noun;die;-en;Bibliotheken;0;biblioteca;Wir helfen unserer Stadtteilbibliothek.;Ayudamos a la biblioteca de nuestro barrio.;;A;0;;;15;KB15|AB15;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Geschäft;noun;das;-e;Geschäfte;0;tienda / negocio;In Giesing gibt es viele Geschäfte.;En Giesing hay muchas tiendas.;;A;0;;;15;KB15|AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Laden;noun;der;-¨;Läden;0;tienda;Es gibt Läden, Werkstätten und viele Kneipen.;Hay tiendas, talleres y muchos bares.;;A;0;;;15;KB15|AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Hafen;noun;der;-¨;Häfen;0;puerto;Der Hafen ist besonders spannend.;El puerto es especialmente emocionante.;;B;0;;;15;KB15|AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Jugendherberge;noun;die;-n;Jugendherbergen;0;albergue juvenil;Eine Jugendherberge für Giesing!;¡Un albergue juvenil para Giesing!;;B;0;;;15;KB15|AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Kindergarten;noun;der;-¨;Kindergärten;0;jardín de niños / kínder;Der Kindergarten ist gleich um die Ecke.;El jardín de niños está a la vuelta de la esquina.;;A;0;;;15;KB15|AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Kirche;noun;die;-n;Kirchen;0;iglesia;Die Kirche St. Michaelis ist das Wahrzeichen von Hamburg.;La iglesia St. Michaelis es el símbolo de Hamburgo.;;A;0;;;15;KB15|AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Markt;noun;der;-¨e;Märkte;0;mercado;Am Samstag kaufe ich auf dem Markt ein.;El sábado hago las compras en el mercado.;;A;0;;;15;AB15;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Park;noun;der;-s;Parks;0;parque;Er ist mein Lieblingspark in München.;Es mi parque favorito en Múnich.;;A;1;;;15;KB15|AB15|CLASE10;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Rathaus;noun;das;-¨er;Rathäuser;0;municipalidad / alcaldía;Das Rathaus ist am Marktplatz.;La municipalidad está en la plaza del mercado.;;A;0;;;15;AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Schloss;noun;das;-¨er;Schlösser;0;castillo / palacio;Das Schloss ist sehr alt.;El castillo es muy antiguo.;;B;0;;;15;AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Spielplatz;noun;der;-¨e;Spielplätze;0;parque infantil;Die Kinder sind auf dem Spielplatz.;Los niños están en el parque infantil.;;A;0;;;15;AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Turm;noun;der;-¨e;Türme;0;torre;Der Turm ist 25 Meter hoch.;La torre mide 25 metros de alto.;;A;0;;;15;KB15|AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Ausländer;noun;der;-;Ausländer;0;extranjero;Hier leben Deutsche und Ausländer zusammen.;Aquí viven juntos alemanes y extranjeros.;;A;0;;;15;KB15|AB15;0;0;;;;;;0;;goethe-sin-verificar
+Blick;noun;der;-e;Blicke;0;vista / mirada;Der Blick aus meinem Fenster ist schön.;La vista desde mi ventana es bonita.;;A;0;;;15;KB15|AB15;0;0;;;;;;0;;goethe-sin-verificar
+Mensch;noun;der;-en;Menschen;0;persona / ser humano;Marlene ist gern unter Menschen.;A Marlene le gusta estar entre gente.;;A;0;;;15;KB15|AB15;0;0;;;;;;0;;goethe-sin-verificar
+Reisebüro;noun;das;-s;Reisebüros;0;agencia de viajes;Das Reisebüro ist neben der Post.;La agencia de viajes está al lado del correo.;;A;0;;;15;KB15|AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Rezept;noun;das;-e;Rezepte;0;receta (de cocina o médica);Hier gibt es tolle Kochrezepte.;Aquí hay recetas de cocina geniales.;;B;0;;;15;KB15|AB15;0;0;;;;;;0;;goethe-sin-verificar
+Urlaub;noun;der;;;1;vacaciones;Ich bin im Urlaub in Italien.;Estoy de vacaciones en Italia.;;A;1;;;15;KB15|AB15|KB16;0;0;;;;;;0;;goethe-sin-verificar
+Wetter;noun;das;;;1;clima / tiempo (meteorológico);Wie ist das Wetter dort?;¿Cómo está el clima allá?;;A;1;;;15;KB15|AB15|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Flughafen;noun;der;-¨;Flughäfen;0;aeropuerto;Wir fahren mit dem Taxi zum Flughafen.;Vamos en taxi al aeropuerto.;;A;0;;;15;AB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Kino;noun;das;-s;Kinos;0;cine;Gibt es auch ein Kino in Giesing?;¿También hay un cine en Giesing?;;A;0;;;15;KB15|CLASE10;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Friseur;noun;der;-e;Friseure;0;peluquero / peluquería;Mein Friseur ist im Nachbarhaus.;Mi peluquero está en la casa de al lado.;;A;0;;;15;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Schule;noun;die;-n;Schulen;0;escuela;Zur Schule ist es nicht weit.;La escuela no queda lejos.;;A;1;;;15;KB15|CLASE10|CLASE4;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Museum;noun;das;;Museen;0;museo;In der Speicherstadt gibt es auch Museen.;En la Speicherstadt también hay museos.;;A;0;;;15;KB15;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Theater;noun;das;-;Theater;0;teatro;Heute Abend gehen wir ins Theater.;Esta noche vamos al teatro.;;A;0;;;15;KB15;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Kneipe;noun;die;-n;Kneipen;0;bar / cantina;In Hamburg gibt es überall viele Kneipen.;En Hamburgo hay muchos bares por todas partes.;;B;0;;;15;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Werkstatt;noun;die;-¨en;Werkstätten;0;taller;Es gibt Läden und Werkstätten.;Hay tiendas y talleres.;;C;0;;;15;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Stadtteil;noun;der;-e;Stadtteile;0;barrio / distrito;Der Stadtteil gehört uns allen.;El barrio es de todos nosotros.;;B;0;;;15;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Viertel;noun;das;-;Viertel;0;barrio / cuarto (fracción);Was ist Ihr Lieblingsviertel?;¿Cuál es su barrio favorito?;;B;0;;;15;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Landschaft;noun;die;-en;Landschaften;0;paisaje;Ich liebe diese Landschaft.;Me encanta este paisaje.;;B;0;;;15;KB15;0;0;;;;;;0;;natur|goethe-sin-verificar
+Natur;noun;die;;;1;naturaleza;In der Natur gibt es Wald und Berge.;En la naturaleza hay bosque y montañas.;;A;0;;;15;KB15;1;0;;;;;;0;;natur|goethe-sin-verificar
+Altstadt;noun;die;-¨e;Altstädte;0;casco antiguo;Die Altstadt ist sehr schön.;El casco antiguo es muy bonito.;;B;0;;;15;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Ruhe;noun;die;;;1;tranquilidad / calma;Marlene liebt die Ruhe auf dem Land.;Marlene ama la tranquilidad del campo.;;B;0;;;15;KB15;0;0;;;;;;0;;goethe-sin-verificar
+Platz;noun;der;-¨e;Plätze;0;plaza / lugar / asiento;Der Biergarten hat 7.000 Sitzplätze.;La cervecería al aire libre tiene 7.000 asientos.;;A;0;;;15;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Einwohner;noun;der;-;Einwohner;0;habitante;Die Stadt hat 1,8 Millionen Einwohner.;La ciudad tiene 1,8 millones de habitantes.;;B;0;;;15;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+danken;verb;;;;0;agradecer;Ich danke dir!;¡Te lo agradezco!;;A;0;;;15;KB15|AB15;0;0;;;dankt;hat gedankt;haben;0;Dat.;goethe-sin-verificar
+fehlen;verb;;;;0;faltar / hacer falta;Was fehlt in dem Viertel?;¿Qué falta en el barrio?;;A;0;;;15;KB15|AB15;0;0;;;fehlt;hat gefehlt;haben;0;Dat.;goethe-sin-verificar
+gehören;verb;;;;0;pertenecer;Der Stadtteil gehört uns allen.;El barrio nos pertenece a todos.;;A;0;;;15;KB15|AB15;0;0;;;gehört;hat gehört;haben;0;Dat.;goethe-sin-verificar
+gefallen;verb;;;;0;gustar (agradar);Dein Blog gefällt mir.;Tu blog me gusta.;;A;0;;;15;KB15|AB15;0;0;;;gefällt;hat gefallen;haben;1;Dat.;goethe-sin-verificar
+leben;verb;;;;0;vivir;Seit einem halben Jahr lebe ich in München.;Hace medio año que vivo en Múnich.;;A;0;;;15;KB15;0;0;;;lebt;hat gelebt;haben;0;;goethe-sin-verificar
+ein|kaufen;verb;;;;0;hacer compras;Ich kaufe im Supermarkt ein.;Hago las compras en el supermercado.;;A;0;;;15;KB15|CLASE3;0;0;;ein;kauft ein;hat eingekauft;haben;0;;trennbar|goethe-sin-verificar
+besuchen;verb;;;;0;visitar;Ich bin oft in Hamburg und besuche Freunde.;Voy seguido a Hamburgo y visito amigos.;;A;0;;;15;KB15|CLASE10;0;0;;;besucht;hat besucht;haben;0;;goethe-sin-verificar
+wichtig;adjective;;;;0;importante;Einkaufen ist für mich nicht so wichtig.;Hacer compras no es tan importante para mí.;;A;1;;;15;KB15|AB15|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+alle;pronoun;;;;0;todos;Hier sind alle zu Hause.;Aquí todos están en casa.;;A;0;;;15;KB15|AB15;0;0;;;;;;0;;goethe-sin-verificar
+wenig;adverb;;;;0;poco;Es gibt leider nur sehr wenige Geschäfte.;Lamentablemente hay muy pocas tiendas.;;A;1;;;15;KB15|AB15|CLASE10|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+normal;adjective;;;;0;normal;Giesing ist ganz normal.;Giesing es completamente normal.;;A;0;;;15;KB15;1;0;;;;;;0;;goethe-sin-verificar
+weit;adjective;;;;0;lejos / lejano;Zur Schule ist es nicht weit.;La escuela no queda lejos.;;A;0;;;15;KB15|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+zu Hause;expression;;;;0;en casa;Hier sind alle zu Hause.;Aquí todos se sienten en casa.;Hier sind alle zu {{Hause}}.;A;1;;;15;KB15|AB15|AB16;0;0;;;;;;0;;goethe-sin-verificar
+nach Hause;expression;;;;0;a casa;Ich bin nach Hause gegangen.;He ido a casa.;Ich bin nach {{Hause}} gegangen.;A;0;;;15;CLASE10;0;0;;;;;;0;;goethe-sin-verificar
+Das gefällt mir.;expression;;;;0;me gusta;Das gefällt mir sehr gut.;Eso me gusta mucho.;Das {{gefällt}} mir sehr gut.;A;0;;;15;KB15|AB15;0;0;;;;;;0;;dativ|goethe-sin-verificar
+um die Ecke;expression;;;;0;a la vuelta de la esquina;Der Kindergarten ist gleich um die Ecke.;El jardín de niños está a la vuelta de la esquina.;Der Kindergarten ist gleich um die {{Ecke}}.;B;0;;;15;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+zu Fuß;expression;;;;0;a pie;Wir gehen zu Fuß zur Schule.;Vamos a pie a la escuela.;Wir gehen zu {{Fuß}} zur Schule.;A;0;;;15;KB15;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Es gibt ...;expression;;;;0;hay ...;In Giesing gibt es viele Kneipen.;En Giesing hay muchos bares.;In Giesing {{gibt}} es viele Kneipen.;A;0;;;15;KB15|AB15;0;0;;;;;;0;;goethe-sin-verificar
+Aufzug;noun;der;-¨e;Aufzüge;0;ascensor;Der Aufzug steckt fest.;El ascensor está atascado.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Dusche;noun;die;-n;Duschen;0;ducha;Die Dusche funktioniert nicht.;La ducha no funciona.;;A;0;;;16;KB16|AB16;1;0;;;;;;0;;hotel|goethe-sin-verificar
+Fernseher;noun;der;-;Fernseher;0;televisor;Der Fernseher ist kaputt.;El televisor está descompuesto.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Föhn;noun;der;-e;Föhne;0;secador de pelo;Gibt es im Zimmer einen Föhn?;¿Hay secador de pelo en la habitación?;;B;0;;;16;AB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Gast;noun;der;-¨e;Gäste;0;huésped / invitado;Die Hotelgäste warten im Aufzug.;Los huéspedes del hotel esperan en el ascensor.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Handtuch;noun;das;-¨er;Handtücher;0;toalla;Können Sie mir bitte ein Handtuch bringen?;¿Me puede traer una toalla, por favor?;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Heizung;noun;die;-en;Heizungen;0;calefacción;Die Heizung funktioniert nicht.;La calefacción no funciona.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Klimaanlage;noun;die;-n;Klimaanlagen;0;aire acondicionado;Können Sie die Klimaanlage ausmachen?;¿Puede apagar el aire acondicionado?;;B;0;;;16;KB16|AB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Verbindung;noun;die;-en;Verbindungen;0;conexión;Die Verbindung ist schlecht.;La conexión es mala.;;A;0;;;16;AB16;0;0;;;;;;0;;goethe-sin-verificar
+Internetverbindung;noun;die;-en;Internetverbindungen;0;conexión a internet;Die Internetverbindung funktioniert nicht.;La conexión a internet no funciona.;;B;0;;;16;AB16;1;0;;;;;;0;;hotel|goethe-sin-verificar
+Wecker;noun;der;-;Wecker;0;despertador;Der Wecker klingelt um sechs Uhr.;El despertador suena a las seis.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Lust;noun;die;;;1;ganas;Ich habe keine Lust.;No tengo ganas.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;termine|goethe-sin-verificar
+Termin;noun;der;-e;Termine;0;cita (en la agenda) / turno;Ich möchte den Termin verschieben.;Quiero aplazar la cita.;;A;0;;;16;KB16|AB16;0;1;No significa «término»: der Termin es una cita o un turno acordado.;;;;;0;;termine|goethe-sin-verificar
+Angst;noun;die;-¨e;Ängste;0;miedo;Sie haben Angst im Aufzug.;Tienen miedo en el ascensor.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+Kurs;noun;der;-e;Kurse;0;curso;Vor dem Tanzkurs gehen wir essen.;Antes del curso de baile vamos a comer.;;A;0;;;16;KB16|AB16;1;0;;;;;;0;;goethe-sin-verificar
+Leben;noun;das;;;1;vida;In Giesing wohnt das Leben!;¡En Giesing vive la vida!;;A;0;;;16;KB15|AB16;0;0;;;;;;0;;goethe-sin-verificar
+Sitzung;noun;die;-en;Sitzungen;0;reunión / sesión;Ich schaffe es nicht pünktlich zur Sitzung.;No llego puntual a la reunión.;;B;0;;;16;KB16|AB16;0;0;;;;;;0;;termine|goethe-sin-verificar
+Stunde;noun;die;-n;Stunden;0;hora / clase;Die Aufzugfirma kommt in einer Stunde.;La empresa de ascensores viene en una hora.;;A;1;;;16;KB16|AB16|CLASE4;0;0;;;;;;0;;termine|goethe-sin-verificar
+Techniker;noun;der;-;Techniker;0;técnico;Können Sie einen Techniker schicken?;¿Puede enviar a un técnico?;;B;0;;;16;KB16;1;0;;;;;;0;;hotel|goethe-sin-verificar
+Problem;noun;das;-e;Probleme;0;problema;Wir haben hier ein Problem.;Aquí tenemos un problema.;;A;0;;;16;KB16|AB16;1;0;;;;;;0;;goethe-sin-verificar
+Bademantel;noun;der;-¨;Bademäntel;0;bata de baño;Im Zimmer gibt es einen Bademantel.;En la habitación hay una bata de baño.;;C;0;;;16;KB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Telefon;noun;das;-e;Telefone;0;teléfono;Ein Telefon finde ich nicht so wichtig.;Un teléfono no me parece tan importante.;;A;0;;;16;KB16;1;0;;;;;;0;;hotel|goethe-sin-verificar
+Handy;noun;das;-s;Handys;0;teléfono celular;Ich nehme ja mein Handy immer mit.;Siempre llevo mi celular.;;A;0;;;16;KB16;0;1;Aunque parece inglés: das Handy es el teléfono celular (no «práctico»).;;;;;0;;goethe-sin-verificar
+Uhr;noun;die;-en;Uhren;0;reloj / hora (en las horas);Tut mir leid, meine Uhr ist kaputt.;Lo siento, mi reloj está descompuesto.;;A;0;;;16;KB16|CLASE3;0;0;;;;;;0;;goethe-sin-verificar
+Gruß;noun;der;-¨e;Grüße;0;saludo;Viele Grüße aus Italien!;¡Muchos saludos desde Italia!;;B;0;;;16;KB14|AB15|KB16;0;0;;;;;;0;;goethe-sin-verificar
+Woche;noun;die;-n;Wochen;0;semana;In zwei Wochen bin ich wieder zu Hause.;En dos semanas estoy de nuevo en casa.;;A;1;;;16;KB16|AB15|CLASE4;0;0;;;;;;0;;termine|goethe-sin-verificar
+Monat;noun;der;-e;Monate;0;mes;Ich bin für einen Monat in Spanien.;Estoy por un mes en España.;;A;0;;;16;KB16;0;0;;;;;;0;;termine|goethe-sin-verificar
+Jahr;noun;das;-e;Jahre;0;año;Ich bin 31 Jahre alt.;Tengo 31 años.;;A;1;;;16;KB16|CLASE7|CLASE10;0;0;;;;;;0;;termine|goethe-sin-verificar
+Tag;noun;der;-e;Tage;0;día;Ich schwimme jeden Tag im Meer.;Nado todos los días en el mar.;;A;0;;;16;KB16|AB15;0;0;;;;;;0;;termine|goethe-sin-verificar
+Uni;noun;die;-s;Unis;0;universidad (coloquial) / la U;Nach der Uni gehe ich zu Massimo.;Después de la universidad voy donde Massimo.;;B;0;;;16;KB16;0;0;;;;;;0;;goethe-sin-verificar
+bringen;verb;;;;0;traer / llevar;Können Sie mir ein Handtuch bringen?;¿Me puede traer una toalla?;;A;0;;;16;KB16|AB16;0;0;;;bringt;hat gebracht;haben;1;;goethe-sin-verificar
+funktionieren;verb;;;;0;funcionar;Die Heizung funktioniert nicht.;La calefacción no funciona.;;A;0;;;16;KB16|AB16;1;0;;;funktioniert;hat funktioniert;haben;0;;goethe-sin-verificar
+sich kümmern;verb;;;;0;ocuparse (de);Ich kümmere mich sofort darum.;Me ocupo de eso enseguida.;;B;0;;;16;KB16|AB16;0;0;;;kümmert sich;hat sich gekümmert;haben;0;;goethe-sin-verificar
+reparieren;verb;;;;0;reparar;Ich kann das nicht selbst reparieren.;No puedo repararlo yo mismo.;;A;0;;;16;KB16|AB16;1;0;;;repariert;hat repariert;haben;0;;goethe-sin-verificar
+schicken;verb;;;;0;enviar / mandar;Können Sie einen Techniker schicken?;¿Puede enviar a un técnico?;;A;0;;;16;KB16|AB16;0;0;;;schickt;hat geschickt;haben;0;;goethe-sin-verificar
+ab|sagen;verb;;;;0;cancelar;Ich muss den Termin absagen.;Tengo que cancelar la cita.;;A;0;;;16;KB16|AB16;0;0;;ab;sagt ab;hat abgesagt;haben;0;;trennbar|termine|goethe-sin-verificar
+vereinbaren;verb;;;;0;acordar / concertar (una cita);Wir vereinbaren einen Termin.;Acordamos una cita.;;B;0;;;16;KB16|AB16;0;0;;;vereinbart;hat vereinbart;haben;0;;termine|goethe-sin-verificar
+verschieben;verb;;;;0;aplazar / posponer;Können wir den Termin verschieben?;¿Podemos aplazar la cita?;;B;0;;;16;KB16|AB16;0;0;;;verschiebt;hat verschoben;haben;1;;termine|goethe-sin-verificar
+passen;verb;;;;0;convenir / quedar bien;Passt es dir am Wochenende?;¿Te queda bien el fin de semana?;;A;0;;;16;KB16|AB16;0;0;;;passt;hat gepasst;haben;0;Dat.;termine|goethe-sin-verificar
+aus|machen;verb;;;;0;apagar;Der Techniker macht das Licht aus.;El técnico apaga la luz.;;A;0;;;16;KB16|AB16;0;0;;aus;macht aus;hat ausgemacht;haben;0;;trennbar|goethe-sin-verificar
+kennen|lernen;verb;;;;0;conocer (a alguien por primera vez);Ich möchte ihn gern kennenlernen.;Me gustaría conocerlo.;;A;0;;;16;KB16|AB16;0;0;;kennen;lernt kennen;hat kennengelernt;haben;0;;trennbar|goethe-sin-verificar
+mit|nehmen;verb;;;;0;llevar (consigo);Ich nehme mein Handy immer mit.;Siempre llevo mi celular.;;A;0;;;16;KB16|AB16;0;0;;mit;nimmt mit;hat mitgenommen;haben;1;;trennbar|goethe-sin-verificar
+tun;verb;;;;0;hacer;Was kann ich für Sie tun?;¿En qué le puedo ayudar?;;A;0;;;16;KB16|AB16;0;0;;;tut;hat getan;haben;1;;goethe-sin-verificar
+warten;verb;;;;0;esperar;Die Gäste warten im Aufzug.;Los huéspedes esperan en el ascensor.;;A;1;;;16;KB16|AB16|CLASE4;0;0;;;wartet;hat gewartet;haben;0;;goethe-sin-verificar
+kaputt;adjective;;;;0;roto / descompuesto;Der Fernseher ist kaputt.;El televisor está descompuesto.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+sofort;adverb;;;;0;enseguida / de inmediato;Ich komme sofort.;Voy enseguida.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+pünktlich;adjective;;;;0;puntual;Ich schaffe es nicht pünktlich zur Sitzung.;No llego puntual a la reunión.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+dumm;adjective;;;;0;tonto;Das war dumm von mir.;Eso fue tonto de mi parte.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+kalt;adjective;;;;0;frío;Es ist sehr kalt hier.;Aquí hace mucho frío.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+lustig;adjective;;;;0;divertido / gracioso;Der Film ist sehr lustig.;La película es muy divertida.;;A;0;;;16;AB16;0;0;;;;;;0;;goethe-sin-verificar
+seltsam;adjective;;;;0;extraño / raro;Seltsam! Jetzt funktioniert deine Uhr doch.;¡Qué raro! Ahora tu reloj sí funciona.;;B;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+sicher;adjective;;;;0;seguro;Bist du sicher?;¿Estás seguro?;;A;0;;;16;AB16;0;0;;;;;;0;;goethe-sin-verificar
+nichts;pronoun;;;;0;nada;Die Hotelgäste tun nichts.;Los huéspedes no hacen nada.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+selbst;adverb;;;;0;uno mismo / (yo) mismo;Ich kann das nicht selbst reparieren.;No puedo repararlo yo mismo.;;B;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+spät;adjective;;;;0;tarde;Der Bus kommt spät an.;El bus llega tarde.;;A;1;;;16;KB16|CLASE3|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+halb;adjective;;;;0;medio;In einer halben Stunde kommt der Techniker.;En media hora viene el técnico.;;A;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+Was kann ich für Sie tun?;expression;;;;0;¿en qué le puedo ayudar?;Was kann ich für Sie tun?;¿En qué le puedo ayudar?;Was kann ich für Sie {{tun}}?;A;0;;;16;KB16|AB16;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Ich kümmere mich sofort darum.;expression;;;;0;me ocupo de eso enseguida;Ich kümmere mich sofort darum.;Me ocupo de eso enseguida.;Ich {{kümmere}} mich sofort darum.;B;0;;;16;KB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Das macht doch nichts.;expression;;;;0;no pasa nada / no importa;Das macht doch nichts.;No pasa nada.;Das macht doch {{nichts}}.;A;0;;;16;KB16|AB16;0;0;;;;;;0;;höflichkeit|goethe-sin-verificar
+Wie dumm!;expression;;;;0;¡qué mala suerte! / ¡qué tonto!;Wie dumm! Jetzt ist das Essen kalt.;¡Qué mala suerte! Ahora la comida está fría.;Wie {{dumm}}! Jetzt ist das Essen kalt.;B;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+Hast du Lust?;expression;;;;0;¿tienes ganas?;Wollen wir ins Kino gehen? Hast du Lust?;¿Vamos al cine? ¿Tienes ganas?;Wollen wir ins Kino gehen? Hast du {{Lust}}?;A;0;;;16;KB16|AB16;0;0;;;;;;0;;termine|goethe-sin-verificar
+Passt es dir am ...?;expression;;;;0;¿te queda bien el...?;Passt es dir am Samstag?;¿Te queda bien el sábado?;{{Passt}} es dir am Samstag?;A;0;;;16;KB16|AB16;0;0;;;;;;0;;termine|goethe-sin-verificar
+Bescheid sagen;expression;;;;0;avisar;Sagen Sie ihm bitte Bescheid.;Avísele, por favor.;Sagen Sie ihm bitte {{Bescheid}}.;B;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+Hilfe rufen;expression;;;;0;pedir ayuda (llamando);Die Gäste rufen Hilfe.;Los huéspedes piden ayuda.;Die Gäste rufen {{Hilfe}}.;B;0;;;16;KB16|AB16;0;0;;;;;;0;;hotel|goethe-sin-verificar
+Angst haben;expression;;;;0;tener miedo;Sie haben Angst im Aufzug.;Tienen miedo en el ascensor.;Sie haben {{Angst}} im Aufzug.;A;0;;;16;KB16|AB16;0;0;;;;;;0;;goethe-sin-verificar
+die halbe Stunde;expression;;;;0;la media hora;In einer halben Stunde kommt der Techniker.;En media hora viene el técnico.;In einer {{halben}} Stunde kommt der Techniker.;A;0;;;16;KB16|AB16;0;0;;;;;;0;;termine|goethe-sin-verificar
+Sehr geehrte Frau ...;expression;;;;0;estimada señora ...;Sehr geehrte Frau Wegele,;Estimada señora Wegele:;Sehr {{geehrte}} Frau Wegele,;B;0;;;16;KB16|AB16;0;0;;;;;;0;;brief|goethe-sin-verificar
+Mit freundlichen Grüßen;expression;;;;0;atentamente / saludos cordiales;Mit freundlichen Grüßen, Gina Wallner;Atentamente, Gina Wallner;Mit {{freundlichen}} Grüßen, Gina Wallner;B;0;;;16;KB16|AB16;0;0;;;;;;0;;brief|goethe-sin-verificar
+mögen;verb;;;;0;gustar;Ich mag Pizza.;Me gusta la pizza.;;A;1;;;901;KB14|CLASE2;0;0;;;mag;hat gemocht;haben;1;;modalverb|goethe-sin-verificar
+möchten;verb;;;;0;querer (de forma educada) / desear;Ich möchte eine Pizza.;Quiero una pizza.;;A;1;;;901;KB15|CLASE2;0;0;;;möchte;;;0;;modalverb|goethe-sin-verificar
+essen;verb;;;;0;comer;Ich habe gestern Pizza gegessen.;Ayer comí pizza.;;A;1;;;901;CLASE2|CLASE7|CLASE10;0;0;;;isst;hat gegessen;haben;1;;goethe-sin-verificar
+trinken;verb;;;;0;beber / tomar;Möchten Sie etwas trinken?;¿Quiere tomar algo?;;A;1;;;901;CLASE2|CLASE7|CLASE10;0;0;;;trinkt;hat getrunken;haben;1;;goethe-sin-verificar
+lernen;verb;;;;0;aprender / estudiar;Ich lerne jetzt Deutsch.;Ahora estudio alemán.;;A;1;;;901;CLASE2|CLASE7|CLASE10;0;0;;;lernt;hat gelernt;haben;0;;goethe-sin-verificar
+schlafen;verb;;;;0;dormir;Sie möchte schlafen.;Ella quiere dormir.;;A;0;;;901;CLASE2|CLASE4;0;0;;;schläft;hat geschlafen;haben;1;;goethe-sin-verificar
+hören;verb;;;;0;escuchar / oír;Wir haben am Wochenende Musik gehört.;El fin de semana escuchamos música.;;A;1;;;901;CLASE2|CLASE7|CLASE10;0;0;;;hört;hat gehört;haben;0;;goethe-sin-verificar
+Pizza;noun;die;-s;Pizzas;0;pizza;Ich esse sehr gern Pizza.;Me gusta mucho comer pizza.;;A;0;;;901;CLASE2|CLASE7;1;0;;;;;;0;;essen|goethe-sin-verificar
+Schokolade;noun;die;-n;Schokoladen;0;chocolate;Ich mag Schokolade.;Me gusta el chocolate.;;A;0;;;901;CLASE2;1;0;;;;;;0;;essen|goethe-sin-verificar
+Musik;noun;die;;;1;música;Du magst Musik.;A ti te gusta la música.;;A;1;;;901;CLASE2|CLASE7|KB15;1;0;;;;;;0;;goethe-sin-verificar
+Fußball;noun;der;-¨e;Fußbälle;0;fútbol / pelota de fútbol;Er mag Fußball.;A él le gusta el fútbol.;;A;0;;;901;CLASE2|CLASE7;0;0;;;;;;0;;goethe-sin-verificar
+Kaffee;noun;der;-s;Kaffees;0;café (bebida);Sie möchte einen Kaffee.;Ella quiere un café.;;A;0;;;901;CLASE2|KB15;1;0;;;;;;0;;essen|goethe-sin-verificar
+Film;noun;der;-e;Filme;0;película;Wir mögen Filme.;Nos gustan las películas.;;A;0;;;901;CLASE2|KB15;1;0;;;;;;0;;goethe-sin-verificar
+Hund;noun;der;-e;Hunde;0;perro;Ihr mögt Hunde.;A ustedes les gustan los perros.;;A;0;;;901;CLASE2|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Reise;noun;die;-n;Reisen;0;viaje;Sie mögen Reisen.;A ellos les gustan los viajes.;;A;0;;;901;CLASE2;0;0;;;;;;0;;goethe-sin-verificar
+Eis;noun;das;;;1;helado / hielo;Wir möchten ein Eis.;Queremos un helado.;;A;0;;;901;CLASE2;0;0;;;;;;0;;essen|goethe-sin-verificar
+Hamburger;noun;der;-;Hamburger;0;hamburguesa;Sie möchten Hamburger.;Ellos quieren hamburguesas.;;B;0;;;901;CLASE2;1;0;;;;;;0;;essen|goethe-sin-verificar
+gern;adverb;;;;0;con gusto / (me gusta + verbo);Ich esse gern Pizza.;Me gusta comer pizza.;;A;1;;;901;CLASE2|CLASE7|KB13;0;0;;;;;;0;;goethe-sin-verificar
+etwas;pronoun;;;;0;algo;Möchten Sie etwas trinken?;¿Quiere tomar algo?;;A;0;;;901;CLASE2|KB13;0;0;;;;;;0;;goethe-sin-verificar
+Ich möchte ...;expression;;;;0;quisiera ... / quiero ...;Ich möchte eine Pizza, bitte.;Quisiera una pizza, por favor.;Ich {{möchte}} eine Pizza, bitte.;A;0;;;901;CLASE2;0;0;;;;;;0;;modalverb|goethe-sin-verificar
+Möchten Sie etwas trinken?;expression;;;;0;¿quiere tomar algo?;Möchten Sie etwas trinken?;¿Quiere tomar algo?;Möchten Sie etwas {{trinken}}?;A;0;;;901;CLASE2;0;0;;;;;;0;;modalverb|goethe-sin-verificar
+mit|kommen;verb;;;;0;venir con / acompañar;Kommst du heute mit?;¿Vienes conmigo hoy?;;A;0;;;902;CLASE3;0;0;;mit;kommt mit;ist mitgekommen;sein;1;;trennbar|goethe-sin-verificar
+auf|stehen;verb;;;;0;levantarse;Ich stehe um 7 Uhr auf.;Me levanto a las 7.;;A;1;;;902;CLASE3|CLASE7|CLASE10;0;0;;auf;steht auf;ist aufgestanden;sein;1;;trennbar|perfekt-sein|goethe-sin-verificar
+an|kommen;verb;;;;0;llegar;Der Bus kommt spät an.;El bus llega tarde.;;A;0;;;902;CLASE3;0;0;;an;kommt an;ist angekommen;sein;1;;trennbar|goethe-sin-verificar
+fern|sehen;verb;;;;0;ver televisión;Ich sehe abends fern.;Veo televisión en la noche.;;A;0;;;902;CLASE3;0;0;;fern;sieht fern;hat ferngesehen;haben;1;;trennbar|goethe-sin-verificar
+an|rufen;verb;;;;0;llamar por teléfono;Ich rufe dich später an.;Te llamo más tarde.;;A;0;;;902;CLASE3|KB15;0;0;;an;ruft an;hat angerufen;haben;1;;trennbar|goethe-sin-verificar
+Supermarkt;noun;der;-¨e;Supermärkte;0;supermercado;Ich kaufe im Supermarkt ein.;Hago las compras en el supermercado.;;A;0;;;902;CLASE3;1;0;;;;;;0;;stadt|goethe-sin-verificar
+Bus;noun;der;-se;Busse;0;bus;Der Bus kommt spät an.;El bus llega tarde.;;A;0;;;902;CLASE3;1;0;;;;;;0;;goethe-sin-verificar
+Mutter;noun;die;-¨;Mütter;0;madre;Er ruft seine Mutter an.;Él llama a su mamá.;;A;0;;;902;CLASE3;0;0;;;;;;0;;familie|goethe-sin-verificar
+früh;adjective;;;;0;temprano;Wir stehen früh auf.;Nos levantamos temprano.;;A;0;;;902;CLASE3|CLASE7;0;0;;;;;;0;;goethe-sin-verificar
+später;adverb;;;;0;más tarde;Ich rufe dich später an.;Te llamo más tarde.;;A;0;;;902;CLASE3;0;0;;;;;;0;;goethe-sin-verificar
+abends;adverb;;;;0;en la noche / por las noches;Ich sehe abends fern.;Veo televisión en la noche.;;A;0;;;902;CLASE3;0;0;;;;;;0;;goethe-sin-verificar
+heute;adverb;;;;0;hoy;Wir kaufen heute ein.;Hoy hacemos las compras.;;A;1;;;902;CLASE3|CLASE10|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Kommst du mit?;expression;;;;0;¿vienes conmigo?;Kommst du heute mit?;¿Vienes conmigo hoy?;Kommst du heute {{mit}}?;A;0;;;902;CLASE3;0;0;;;;;;0;;trennbar|goethe-sin-verificar
+heißen;verb;;;;0;llamarse;Ich heiße Carlos.;Me llamo Carlos.;;A;0;;;903;CLASE7|CLASE4;0;0;;;heißt;hat geheißen;haben;1;;goethe-sin-verificar
+kommen;verb;;;;0;venir;Ich komme aus Bolivien.;Soy de Bolivia.;;A;1;;;903;CLASE7|CLASE10|CLASE3;0;0;;;kommt;ist gekommen;sein;1;;perfekt-sein|goethe-sin-verificar
+schwimmen;verb;;;;0;nadar;Ich kann sehr gut schwimmen.;Sé nadar muy bien.;;A;1;;;903;CLASE7|CLASE10|CLASE4;0;0;;;schwimmt;ist geschwommen;sein;1;;goethe-sin-verificar
+lesen;verb;;;;0;leer;Carlos hat ein Buch gelesen.;Carlos ha leído un libro.;;A;1;;;903;CLASE7|CLASE10|CLASE4;0;0;;;liest;hat gelesen;haben;1;;goethe-sin-verificar
+spielen;verb;;;;0;jugar / tocar (un instrumento);Hast du Fußball gespielt?;¿Jugaste fútbol?;;A;1;;;903;CLASE7|CLASE10|CLASE4;0;0;;;spielt;hat gespielt;haben;0;;goethe-sin-verificar
+machen;verb;;;;0;hacer;Was hast du gemacht?;¿Qué has hecho?;;A;1;;;903;CLASE7|CLASE10|CLASE4;0;0;;;macht;hat gemacht;haben;0;;goethe-sin-verificar
+kaufen;verb;;;;0;comprar;Mein Bruder hat ein Auto gekauft.;Mi hermano ha comprado un auto.;;A;0;;;903;CLASE7|CLASE10;0;0;;;kauft;hat gekauft;haben;0;;goethe-sin-verificar
+sprechen;verb;;;;0;hablar;Ich spreche Spanisch und Deutsch.;Hablo español y alemán.;;A;0;;;903;CLASE7|CLASE4;0;0;;;spricht;hat gesprochen;haben;1;;goethe-sin-verificar
+arbeiten;verb;;;;0;trabajar;Ich arbeite als Lehrer.;Trabajo como profesor.;;A;1;;;903;CLASE7|CLASE10|CLASE4;0;0;;;arbeitet;hat gearbeitet;haben;0;;goethe-sin-verificar
+Beruf;noun;der;-e;Berufe;0;profesión;Was sind Sie von Beruf?;¿Cuál es su profesión?;;A;0;;;903;CLASE7;0;0;;;;;;0;;goethe-sin-verificar
+Kind;noun;das;-er;Kinder;0;niño / hijo;Ich habe keine Kinder.;No tengo hijos.;;A;1;;;903;CLASE7|KB14|CLASE10;0;0;;;;;;0;;familie|goethe-sin-verificar
+Sprache;noun;die;-n;Sprachen;0;idioma / lengua;Welche Sprachen sprichst du?;¿Qué idiomas hablas?;;A;0;;;903;CLASE7|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Hobby;noun;das;-s;Hobbys;0;pasatiempo / hobby;Meine Hobbys sind Schwimmen und Lesen.;Mis pasatiempos son nadar y leer.;;A;0;;;903;CLASE7;1;0;;;;;;0;;goethe-sin-verificar
+Lehrer;noun;der;-;Lehrer;0;profesor / maestro;Ich bin Lehrer von Beruf.;Soy profesor de profesión.;;A;0;;;903;CLASE7;0;0;;;;;;0;;goethe-sin-verificar
+Frühstück;noun;das;-e;Frühstücke;0;desayuno;Zum Frühstück esse ich gern Brot mit Käse.;En el desayuno me gusta comer pan con queso.;;A;0;;;903;CLASE7;0;0;;;;;;0;;essen|goethe-sin-verificar
+Brot;noun;das;-e;Brote;0;pan;Ich esse gern Brot mit Käse.;Me gusta comer pan con queso.;;A;0;;;903;CLASE7;0;0;;;;;;0;;essen|goethe-sin-verificar
+Käse;noun;der;-;Käse;0;queso;Brot mit Käse ist lecker.;El pan con queso es rico.;;A;0;;;903;CLASE7;0;0;;;;;;0;;essen|goethe-sin-verificar
+Buch;noun;das;-¨er;Bücher;0;libro;Ich lese gern Bücher.;Me gusta leer libros.;;A;1;;;903;CLASE7|CLASE10|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Gitarre;noun;die;-n;Gitarren;0;guitarra;Ich spiele Gitarre.;Toco la guitarra.;;A;0;;;903;CLASE7;1;0;;;;;;0;;goethe-sin-verificar
+Wochenende;noun;das;-n;Wochenenden;0;fin de semana;Am Wochenende habe ich Zeit.;El fin de semana tengo tiempo.;;A;0;;;903;CLASE7|AB16;0;0;;;;;;0;;termine|goethe-sin-verificar
+Hausaufgabe;noun;die;-n;Hausaufgaben;0;tarea (escolar);Hast du die Hausaufgaben gemacht?;¿Hiciste las tareas?;;A;0;;;903;CLASE7;0;0;;;;;;0;;goethe-sin-verificar
+Bruder;noun;der;-¨;Brüder;0;hermano;Mein Bruder hat ein Auto gekauft.;Mi hermano ha comprado un auto.;;A;0;;;903;CLASE7;0;0;;;;;;0;;familie|goethe-sin-verificar
+Auto;noun;das;-s;Autos;0;auto / carro;Garage und Auto sind da hinten.;El garaje y el auto están allá al fondo.;;A;1;;;903;CLASE7|KB14|CLASE4;1;0;;;;;;0;;goethe-sin-verificar
+verheiratet;adjective;;;;0;casado;Bist du verheiratet?;¿Estás casado?;;A;0;;;903;CLASE7|KB14;0;0;;;;;;0;;goethe-sin-verificar
+ledig;adjective;;;;0;soltero;Ich bin ledig.;Estoy soltero.;;A;0;;;903;CLASE7;0;0;;;;;;0;;goethe-sin-verificar
+alt;adjective;;;;0;viejo / (edad) de ... años;Wie alt bist du?;¿Cuántos años tienes?;;A;0;;;903;CLASE7;0;0;;;;;;0;;goethe-sin-verificar
+gestern;adverb;;;;0;ayer;Ich habe gestern Musik gehört.;Ayer escuché música.;;A;0;;;903;CLASE7|CLASE10;0;0;;;;;;0;;goethe-sin-verificar
+Wie heißt du?;expression;;;;0;¿cómo te llamas?;Wie heißt du?;¿Cómo te llamas?;Wie {{heißt}} du?;A;0;;;903;CLASE7;0;0;;;;;;0;;fragen|goethe-sin-verificar
+Woher kommst du?;expression;;;;0;¿de dónde eres?;Woher kommst du?;¿De dónde eres?;{{Woher}} kommst du?;A;0;;;903;CLASE7;0;0;;;;;;0;;fragen|goethe-sin-verificar
+Was bist du von Beruf?;expression;;;;0;¿cuál es tu profesión?;Was bist du von Beruf?;¿Cuál es tu profesión?;Was bist du von {{Beruf}}?;A;0;;;903;CLASE7;0;0;;;;;;0;;fragen|goethe-sin-verificar
+Wie alt bist du?;expression;;;;0;¿cuántos años tienes?;Wie alt bist du?;¿Cuántos años tienes?;Wie {{alt}} bist du?;A;0;;;903;CLASE7;0;0;;;;;;0;;fragen|goethe-sin-verificar
+fliegen;verb;;;;0;volar / ir en avión;Wir sind nach Berlin geflogen.;Volamos a Berlín.;;A;0;;;904;CLASE10;0;0;;;fliegt;ist geflogen;sein;1;;perfekt-sein|goethe-sin-verificar
+laufen;verb;;;;0;correr / caminar;Er ist schnell gelaufen.;Él ha corrido rápido.;;A;0;;;904;CLASE10;0;0;;;läuft;ist gelaufen;sein;1;;perfekt-sein|goethe-sin-verificar
+reisen;verb;;;;0;viajar;Ich reise gern.;Me gusta viajar.;;A;0;;;904;CLASE10|CLASE4;0;0;;;reist;ist gereist;sein;0;;perfekt-sein|goethe-sin-verificar
+steigen;verb;;;;0;subir;Wir sind auf den Turm gestiegen.;Hemos subido a la torre.;;B;0;;;904;CLASE10;0;0;;;steigt;ist gestiegen;sein;1;;perfekt-sein|goethe-sin-verificar
+fallen;verb;;;;0;caer;Das Kind ist gefallen.;El niño se ha caído.;;B;0;;;904;CLASE10;0;0;;;fällt;ist gefallen;sein;1;;perfekt-sein|goethe-sin-verificar
+springen;verb;;;;0;saltar;Er ist ins Wasser gesprungen.;Él ha saltado al agua.;;B;0;;;904;CLASE10;0;0;;;springt;ist gesprungen;sein;1;;perfekt-sein|goethe-sin-verificar
+ein|schlafen;verb;;;;0;dormirse;Ich schlafe abends schnell ein.;En la noche me duermo rápido.;;A;0;;;904;CLASE10;0;0;;ein;schläft ein;ist eingeschlafen;sein;1;;trennbar|perfekt-sein|goethe-sin-verificar
+auf|wachen;verb;;;;0;despertarse;Ich wache um sechs Uhr auf.;Me despierto a las seis.;;A;0;;;904;CLASE10;0;0;;auf;wacht auf;ist aufgewacht;sein;0;;trennbar|perfekt-sein|goethe-sin-verificar
+sterben;verb;;;;0;morir;Sein Großvater ist letztes Jahr gestorben.;Su abuelo murió el año pasado.;;B;0;;;904;CLASE10;0;0;;;stirbt;ist gestorben;sein;1;;perfekt-sein|goethe-sin-verificar
+wachsen;verb;;;;0;crecer;Das Kind ist schnell gewachsen.;El niño ha crecido rápido.;;B;0;;;904;CLASE10;0;0;;;wächst;ist gewachsen;sein;1;;perfekt-sein|goethe-sin-verificar
+werden;verb;;;;0;convertirse en / llegar a ser;Er ist Lehrer geworden.;Él se ha convertido en profesor.;;A;0;;;904;CLASE10|CLASE4;0;0;;;wird;ist geworden;sein;1;;perfekt-sein|goethe-sin-verificar
+bleiben;verb;;;;0;quedarse;Ich bin zu Hause geblieben.;Me he quedado en casa.;;A;1;;;904;CLASE10|CLASE4|KB16;0;0;;;bleibt;ist geblieben;sein;1;;perfekt-sein|goethe-sin-verificar
+sein;verb;;;;0;ser / estar;Ich bin müde.;Estoy cansado.;;A;1;;;904;CLASE10|CLASE7|KB13;0;0;;;ist;ist gewesen;sein;1;;perfekt-sein|goethe-sin-verificar
+passieren;verb;;;;0;pasar / suceder;Was ist passiert?;¿Qué ha pasado?;;A;0;;;904;CLASE10;1;0;;;passiert;ist passiert;sein;0;;perfekt-sein|goethe-sin-verificar
+sagen;verb;;;;0;decir;Was hat er gesagt?;¿Qué ha dicho él?;;A;0;;;904;CLASE10;0;0;;;sagt;hat gesagt;haben;0;;goethe-sin-verificar
+sehen;verb;;;;0;ver;Was sehen Sie aus Ihrem Fenster?;¿Qué ve desde su ventana?;;A;0;;;904;CLASE10|KB15;0;0;;;sieht;hat gesehen;haben;1;;goethe-sin-verificar
+schreiben;verb;;;;0;escribir;Sie schreibt eine E-Mail an eine Freundin.;Ella escribe un correo a una amiga.;;A;1;;;904;CLASE10|CLASE4|KB14;0;0;;;schreibt;hat geschrieben;haben;1;;goethe-sin-verificar
+Krankenhaus;noun;das;-¨er;Krankenhäuser;0;hospital;Er ist im Krankenhaus.;Él está en el hospital.;;A;0;;;904;CLASE10;0;0;;;;;;0;;stadt|goethe-sin-verificar
+Büro;noun;das;-s;Büros;0;oficina;Ich bin im Büro.;Estoy en la oficina.;;A;0;;;904;CLASE10;1;0;;;;;;0;;goethe-sin-verificar
+Morgen;noun;der;-;Morgen;0;mañana (parte del día);Am Morgen trinke ich Kaffee.;En la mañana tomo café.;;A;0;;;904;CLASE10;0;0;;;;;;0;;zeit|goethe-sin-verificar
+Nachmittag;noun;der;-e;Nachmittage;0;tarde (parte del día);Am Nachmittag gehe ich in den Park.;En la tarde voy al parque.;;A;0;;;904;CLASE10;0;0;;;;;;0;;zeit|goethe-sin-verificar
+Abend;noun;der;-e;Abende;0;noche / atardecer;Am Abend sehe ich fern.;En la noche veo televisión.;;A;0;;;904;CLASE10|KB16;0;0;;;;;;0;;zeit|goethe-sin-verificar
+Freund;noun;der;-e;Freunde;0;amigo;Ich war mit Freunden im Kino.;Estuve con amigos en el cine.;;A;1;;;904;CLASE10|CLASE4|KB15;0;0;;;;;;0;;goethe-sin-verificar
+vorgestern;adverb;;;;0;anteayer;Vorgestern bin ich nach La Paz gefahren.;Anteayer viajé a La Paz.;;A;0;;;904;CLASE10;0;0;;;;;;0;;zeit|goethe-sin-verificar
+müde;adjective;;;;0;cansado;Ich bin müde geblieben.;Me he quedado cansado.;;A;0;;;904;CLASE10;0;0;;;;;;0;;goethe-sin-verificar
+glücklich;adjective;;;;0;feliz;Sie ist sehr glücklich.;Ella está muy feliz.;;A;0;;;904;CLASE10;0;0;;;;;;0;;goethe-sin-verificar
+traurig;adjective;;;;0;triste;Warum bist du traurig?;¿Por qué estás triste?;;A;0;;;904;CLASE10;0;0;;;;;;0;;goethe-sin-verificar
+krank;adjective;;;;0;enfermo;Ich bin heute krank.;Hoy estoy enfermo.;;A;0;;;904;CLASE10;0;0;;;;;;0;;goethe-sin-verificar
+nervös;adjective;;;;0;nervioso;Vor dem Termin bin ich nervös.;Antes de la cita estoy nervioso.;;A;0;;;904;CLASE10|CLASE4;1;0;;;;;;0;;goethe-sin-verificar
+zufrieden;adjective;;;;0;satisfecho / contento;Ich bin mit der Wohnung zufrieden.;Estoy satisfecho con el departamento.;;A;0;;;904;CLASE10;0;0;;;;;;0;;goethe-sin-verificar
+schnell;adjective;;;;0;rápido;Das Kind ist schnell gewachsen.;El niño ha crecido rápido.;;A;0;;;904;CLASE10|CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+langsam;adjective;;;;0;lento / despacio;Bitte sprechen Sie langsam.;Por favor, hable despacio.;;A;0;;;904;CLASE10;0;0;;;;;;0;;goethe-sin-verificar
+allein;adverb;;;;0;solo / a solas;Er wohnt nicht allein.;Él no vive solo.;;A;1;;;904;CLASE10|CLASE4|AB14;0;0;;;;;;0;;goethe-sin-verificar
+zusammen;adverb;;;;0;juntos;Hier leben Alte und Junge zusammen.;Aquí viven juntos viejos y jóvenes.;;A;0;;;904;CLASE10|KB15;0;0;;;;;;0;;goethe-sin-verificar
+viel;adverb;;;;0;mucho;In Hamburg gibt es viel Wasser.;En Hamburgo hay mucha agua.;;A;1;;;904;CLASE10|CLASE4|KB15;0;0;;;;;;0;;goethe-sin-verificar
+Was ist passiert?;expression;;;;0;¿qué pasó? / ¿qué ha pasado?;Was ist passiert?;¿Qué ha pasado?;Was ist {{passiert}}?;A;0;;;904;CLASE10;0;0;;;;;;0;;perfekt-sein|goethe-sin-verificar
+letzte Woche;expression;;;;0;la semana pasada;Letzte Woche bin ich nach La Paz gefahren.;La semana pasada viajé a La Paz.;{{Letzte}} Woche bin ich nach La Paz gefahren.;A;0;;;904;CLASE10;0;0;;;;;;0;;zeit|goethe-sin-verificar
+treffen;verb;;;;0;encontrarse con / reunirse;Er trifft seine Freunde.;Él se encuentra con sus amigos.;;A;0;;;905;CLASE4;0;0;;;trifft;hat getroffen;haben;1;;goethe-sin-verificar
+brauchen;verb;;;;0;necesitar;Sie braucht ihre Tasche.;Ella necesita su bolsa.;;A;0;;;905;CLASE4|KB16;0;0;;;braucht;hat gebraucht;haben;0;;goethe-sin-verificar
+rauchen;verb;;;;0;fumar;Hier darf man nicht rauchen.;Aquí no se puede fumar.;;B;0;;;905;CLASE4;0;0;;;raucht;hat geraucht;haben;0;;aussprache|goethe-sin-verificar
+lachen;verb;;;;0;reír;Die Kinder lachen viel.;Los niños se ríen mucho.;;B;0;;;905;CLASE4;0;0;;;lacht;hat gelacht;haben;0;;aussprache|goethe-sin-verificar
+waschen;verb;;;;0;lavar;Ich wasche das Auto.;Lavo el auto.;;A;0;;;905;CLASE4;0;0;;;wäscht;hat gewaschen;haben;1;;aussprache|goethe-sin-verificar
+schneiden;verb;;;;0;cortar;Er schneidet das Brot.;Él corta el pan.;;B;0;;;905;CLASE4;0;0;;;schneidet;hat geschnitten;haben;1;;aussprache|goethe-sin-verificar
+schenken;verb;;;;0;regalar;Ich schenke meiner Mutter Blumen.;Le regalo flores a mi mamá.;;A;0;;;905;CLASE4;0;0;;;schenkt;hat geschenkt;haben;0;;aussprache|goethe-sin-verificar
+spazieren gehen;verb;;;;0;pasear / salir a caminar;Am Sonntag gehen wir im Park spazieren.;El domingo paseamos en el parque.;;B;0;;;905;CLASE4;0;0;;;geht spazieren;ist spazieren gegangen;sein;1;;aussprache|goethe-sin-verificar
+sparen;verb;;;;0;ahorrar;Ich spare für den Urlaub.;Ahorro para las vacaciones.;;B;0;;;905;CLASE4;0;0;;;spart;hat gespart;haben;0;;aussprache|goethe-sin-verificar
+studieren;verb;;;;0;estudiar (en la universidad);Ich möchte bald in München studieren.;Quiero estudiar pronto en Múnich.;;A;0;;;905;CLASE4|KB15;1;0;;;studiert;hat studiert;haben;0;;goethe-sin-verificar
+verstehen;verb;;;;0;entender;Ich kann das nicht verstehen.;No puedo entender eso.;;A;0;;;905;CLASE4|KB15;0;0;;;versteht;hat verstanden;haben;1;;goethe-sin-verificar
+verkaufen;verb;;;;0;vender;Er verkauft sein Auto.;Él vende su auto.;;A;0;;;905;CLASE4;0;0;;;verkauft;hat verkauft;haben;0;;goethe-sin-verificar
+vergessen;verb;;;;0;olvidar;Ich habe deine Adresse vergessen.;Olvidé tu dirección.;;A;0;;;905;CLASE4;0;0;;;vergisst;hat vergessen;haben;1;;goethe-sin-verificar
+verlieren;verb;;;;0;perder;Ich habe meinen Schlüssel verloren.;Perdí mi llave.;;A;0;;;905;CLASE4;0;0;;;verliert;hat verloren;haben;1;;goethe-sin-verificar
+reservieren;verb;;;;0;reservar;Ich möchte ein Zimmer reservieren.;Quisiera reservar una habitación.;;A;0;;;905;CLASE4;1;0;;;reserviert;hat reserviert;haben;0;;goethe-sin-verificar
+wollen;verb;;;;0;querer;Wollen wir am Samstag ins Kino gehen?;¿Vamos al cine el sábado?;;A;0;;;905;CLASE4|KB16;0;0;;;will;hat gewollt;haben;1;;modalverb|goethe-sin-verificar
+wissen;verb;;;;0;saber;Ich weiß es nicht.;No lo sé.;;A;0;;;905;CLASE4;0;0;;;weiß;hat gewusst;haben;1;;goethe-sin-verificar
+zeigen;verb;;;;0;mostrar;Können Sie mir den Weg zeigen?;¿Me puede mostrar el camino?;;A;0;;;905;CLASE4;0;0;;;zeigt;hat gezeigt;haben;0;;goethe-sin-verificar
+sich freuen;verb;;;;0;alegrarse;Es freut mich!;¡Encantado!;;A;0;;;905;CLASE4;0;0;;;freut sich;hat sich gefreut;haben;0;;goethe-sin-verificar
+bedeuten;verb;;;;0;significar;Was bedeutet das?;¿Qué significa eso?;;A;0;;;905;CLASE4;0;0;;;bedeutet;hat bedeutet;haben;0;;goethe-sin-verificar
+Katze;noun;die;-n;Katzen;0;gato / gata;Er liebt seine Katze.;Él ama a su gata.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Tasche;noun;die;-n;Taschen;0;bolsa / cartera;Sie sucht ihre Tasche.;Ella busca su bolsa.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Nacht;noun;die;-¨e;Nächte;0;noche;Gute Nacht!;¡Buenas noches!;;A;0;;;905;CLASE4;0;0;;;;;;0;;aussprache|zeit|goethe-sin-verificar
+Tochter;noun;die;-¨;Töchter;0;hija;Ihre Tochter heißt Sandra.;Su hija se llama Sandra.;;A;0;;;905;CLASE4|AB14;0;0;;;;;;0;;familie|goethe-sin-verificar
+Kuchen;noun;der;-;Kuchen;0;pastel / torta;Der Kuchen ist sehr lecker.;La torta está muy rica.;;A;0;;;905;CLASE4;0;0;;;;;;0;;essen|goethe-sin-verificar
+Bauch;noun;der;-¨e;Bäuche;0;barriga / estómago;Mein Bauch tut weh.;Me duele la barriga.;;B;0;;;905;CLASE4;0;0;;;;;;0;;aussprache|goethe-sin-verificar
+Tuch;noun;das;-¨er;Tücher;0;pañuelo / tela;Das Tuch ist aus Seide.;El pañuelo es de seda.;;C;0;;;905;CLASE4;0;0;;;;;;0;;aussprache|goethe-sin-verificar
+Koch;noun;der;-¨e;Köche;0;cocinero;Der Koch arbeitet im Restaurant.;El cocinero trabaja en el restaurante.;;B;0;;;905;CLASE4;0;0;;;;;;0;;aussprache|goethe-sin-verificar
+Schuh;noun;der;-e;Schuhe;0;zapato;Wo sind meine Schuhe?;¿Dónde están mis zapatos?;;A;0;;;905;CLASE4;0;0;;;;;;0;;aussprache|goethe-sin-verificar
+Schwester;noun;die;-n;Schwestern;0;hermana;Meine Schwester wohnt in Tarija.;Mi hermana vive en Tarija.;;A;0;;;905;CLASE4;0;0;;;;;;0;;familie|goethe-sin-verificar
+Schlüssel;noun;der;-;Schlüssel;0;llave;Die Brille ist neben dem Schlüssel.;Los lentes están al lado de la llave.;;A;0;;;905;CLASE4|AB14;0;0;;;;;;0;;goethe-sin-verificar
+Schreibtisch;noun;der;-e;Schreibtische;0;escritorio;Der Computer steht auf dem Schreibtisch.;La computadora está sobre el escritorio.;;A;0;;;905;CLASE4;0;0;;;;;;0;;wohnen|goethe-sin-verificar
+Schnee;noun;der;;;1;nieve;Im Winter gibt es viel Schnee.;En invierno hay mucha nieve.;;A;0;;;905;CLASE4;0;0;;;;;;0;;natur|goethe-sin-verificar
+Schwein;noun;das;-e;Schweine;0;cerdo;Das Schwein ist auf dem Bauernhof.;El cerdo está en la granja.;;C;0;;;905;CLASE4;0;0;;;;;;0;;aussprache|goethe-sin-verificar
+Flasche;noun;die;-n;Flaschen;0;botella;Eine Flasche Wasser, bitte.;Una botella de agua, por favor.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Sport;noun;der;;;1;deporte;Ich mache gern Sport.;Me gusta hacer deporte.;;A;0;;;905;CLASE4;1;0;;;;;;0;;goethe-sin-verificar
+Spaß;noun;der;;;1;diversión;Viel Spaß!;¡Que te diviertas!;;A;0;;;905;CLASE4|AB15;0;0;;;;;;0;;goethe-sin-verificar
+Spiegel;noun;der;-;Spiegel;0;espejo;Der Spiegel hängt im Bad.;El espejo cuelga en el baño.;;C;0;;;905;CLASE4;0;0;;;;;;0;;aussprache|goethe-sin-verificar
+Student;noun;der;-en;Studenten;0;estudiante (universitario);Hier leben Arbeiter und Studenten.;Aquí viven obreros y estudiantes.;;A;0;;;905;CLASE4|KB15;1;0;;;;;;0;;goethe-sin-verificar
+Stift;noun;der;-e;Stifte;0;bolígrafo / lápiz;Hast du einen Stift?;¿Tienes un bolígrafo?;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Stück;noun;das;-e;Stücke;0;pedazo / trozo;Ich möchte ein Stück Kuchen.;Quisiera un pedazo de torta.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Durst;noun;der;;;1;sed;Ich habe Durst.;Tengo sed.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Vater;noun;der;-¨;Väter;0;padre;Mein Vater arbeitet im Büro.;Mi papá trabaja en la oficina.;;A;0;;;905;CLASE4;0;0;;;;;;0;;familie|goethe-sin-verificar
+Vogel;noun;der;-¨;Vögel;0;pájaro;Der Vogel sitzt auf dem Baum.;El pájaro está en el árbol.;;B;0;;;905;CLASE4;0;0;;;;;;0;;natur|goethe-sin-verificar
+Vormittag;noun;der;-e;Vormittage;0;mañana (antes del mediodía);Am Vormittag arbeite ich.;En la mañana trabajo.;;A;0;;;905;CLASE4;0;0;;;;;;0;;zeit|goethe-sin-verificar
+Verein;noun;der;-e;Vereine;0;asociación / club;Er spielt Fußball in einem Verein.;Él juega fútbol en un club.;;C;0;;;905;CLASE4;0;0;;;;;;0;;aussprache|goethe-sin-verificar
+Video;noun;das;-s;Videos;0;video;Wir sehen ein Video.;Vemos un video.;;A;0;;;905;CLASE4;1;0;;;;;;0;;goethe-sin-verificar
+Vase;noun;die;-n;Vasen;0;florero;Die Blumen stehen in der Vase.;Las flores están en el florero.;;C;0;;;905;CLASE4;1;0;;;;;;0;;aussprache|goethe-sin-verificar
+Visum;noun;das;;Visa;0;visa;Brauche ich ein Visum?;¿Necesito visa?;;C;0;;;905;CLASE4;1;0;;;;;;0;;aussprache|goethe-sin-verificar
+Universität;noun;die;-en;Universitäten;0;universidad;Sie studiert an der Universität.;Ella estudia en la universidad.;;A;0;;;905;CLASE4;1;0;;;;;;0;;goethe-sin-verificar
+Wort;noun;das;-¨er;Wörter;0;palabra;Welche Wörter möchten Sie noch lernen?;¿Qué palabras quiere aprender todavía?;;A;0;;;905;CLASE4|AB13;0;0;;;;;;0;;goethe-sin-verificar
+Wein;noun;der;-e;Weine;0;vino;Ich trinke gern Wein.;Me gusta tomar vino.;;A;0;;;905;CLASE4;0;0;;;;;;0;;essen|goethe-sin-verificar
+Welt;noun;die;-en;Welten;0;mundo;Schiffe aus der ganzen Welt kommen nach Hamburg.;Barcos de todo el mundo llegan a Hamburgo.;;A;0;;;905;CLASE4|KB15;0;0;;;;;;0;;goethe-sin-verificar
+Ei;noun;das;-er;Eier;0;huevo;Zum Frühstück esse ich ein Ei.;En el desayuno como un huevo.;;A;0;;;905;CLASE4;0;0;;;;;;0;;essen|goethe-sin-verificar
+Arbeit;noun;die;-en;Arbeiten;0;trabajo;Die Arbeit beginnt um acht Uhr.;El trabajo empieza a las ocho.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Fleisch;noun;das;;;1;carne;Ich esse kein Fleisch.;No como carne.;;A;0;;;905;CLASE4;0;0;;;;;;0;;essen|goethe-sin-verificar
+Freizeit;noun;die;;;1;tiempo libre;In meiner Freizeit lese ich gern.;En mi tiempo libre me gusta leer.;;A;0;;;905;CLASE4|CLASE7;0;0;;;;;;0;;goethe-sin-verificar
+Preis;noun;der;-e;Preise;0;precio / premio;Der Preis ist gut.;El precio es bueno.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Bein;noun;das;-e;Beine;0;pierna;Mein Bein tut weh.;Me duele la pierna.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Euro;noun;der;-s;Euros;0;euro;Die Miete kostet 400 Euro.;El alquiler cuesta 400 euros.;;A;0;;;905;CLASE4|KB14;1;0;;;;;;0;;goethe-sin-verificar
+Feuer;noun;das;-;Feuer;0;fuego;Das Feuer ist warm.;El fuego es cálido.;;B;0;;;905;CLASE4;0;0;;;;;;0;;aussprache|goethe-sin-verificar
+Eule;noun;die;-n;Eulen;0;búho;Die Eule schläft am Tag.;El búho duerme de día.;;C;0;;;905;CLASE4;0;0;;;;;;0;;aussprache|goethe-sin-verificar
+schlecht;adjective;;;;0;malo / mal;Das Wetter ist schlecht.;El clima está malo.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+schwer;adjective;;;;0;pesado / difícil;Die Tasche ist schwer.;La bolsa es pesada.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+spanisch;adjective;;;;0;español (adjetivo);Ich koche gern spanisch.;Me gusta cocinar comida española.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+spannend;adjective;;;;0;emocionante;Der Hafen ist besonders spannend.;El puerto es especialmente emocionante.;;B;0;;;905;CLASE4|KB15;0;0;;;;;;0;;goethe-sin-verificar
+stark;adjective;;;;0;fuerte;Er ist sehr stark.;Él es muy fuerte.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+stolz;adjective;;;;0;orgulloso;Ich bin stolz auf dich.;Estoy orgulloso de ti.;;B;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+vielleicht;adverb;;;;0;tal vez / quizás;Vielleicht sehen wir uns irgendwann mal?;¿Tal vez nos vemos algún día?;;A;0;;;905;CLASE4|KB15;0;0;;;;;;0;;goethe-sin-verificar
+voll;adjective;;;;0;lleno;Der Bus ist voll.;El bus está lleno.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+privat;adjective;;;;0;privado;Das ist privat.;Eso es privado.;;A;0;;;905;CLASE4;1;0;;;;;;0;;goethe-sin-verificar
+positiv;adjective;;;;0;positivo;Das ist sehr positiv.;Eso es muy positivo.;;B;0;;;905;CLASE4;1;0;;;;;;0;;goethe-sin-verificar
+warm;adjective;;;;0;caliente / cálido;An der Adria ist es sehr warm.;En el Adriático hace mucho calor.;;A;0;;;905;CLASE4|AB15;0;0;;;;;;0;;goethe-sin-verificar
+wirklich;adverb;;;;0;realmente / de verdad;Ach, wirklich?;¿Ah, de verdad?;;A;0;;;905;CLASE4|KB16;0;0;;;;;;0;;goethe-sin-verificar
+leider;adverb;;;;0;lamentablemente;Leider kann ich heute nicht kommen.;Lamentablemente hoy no puedo ir.;;A;1;;;905;CLASE4|KB14|KB16;0;0;;;;;;0;;goethe-sin-verificar
+frei;adjective;;;;0;libre;Die Wohnung ist sofort frei.;El departamento está libre de inmediato.;;A;0;;;905;CLASE4|KB14;0;0;;;;;;0;;goethe-sin-verificar
+weiß;adjective;;;;0;blanco;Das Haus ist weiß.;La casa es blanca.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+neu;adjective;;;;0;nuevo;Die neue Wohnung ist schön.;El departamento nuevo es bonito.;;A;0;;;905;CLASE4|KB14;0;0;;;;;;0;;goethe-sin-verificar
+teuer;adjective;;;;0;caro;Die Wohnung ist zu teuer.;El departamento es demasiado caro.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+deutsch;adjective;;;;0;alemán (adjetivo);Ich lese ein deutsches Buch.;Leo un libro alemán.;;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+wer;pronoun;;;;0;quién;Wer sucht eine Wohnung?;¿Quién busca un departamento?;;A;0;;;905;CLASE4|KB14;0;0;;;;;;0;;fragen|goethe-sin-verificar
+was;pronoun;;;;0;qué;Was kann ich für Sie tun?;¿En qué le puedo ayudar?;;A;0;;;905;CLASE4|KB16;0;0;;;;;;0;;fragen|goethe-sin-verificar
+wo;adverb;;;;0;dónde;Wo ist das Hotel?;¿Dónde está el hotel?;;A;1;;;905;CLASE4|KB13;0;0;;;;;;0;;fragen|goethe-sin-verificar
+woher;adverb;;;;0;de dónde;Woher kommen Sie?;¿De dónde es usted?;;A;0;;;905;CLASE4|CLASE7;0;0;;;;;;0;;fragen|goethe-sin-verificar
+wohin;adverb;;;;0;a dónde;Wohin fährst du?;¿A dónde vas?;;A;0;;;905;CLASE4;0;0;;;;;;0;;fragen|goethe-sin-verificar
+wann;adverb;;;;0;cuándo;Wann hast du Zeit?;¿Cuándo tienes tiempo?;;A;0;;;905;CLASE4|KB16;0;0;;;;;;0;;fragen|goethe-sin-verificar
+warum;adverb;;;;0;por qué;Warum bist du traurig?;¿Por qué estás triste?;;A;0;;;905;CLASE4;0;0;;;;;;0;;fragen|goethe-sin-verificar
+wie;adverb;;;;0;cómo;Wie ist das Wetter dort?;¿Cómo está el clima allá?;;A;0;;;905;CLASE4|AB15;0;0;;;;;;0;;fragen|goethe-sin-verificar
+Was bedeutet das?;expression;;;;0;¿qué significa eso?;Was bedeutet das?;¿Qué significa eso?;Was {{bedeutet}} das?;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+Viel Spaß!;expression;;;;0;¡que te diviertas!;Viel Spaß!;¡Que te diviertas!;Viel {{Spaß}}!;A;0;;;905;CLASE4|AB15;0;0;;;;;;0;;goethe-sin-verificar
+Ich habe Durst.;expression;;;;0;tengo sed;Ich habe Durst.;Tengo sed.;Ich habe {{Durst}}.;A;0;;;905;CLASE4;0;0;;;;;;0;;goethe-sin-verificar
+an|kreuzen;verb;;;;0;marcar con una cruz;Kreuzen Sie an.;Marque con una cruz.;;C;0;;;13;KB13|AB13;0;0;;an;kreuzt an;hat angekreuzt;haben;0;;instrucciones|trennbar|goethe-sin-verificar
+ergänzen;verb;;;;0;completar;Ergänzen Sie die Sätze.;Complete las oraciones.;;C;0;;;13;KB13|AB13;0;0;;;ergänzt;hat ergänzt;haben;0;;instrucciones|goethe-sin-verificar
+zu|ordnen;verb;;;;0;relacionar / asignar;Ordnen Sie zu.;Relacione.;;C;0;;;13;KB13|AB14;0;0;;zu;ordnet zu;hat zugeordnet;haben;0;;instrucciones|trennbar|goethe-sin-verificar
+notieren;verb;;;;0;anotar;Notieren Sie die Buchstaben.;Anote las letras.;;C;0;;;13;KB14|AB15;0;0;;;notiert;hat notiert;haben;0;;instrucciones|goethe-sin-verificar
+markieren;verb;;;;0;marcar / resaltar;Markieren Sie die Wörter.;Marque las palabras.;;C;0;;;13;KB14|KB16;0;0;;;markiert;hat markiert;haben;0;;instrucciones|goethe-sin-verificar

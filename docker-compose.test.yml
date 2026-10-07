@@ -1,0 +1,9 @@
+# test: base efímera para tests de integración y e2e
+# Puerto configurable si 5433 ya está ocupado: TEST_DB_PORT=55433 docker compose -f docker-compose.test.yml up -d
+name: wortschatz-test
+services:
+  db_test:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: test, POSTGRES_PASSWORD: test, POSTGRES_DB: deutsch_test }
+    ports: ["127.0.0.1:${TEST_DB_PORT:-5433}:5432"]
+    tmpfs: [/var/lib/postgresql/data]

@@ -1,0 +1,227 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum WordType {
+  NOUN
+  VERB
+  ADJECTIVE
+  ADVERB
+  PREPOSITION
+  PRONOUN
+  EXPRESSION
+  OTHER
+}
+
+enum Gender {
+  DER
+  DIE
+  DAS
+}
+
+enum Level {
+  A
+  B
+  C
+}
+
+enum GoetheLevel {
+  A1
+  A2
+  B1
+}
+
+enum Auxiliary {
+  HABEN
+  SEIN
+}
+
+enum CardKind {
+  ES_TO_DE
+  DE_TO_ES
+  PLURAL
+  VERB_FORMS
+  SEPARABLE_ORDER
+  CLOZE
+}
+
+enum CardState {
+  NEW
+  LEARNING
+  REVIEW
+  RELEARNING
+}
+
+enum Rating {
+  AGAIN
+  HARD
+  GOOD
+  EASY
+}
+
+enum AnswerVerdict {
+  CORRECT
+  ALMOST
+  WRONG
+  SELF_GRADED
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  passwordHash String
+  displayName  String
+  createdAt    DateTime      @default(now())
+  sessions     Session[]
+  settings     UserSettings?
+  cards        Card[]
+  reviewLogs   ReviewLog[]
+  notes        WordNote[]
+}
+
+model Session {
+  id        String   @id // SHA-256 (hex) del token; el token solo vive en la cookie
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model UserSettings {
+  userId               String     @id
+  user                 User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  newCardsPerDay       Int        @default(12) // 5..30
+  maxReviewsPerDay     Int        @default(200) // 50..999
+  reviewBacklogCap     Int        @default(120) // si hay más pendientes, 0 nuevas
+  desiredRetention     Float      @default(0.9) // 0.80..0.95
+  maximumIntervalDays  Int        @default(365)
+  dayStartsAtHour      Int        @default(4) // 0..23, hora local
+  timezone             String     @default("America/La_Paz")
+  enabledCardKinds     CardKind[] @default([ES_TO_DE, DE_TO_ES, PLURAL, VERB_FORMS, SEPARABLE_ORDER, CLOZE])
+  ttsEnabled           Boolean    @default(true)
+  ttsAutoplay          Boolean    @default(false)
+  ttsRate              Float      @default(0.9) // 0.5..1.2
+  ttsVoice             String?
+  strictCapitalization Boolean    @default(false)
+  leechThreshold       Int        @default(6)
+  leechAutoSuspend     Boolean    @default(false)
+  updatedAt            DateTime   @updatedAt
+}
+
+model Lesson {
+  id        Int     @id @default(autoincrement())
+  number    Int     @unique // 13, 14, 15, 16 ... o 900+ para apuntes de clase
+  title     String
+  topic     String?
+  sortOrder Int
+  words     Word[]
+}
+
+model Word {
+  id              String       @id @default(cuid())
+  scope           String       @default("global") // "global" | userId
+  lemma           String // "Bahnhof", "ab|biegen", "Wie komme ich zum ...?"
+  type            WordType
+  gender          Gender? // obligatorio si type = NOUN
+  pluralSuffix    String? // "-¨e", "-n", "-" (sin cambio), "-s"
+  pluralForm      String? // "Bahnhöfe"
+  noPlural        Boolean      @default(false)
+  translationEs   String // alternativas separadas por " / "
+  exampleDe       String?
+  exampleEs       String?
+  clozeText       String? // frase con {{...}} marcando el hueco
+  level           Level
+  starred         Boolean      @default(false) // ★ = cumple A y B
+  goetheLevel     GoetheLevel?
+  frequencyRank   Int?
+  isCognate       Boolean      @default(false)
+  isFalseFriend   Boolean      @default(false)
+  falseFriendNote String?
+  separablePrefix String? // "ab"
+  thirdPerson     String? // "biegt ab"
+  perfekt         String? // "ist abgebogen"
+  auxiliary       Auxiliary?
+  isIrregular     Boolean      @default(false)
+  governsCase     String? // "Dat.", "Akk.", "Dat./Akk."
+  lessonId        Int?
+  lesson          Lesson?      @relation(fields: [lessonId], references: [id])
+  sources         String[] // ["KB13","AB13","CLASE3"]
+  tags            String[]
+  priority        Int // calculado (sección 7.2), se recalcula al guardar
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  cards           Card[]
+  notes           WordNote[]
+
+  @@unique([scope, lemma, type])
+  @@index([scope, level, priority])
+  @@index([lessonId])
+}
+
+model Card {
+  id            String      @id @default(cuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  wordId        String
+  word          Word        @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  kind          CardKind
+  state         CardState   @default(NEW)
+  due           DateTime    @default(now())
+  stability     Float       @default(0)
+  difficulty    Float       @default(0)
+  elapsedDays   Int         @default(0)
+  scheduledDays Int         @default(0)
+  learningSteps Int         @default(0)
+  reps          Int         @default(0)
+  lapses        Int         @default(0)
+  lastReview    DateTime?
+  introducedAt  DateTime? // primera vez que se estudió
+  suspended     Boolean     @default(false)
+  isLeech       Boolean     @default(false)
+  reviewLogs    ReviewLog[]
+
+  @@unique([userId, wordId, kind])
+  @@index([userId, suspended, state, due])
+}
+
+model ReviewLog {
+  id            String        @id @default(cuid())
+  userId        String
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cardId        String
+  card          Card          @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  rating        Rating
+  verdict       AnswerVerdict
+  typedAnswer   String?
+  durationMs    Int
+  stateBefore   CardState
+  cardBefore    Json // instantánea completa para "deshacer"
+  scheduledDays Int
+  reviewedAt    DateTime      @default(now())
+  studyDay      String // "2026-10-06" en la zona horaria del usuario
+  isNewCard     Boolean // true si esta revisión introdujo la tarjeta
+
+  @@index([userId, reviewedAt])
+  @@index([userId, studyDay])
+}
+
+model WordNote {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  wordId       String
+  word         Word     @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  mnemonic     String?
+  ownSentence  String?
+  updatedAt    DateTime @updatedAt
+
+  @@unique([userId, wordId])
+}

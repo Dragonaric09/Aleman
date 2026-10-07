@@ -1,0 +1,10 @@
+# dev: solo la base de datos; la app corre con `pnpm dev` en el host (recarga en caliente)
+# Puerto configurable si 5432 ya está ocupado: DEV_DB_PORT=55432 docker compose -f docker-compose.dev.yml up -d
+name: wortschatz-dev
+services:
+  db:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: deutsch, POSTGRES_PASSWORD: deutsch, POSTGRES_DB: deutsch_dev }
+    ports: ["127.0.0.1:${DEV_DB_PORT:-5432}:5432"]
+    volumes: [pgdata_dev:/var/lib/postgresql/data]
+volumes: { pgdata_dev: {} }
