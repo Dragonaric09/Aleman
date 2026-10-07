@@ -11,7 +11,11 @@ export function studyDay(now: Date, timezone: string, dayStartsAtHour: number): 
 }
 
 /** Inicio y fin (UTC) de un día de estudio. */
-export function dayBounds(day: string, timezone: string, dayStartsAtHour: number): { start: Date; end: Date } {
+export function dayBounds(
+  day: string,
+  timezone: string,
+  dayStartsAtHour: number,
+): { start: Date; end: Date } {
   const [y, m, d] = day.split("-").map(Number) as [number, number, number];
   const start = new TZDate(y, m - 1, d, dayStartsAtHour, 0, 0, timezone);
   const end = new TZDate(y, m - 1, d + 1, dayStartsAtHour, 0, 0, timezone);

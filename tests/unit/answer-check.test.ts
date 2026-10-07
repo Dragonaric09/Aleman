@@ -12,7 +12,17 @@ import {
   normalizeSpanish,
   suggestedRating,
 } from "@/modules/study/answer-check";
-import { abbiegen, ampel, bahnhof, bruecke, girar, strasse, wieKomme, wohnung, word } from "../fixtures/words";
+import {
+  abbiegen,
+  ampel,
+  bahnhof,
+  bruecke,
+  girar,
+  strasse,
+  wieKomme,
+  wohnung,
+  word,
+} from "../fixtures/words";
 
 const lax = { strictCapitalization: false };
 const strict = { strictCapitalization: true };
@@ -20,8 +30,18 @@ const strict = { strictCapitalization: true };
 describe("checkAnswer · casos obligatorios de la sección 12.2", () => {
   const cases: [string, Parameters<typeof checkAnswer>, string, string?][] = [
     ["ES_TO_DE der Bahnhof / der Bahnhof", ["ES_TO_DE", bahnhof, "der Bahnhof", lax], "CORRECT"],
-    ["ES_TO_DE der Bahnhof / der bahnhof (laxo)", ["ES_TO_DE", bahnhof, "der bahnhof", lax], "CORRECT", HINT_NOUN_CAPS],
-    ["ES_TO_DE der Bahnhof / der bahnhof (estricto)", ["ES_TO_DE", bahnhof, "der bahnhof", strict], "ALMOST", HINT_NOUN_CAPS],
+    [
+      "ES_TO_DE der Bahnhof / der bahnhof (laxo)",
+      ["ES_TO_DE", bahnhof, "der bahnhof", lax],
+      "CORRECT",
+      HINT_NOUN_CAPS,
+    ],
+    [
+      "ES_TO_DE der Bahnhof / der bahnhof (estricto)",
+      ["ES_TO_DE", bahnhof, "der bahnhof", strict],
+      "ALMOST",
+      HINT_NOUN_CAPS,
+    ],
     ["ES_TO_DE der Bahnhof / die Bahnhof", ["ES_TO_DE", bahnhof, "die Bahnhof", lax], "WRONG", HINT_ARTICLE],
     ["ES_TO_DE der Bahnhof / Bahnhof", ["ES_TO_DE", bahnhof, "Bahnhof", lax], "WRONG", HINT_ARTICLE],
     ["ES_TO_DE der Bahnhof / der Banhof", ["ES_TO_DE", bahnhof, "der Banhof", lax], "ALMOST"],
@@ -33,7 +53,12 @@ describe("checkAnswer · casos obligatorios de la sección 12.2", () => {
     ["DE_TO_ES departamento / vivienda / La vivienda", ["DE_TO_ES", wohnung, "La vivienda", lax], "CORRECT"],
     ["DE_TO_ES semáforo / semaforo", ["DE_TO_ES", ampel, "semaforo", lax], "CORRECT"],
     ["DE_TO_ES girar (en una calle) / girar", ["DE_TO_ES", girar, "girar", lax], "CORRECT"],
-    ["VERB_FORMS biegt ab / hat abgebogen", ["VERB_FORMS", abbiegen, "biegt ab / hat abgebogen", lax], "WRONG", HINT_AUX],
+    [
+      "VERB_FORMS biegt ab / hat abgebogen",
+      ["VERB_FORMS", abbiegen, "biegt ab / hat abgebogen", lax],
+      "WRONG",
+      HINT_AUX,
+    ],
   ];
 
   it.each(cases)("%s", (_name, args, verdict, hint) => {
@@ -84,7 +109,13 @@ describe("checkAnswer · otras reglas", () => {
   });
 
   it("palabras muy cortas no admiten errores tipográficos", () => {
-    const an = word({ lemma: "an", type: "PREPOSITION", gender: null, pluralForm: null, translationEs: "en" });
+    const an = word({
+      lemma: "an",
+      type: "PREPOSITION",
+      gender: null,
+      pluralForm: null,
+      translationEs: "en",
+    });
     expect(checkAnswer("ES_TO_DE", an, "am", lax).verdict).toBe("WRONG");
   });
 
@@ -99,7 +130,13 @@ describe("checkAnswer · otras reglas", () => {
   });
 
   it("DE_TO_ES: ignora el «se» final de los verbos pronominales", () => {
-    const umziehen = word({ type: "VERB", gender: null, pluralForm: null, lemma: "um|ziehen", translationEs: "mudarse" });
+    const umziehen = word({
+      type: "VERB",
+      gender: null,
+      pluralForm: null,
+      lemma: "um|ziehen",
+      translationEs: "mudarse",
+    });
     expect(checkAnswer("DE_TO_ES", umziehen, "mudar", lax).verdict).toBe("CORRECT");
   });
 

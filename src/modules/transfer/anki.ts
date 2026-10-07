@@ -1,5 +1,12 @@
 import Papa from "papaparse";
-import { ARTICLES, GENDER_COLORS, WORD_TYPE_LABELS, displayLemma, type Gender, type WordType } from "@/modules/vocabulary/shared";
+import {
+  ARTICLES,
+  GENDER_COLORS,
+  WORD_TYPE_LABELS,
+  displayLemma,
+  type Gender,
+  type WordType,
+} from "@/modules/vocabulary/shared";
 
 export interface AnkiWord {
   lemma: string;
@@ -27,7 +34,8 @@ export function ankiBack(w: AnkiWord): string {
     const color = GENDER_COLORS[w.gender];
     parts.push(`<b><span style="color:${color}">${ARTICLES[w.gender]}</span> ${lemma}</b>`);
     if (w.noPlural) parts.push(`<i>sin plural</i>`);
-    else if (w.pluralForm) parts.push(`<span style="color:${GENDER_COLORS.PLURAL}">die ${escapeHtml(w.pluralForm)}</span>`);
+    else if (w.pluralForm)
+      parts.push(`<span style="color:${GENDER_COLORS.PLURAL}">die ${escapeHtml(w.pluralForm)}</span>`);
   } else {
     parts.push(`<b>${lemma}</b>`);
     if (w.perfekt) parts.push(`<i>${escapeHtml(w.perfekt)}</i>`);
@@ -51,5 +59,8 @@ export function serializeAnkiCsv(words: AnkiWord[]): string {
       .join(" "),
   ]);
   const body = Papa.unparse(rows, { delimiter: ";", newline: "\n" });
-  return ["#separator:semicolon", "#html:true", "#columns:Front;Back;Tags", "#tags column:3", body].join("\n") + "\n";
+  return (
+    ["#separator:semicolon", "#html:true", "#columns:Front;Back;Tags", "#tags column:3", body].join("\n") +
+    "\n"
+  );
 }

@@ -22,7 +22,9 @@ const STATUS: Record<WordStatus, { label: string; tone: "neutral" | "accent" | "
 type SP = Record<string, string | undefined>;
 
 function pageHref(sp: SP, page: number) {
-  const params = new URLSearchParams(Object.entries(sp).filter((e): e is [string, string] => !!e[1] && e[0] !== "page"));
+  const params = new URLSearchParams(
+    Object.entries(sp).filter((e): e is [string, string] => !!e[1] && e[0] !== "page"),
+  );
   params.set("page", String(page));
   return `/vocabulario?${params}`;
 }
@@ -49,11 +51,18 @@ export default async function VocabularyPage({ searchParams }: { searchParams: P
       />
 
       <Card className="mb-6 p-4">
-        <form className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4" role="search" aria-label="Filtrar vocabulario">
+        <form
+          className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+          role="search"
+          aria-label="Filtrar vocabulario"
+        >
           <div className="grid gap-1.5 sm:col-span-2">
             <Label htmlFor="q">Buscar</Label>
             <div className="relative">
-              <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-ink-2" aria-hidden />
+              <Search
+                className="text-ink-2 pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2"
+                aria-hidden
+              />
               <Input id="q" name="q" defaultValue={sp.q} placeholder="Alemán o español…" className="pl-9" />
             </div>
           </div>
@@ -118,7 +127,13 @@ export default async function VocabularyPage({ searchParams }: { searchParams: P
           </div>
           <div className="flex items-end gap-3 sm:col-span-2 lg:col-span-4">
             <label className="flex items-center gap-2 text-sm">
-              <input type="checkbox" name="falseFriend" value="true" defaultChecked={sp.falseFriend === "true"} className="size-4 accent-[var(--accent)]" />
+              <input
+                type="checkbox"
+                name="falseFriend"
+                value="true"
+                defaultChecked={sp.falseFriend === "true"}
+                className="size-4 accent-[var(--accent)]"
+              />
               Solo falsos amigos
             </label>
             <div className="ml-auto flex gap-2">
@@ -139,19 +154,26 @@ export default async function VocabularyPage({ searchParams }: { searchParams: P
         </EmptyState>
       ) : (
         <Card className="overflow-hidden">
-          <ul className="divide-y divide-line">
+          <ul className="divide-line divide-y">
             {result.items.map((w) => (
               <li key={w.id}>
                 <Link
                   href={`/vocabulario/${w.id}`}
-                  className="grid gap-1 px-4 py-3 transition-colors hover:bg-surface-2 sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_auto] sm:items-center sm:gap-4"
+                  className="hover:bg-surface-2 grid gap-1 px-4 py-3 transition-colors sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_auto] sm:items-center sm:gap-4"
                 >
                   <span className="flex min-w-0 items-center gap-2">
                     <WordDisplay word={w} size="sm" />
-                    {w.starred && <Star className="size-3.5 shrink-0 fill-accent text-accent" aria-label="prioritaria (★)" />}
-                    {w.isFalseFriend && <AlertTriangle className="size-3.5 shrink-0 text-almost" aria-label="falso amigo" />}
+                    {w.starred && (
+                      <Star
+                        className="fill-accent text-accent size-3.5 shrink-0"
+                        aria-label="prioritaria (★)"
+                      />
+                    )}
+                    {w.isFalseFriend && (
+                      <AlertTriangle className="text-almost size-3.5 shrink-0" aria-label="falso amigo" />
+                    )}
                   </span>
-                  <span className="truncate text-sm text-ink-2">{w.translationEs}</span>
+                  <span className="text-ink-2 truncate text-sm">{w.translationEs}</span>
                   <span className="flex flex-wrap items-center gap-1.5">
                     <Badge>{WORD_TYPE_LABELS[w.type]}</Badge>
                     <Badge>{w.level}</Badge>
@@ -168,7 +190,12 @@ export default async function VocabularyPage({ searchParams }: { searchParams: P
 
       {result.pages > 1 && (
         <nav aria-label="Paginación" className="mt-6 flex items-center justify-between gap-3 text-sm">
-          <Button asChild variant="secondary" size="sm" className={result.page <= 1 ? "pointer-events-none opacity-40" : ""}>
+          <Button
+            asChild
+            variant="secondary"
+            size="sm"
+            className={result.page <= 1 ? "pointer-events-none opacity-40" : ""}
+          >
             <Link href={pageHref(sp, result.page - 1)} aria-disabled={result.page <= 1}>
               <ChevronLeft aria-hidden /> Anterior
             </Link>
@@ -176,7 +203,12 @@ export default async function VocabularyPage({ searchParams }: { searchParams: P
           <span className="tabular text-ink-2">
             Página {result.page} de {result.pages}
           </span>
-          <Button asChild variant="secondary" size="sm" className={result.page >= result.pages ? "pointer-events-none opacity-40" : ""}>
+          <Button
+            asChild
+            variant="secondary"
+            size="sm"
+            className={result.page >= result.pages ? "pointer-events-none opacity-40" : ""}
+          >
             <Link href={pageHref(sp, result.page + 1)} aria-disabled={result.page >= result.pages}>
               Siguiente <ChevronRight aria-hidden />
             </Link>

@@ -42,13 +42,17 @@ export default async function WordDetailPage({
 
   return (
     <div className="grid gap-6">
-      <Link href="/vocabulario" className="inline-flex w-fit items-center gap-1.5 text-sm text-ink-2 hover:text-ink">
+      <Link
+        href="/vocabulario"
+        className="text-ink-2 hover:text-ink inline-flex w-fit items-center gap-1.5 text-sm"
+      >
         <ArrowLeft className="size-4" aria-hidden /> Vocabulario
       </Link>
 
       {copia && (
-        <p className="flex items-center gap-2 rounded-md border border-accent/30 bg-accent-soft px-3 py-2 text-sm">
-          <Info className="size-4 text-accent" aria-hidden /> Copia propia creada. La palabra global queda suspendida para no estudiarla dos veces.
+        <p className="border-accent/30 bg-accent-soft flex items-center gap-2 rounded-md border px-3 py-2 text-sm">
+          <Info className="text-accent size-4" aria-hidden /> Copia propia creada. La palabra global queda
+          suspendida para no estudiarla dos veces.
         </p>
       )}
 
@@ -69,12 +73,14 @@ export default async function WordDetailPage({
               {isLeech && <Badge tone="bad">rebelde</Badge>}
             </div>
             <WordDisplay word={word} size="xl" />
-            <p className="text-lg text-ink-2">{word.translationEs}</p>
+            <p className="text-ink-2 text-lg">{word.translationEs}</p>
             <dl lang="de" className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
               {word.type === "NOUN" && (
                 <div className="flex gap-1.5">
                   <dt className="text-ink-2">Plural</dt>
-                  <dd className="text-plural-text">{word.noPlural ? "sin plural" : `die ${word.pluralForm}`}</dd>
+                  <dd className="text-plural-text">
+                    {word.noPlural ? "sin plural" : `die ${word.pluralForm}`}
+                  </dd>
                 </div>
               )}
               {word.thirdPerson && (
@@ -104,7 +110,7 @@ export default async function WordDetailPage({
         </div>
 
         {(word.exampleDe || word.exampleEs) && (
-          <blockquote className="mt-6 border-l-2 border-accent/60 pl-4">
+          <blockquote className="border-accent/60 mt-6 border-l-2 pl-4">
             {word.exampleDe && (
               <p lang="de" className="font-serif text-xl italic">
                 {word.exampleDe}
@@ -114,7 +120,7 @@ export default async function WordDetailPage({
           </blockquote>
         )}
         {word.isFalseFriend && word.falseFriendNote && (
-          <p className="mt-4 flex gap-2 rounded-md border border-almost/30 bg-almost-bg px-3 py-2 text-sm text-almost">
+          <p className="border-almost/30 bg-almost-bg text-almost mt-4 flex gap-2 rounded-md border px-3 py-2 text-sm">
             <AlertTriangle className="mt-0.5 size-4 shrink-0" aria-hidden />
             <span>
               <strong>Falso amigo:</strong> {word.falseFriendNote}
@@ -129,7 +135,12 @@ export default async function WordDetailPage({
             <CardTitle>Notas</CardTitle>
           </CardHeader>
           <CardContent>
-            <NoteEditor wordId={word.id} mnemonic={note?.mnemonic ?? null} ownSentence={note?.ownSentence ?? null} highlightMnemonic={isLeech} />
+            <NoteEditor
+              wordId={word.id}
+              mnemonic={note?.mnemonic ?? null}
+              ownSentence={note?.ownSentence ?? null}
+              highlightMnemonic={isLeech}
+            />
           </CardContent>
         </Card>
 
@@ -138,12 +149,14 @@ export default async function WordDetailPage({
             <CardTitle>Tarjetas</CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="divide-y divide-line text-sm">
+            <ul className="divide-line divide-y text-sm">
               {cards.map((c) => (
                 <li key={c.id} className="flex flex-wrap items-center justify-between gap-2 py-2.5">
                   <span className="font-medium">{CARD_KIND_LABELS[c.kind]}</span>
-                  <span className="flex flex-wrap items-center gap-1.5 text-ink-2">
-                    <Badge tone={c.state === "REVIEW" ? "ok" : c.state === "NEW" ? "neutral" : "almost"}>{CARD_STATE_LABELS[c.state]}</Badge>
+                  <span className="text-ink-2 flex flex-wrap items-center gap-1.5">
+                    <Badge tone={c.state === "REVIEW" ? "ok" : c.state === "NEW" ? "neutral" : "almost"}>
+                      {CARD_STATE_LABELS[c.state]}
+                    </Badge>
                     {c.state !== "NEW" && <span className="tabular">próx. {dateFmt.format(c.due)}</span>}
                     {c.lapses > 0 && <span className="tabular">· {c.lapses} lapsos</span>}
                     {c.suspended && <Badge>suspendida</Badge>}
@@ -154,13 +167,13 @@ export default async function WordDetailPage({
             </ul>
             <h3 className="mt-6 mb-2 text-sm font-medium">Historial de repasos</h3>
             {logs.length === 0 ? (
-              <p className="text-sm text-ink-2">Todavía no hay repasos.</p>
+              <p className="text-ink-2 text-sm">Todavía no hay repasos.</p>
             ) : (
               <ul className="grid gap-1.5 text-sm">
                 {logs.map((l) => (
                   <li key={l.id} className="flex items-center justify-between gap-2">
                     <span className="tabular text-ink-2">{dateFmt.format(l.reviewedAt)}</span>
-                    <span className="truncate text-xs text-ink-2">{CARD_KIND_LABELS[l.card.kind]}</span>
+                    <span className="text-ink-2 truncate text-xs">{CARD_KIND_LABELS[l.card.kind]}</span>
                     <Badge tone={ratingTone[l.rating]}>{RATING_LABELS[l.rating]}</Badge>
                   </li>
                 ))}
@@ -175,7 +188,12 @@ export default async function WordDetailPage({
           <h2 id="edit-title" className="mb-4 font-serif text-2xl font-semibold">
             Editar
           </h2>
-          <WordForm action={updateWordAction.bind(null, word.id)} initial={wordToInput(word)} lessons={lessons} submitLabel="Guardar cambios" />
+          <WordForm
+            action={updateWordAction.bind(null, word.id)}
+            initial={wordToInput(word)}
+            lessons={lessons}
+            submitLabel="Guardar cambios"
+          />
         </section>
       )}
     </div>

@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { genderPractice, getQueue, getSummary, lessonPractice, submitReview, undoLastReview } from "@/modules/study";
+import {
+  genderPractice,
+  getQueue,
+  getSummary,
+  lessonPractice,
+  submitReview,
+  undoLastReview,
+} from "@/modules/study";
 import { listLeeches } from "@/modules/vocabulary";
 import { prisma } from "@/server/db";
 import { answer, globalWord, makeUser, patchSettings, studyAll } from "./helpers";
@@ -30,7 +37,9 @@ describe("cola diaria y límites", () => {
     const queue = await getQueue(user.id, now, 50);
     const levels = queue.map((q) => q.word.level);
     const starredWords = await prisma.word.count({ where: { scope: "global", starred: true } });
-    const firstWords = await prisma.word.findMany({ where: { id: { in: queue.slice(0, 10).map((q) => q.word.id) } } });
+    const firstWords = await prisma.word.findMany({
+      where: { id: { in: queue.slice(0, 10).map((q) => q.word.id) } },
+    });
     expect(starredWords).toBeGreaterThan(10);
     expect(firstWords.every((w) => w.starred)).toBe(true);
     expect(levels.every((l) => l === "A")).toBe(true);
@@ -42,7 +51,15 @@ describe("cola diaria y límites", () => {
     const cards = await prisma.card.findMany({ where: { userId: user.id, kind: "ES_TO_DE" }, take: 130 });
     await prisma.card.updateMany({
       where: { id: { in: cards.map((c) => c.id) } },
-      data: { state: "REVIEW", due: new Date(now.getTime() - 86_400_000), stability: 5, difficulty: 5, scheduledDays: 3, reps: 3, lastReview: new Date("2026-10-02T14:00:00Z") },
+      data: {
+        state: "REVIEW",
+        due: new Date(now.getTime() - 86_400_000),
+        stability: 5,
+        difficulty: 5,
+        scheduledDays: 3,
+        reps: 3,
+        lastReview: new Date("2026-10-02T14:00:00Z"),
+      },
     });
     const queue = await getQueue(user.id, now, 50);
     expect(queue.some((q) => q.card.state === "NEW")).toBe(false);
@@ -54,7 +71,15 @@ describe("cola diaria y límites", () => {
     await getSummary(user.id, now);
     const word = await globalWord("Bahnhof");
     const past = new Date(now.getTime() - 86_400_000);
-    const reviewState = { state: "REVIEW" as const, due: past, stability: 10, difficulty: 5, scheduledDays: 5, reps: 4, lastReview: new Date("2026-09-30T14:00:00Z") };
+    const reviewState = {
+      state: "REVIEW" as const,
+      due: past,
+      stability: 10,
+      difficulty: 5,
+      scheduledDays: 5,
+      reps: 4,
+      lastReview: new Date("2026-09-30T14:00:00Z"),
+    };
     await prisma.card.updateMany({ where: { userId: user.id, wordId: word.id }, data: reviewState });
     let queue = await getQueue(user.id, now, 50);
     const mine = queue.filter((q) => q.word.id === word.id);
@@ -68,7 +93,8 @@ describe("cola diaria y límites", () => {
     const user = await makeUser();
     await getSummary(user.id, now);
     const word = await globalWord("Bahnhof");
-    const isPluralQueued = async () => (await getQueue(user.id, now, 50)).some((q) => q.word.id === word.id && q.card.kind === "PLURAL");
+    const isPluralQueued = async () =>
+      (await getQueue(user.id, now, 50)).some((q) => q.word.id === word.id && q.card.kind === "PLURAL");
     await patchSettings(user.id, { newCardsPerDay: 30 });
     await prisma.card.updateMany({
       where: { userId: user.id, wordId: word.id, kind: "ES_TO_DE" },
@@ -137,10 +163,25 @@ describe("registrar, deshacer y rebeldes", () => {
     const word = await globalWord("Ampel");
     await prisma.card.updateMany({
       where: { userId: user.id, wordId: word.id, kind: "ES_TO_DE" },
-      data: { state: "REVIEW", due: new Date(now.getTime() - 3_600_000), stability: 2, difficulty: 8, scheduledDays: 2, reps: 12, lapses: 5, lastReview: new Date("2026-10-04T14:00:00Z") },
+      data: {
+        state: "REVIEW",
+        due: new Date(now.getTime() - 3_600_000),
+        stability: 2,
+        difficulty: 8,
+        scheduledDays: 2,
+        reps: 12,
+        lapses: 5,
+        lastReview: new Date("2026-10-04T14:00:00Z"),
+      },
     });
-    const card = await prisma.card.findFirstOrThrow({ where: { userId: user.id, wordId: word.id, kind: "ES_TO_DE" } });
-    const res = await submitReview(user.id, { cardId: card.id, rating: "AGAIN", typedAnswer: "die Ampl", durationMs: 3000 }, now);
+    const card = await prisma.card.findFirstOrThrow({
+      where: { userId: user.id, wordId: word.id, kind: "ES_TO_DE" },
+    });
+    const res = await submitReview(
+      user.id,
+      { cardId: card.id, rating: "AGAIN", typedAnswer: "die Ampl", durationMs: 3000 },
+      now,
+    );
     expect(res.isLeech).toBe(true);
     expect(res.becameLeech).toBe(true);
     expect(res.card.lapses).toBe(6);
@@ -173,6 +214,8 @@ describe("práctica libre", () => {
     const lesson = await lessonPractice(user.id, 13);
     expect(lesson.words.length).toBeGreaterThan(20);
     expect(await prisma.reviewLog.count({ where: { userId: user.id } })).toBe(logs);
-    expect(await prisma.card.findMany({ where: { userId: user.id }, orderBy: { id: "asc" } })).toEqual(snapshot);
+    expect(await prisma.card.findMany({ where: { userId: user.id }, orderBy: { id: "asc" } })).toEqual(
+      snapshot,
+    );
   });
 });

@@ -7,15 +7,22 @@ const fieldBase =
   "w-full rounded-md border border-field bg-surface px-3 text-ink placeholder:text-ink-2/70 transition-[border-color,box-shadow] duration-150 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/25 disabled:cursor-not-allowed disabled:opacity-60 aria-[invalid=true]:border-bad aria-[invalid=true]:ring-bad/20";
 
 export const Input = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
-  ({ className, ...props }, ref) => <input ref={ref} className={cn(fieldBase, "h-10 text-sm", className)} {...props} />,
+  ({ className, ...props }, ref) => (
+    <input ref={ref} className={cn(fieldBase, "h-10 text-sm", className)} {...props} />
+  ),
 );
 Input.displayName = "Input";
 
-export const Textarea = React.forwardRef<HTMLTextAreaElement, React.TextareaHTMLAttributes<HTMLTextAreaElement>>(
-  ({ className, ...props }, ref) => (
-    <textarea ref={ref} className={cn(fieldBase, "min-h-20 py-2 text-sm leading-relaxed", className)} {...props} />
-  ),
-);
+export const Textarea = React.forwardRef<
+  HTMLTextAreaElement,
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>
+>(({ className, ...props }, ref) => (
+  <textarea
+    ref={ref}
+    className={cn(fieldBase, "min-h-20 py-2 text-sm leading-relaxed", className)}
+    {...props}
+  />
+));
 Textarea.displayName = "Textarea";
 
 export const Select = React.forwardRef<HTMLSelectElement, React.SelectHTMLAttributes<HTMLSelectElement>>(
@@ -40,7 +47,7 @@ export const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
 >(({ className, ...props }, ref) => (
-  <LabelPrimitive.Root ref={ref} className={cn("text-sm font-medium text-ink", className)} {...props} />
+  <LabelPrimitive.Root ref={ref} className={cn("text-ink text-sm font-medium", className)} {...props} />
 ));
 Label.displayName = "Label";
 
@@ -65,12 +72,12 @@ export function Field({
       <Label htmlFor={htmlFor}>{label}</Label>
       {children}
       {hint && !error && (
-        <p id={`${htmlFor}-hint`} className="text-xs text-ink-2">
+        <p id={`${htmlFor}-hint`} className="text-ink-2 text-xs">
           {hint}
         </p>
       )}
       {error && (
-        <p id={`${htmlFor}-error`} className="flex items-center gap-1.5 text-xs text-bad" role="alert">
+        <p id={`${htmlFor}-error`} className="text-bad flex items-center gap-1.5 text-xs" role="alert">
           <AlertCircle className="size-3.5 shrink-0" aria-hidden />
           {error}
         </p>

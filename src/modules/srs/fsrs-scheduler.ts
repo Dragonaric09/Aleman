@@ -1,5 +1,12 @@
 // Único archivo que importa ts-fsrs. Mapea camelCase ↔ snake_case en un solo lugar.
-import { fsrs, generatorParameters, Rating as FsrsRating, State as FsrsState, type Card, type Grade } from "ts-fsrs";
+import {
+  fsrs,
+  generatorParameters,
+  Rating as FsrsRating,
+  State as FsrsState,
+  type Card,
+  type Grade,
+} from "ts-fsrs";
 import type { CardState, Rating } from "@/modules/vocabulary/shared";
 import { intervalLabel } from "./interval-label";
 import type { CardSnapshot, Scheduler, SchedulerOptions } from "./scheduler";
@@ -82,7 +89,9 @@ export function createFsrsScheduler(opts: SchedulerOptions): Scheduler {
       return out;
     },
     review(card, rating, now) {
-      return fromFsrs(clampInterval(f.next(toFsrs(card), now, RATING_TO_FSRS[rating]).card, now, opts.maximumIntervalDays));
+      return fromFsrs(
+        clampInterval(f.next(toFsrs(card), now, RATING_TO_FSRS[rating]).card, now, opts.maximumIntervalDays),
+      );
     },
   };
 }

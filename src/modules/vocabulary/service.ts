@@ -4,7 +4,14 @@ import { prisma, type Tx } from "@/server/db";
 import { AppError, forbidden, notFound } from "@/server/http";
 import { cardPlan, possibleCardKinds } from "./card-kinds";
 import { computePriority } from "./priority";
-import { findOwnWord, findVisibleWord, lessonIdByNumber, planSelect, visibleTo, wordWithLesson } from "./repository";
+import {
+  findOwnWord,
+  findVisibleWord,
+  lessonIdByNumber,
+  planSelect,
+  visibleTo,
+  wordWithLesson,
+} from "./repository";
 import { noteInputSchema, wordFiltersSchema, wordInputSchema, type WordInput } from "./schemas";
 import type { CardKind } from "./shared";
 
@@ -64,9 +71,16 @@ const syncSignatures = new Map<string, string>();
  * Crea las tarjetas que faltan para las palabras visibles del usuario según la tabla 7.1
  * y los tipos activados. Nunca borra ni modifica tarjetas existentes.
  */
-export async function syncCards(userId: string, opts: { wordIds?: string[]; force?: boolean } = {}, tx: Tx = prisma) {
+export async function syncCards(
+  userId: string,
+  opts: { wordIds?: string[]; force?: boolean } = {},
+  tx: Tx = prisma,
+) {
   const settings = await getSettings(userId, tx);
-  const where: Prisma.WordWhereInput = { ...visibleTo(userId), ...(opts.wordIds ? { id: { in: opts.wordIds } } : {}) };
+  const where: Prisma.WordWhereInput = {
+    ...visibleTo(userId),
+    ...(opts.wordIds ? { id: { in: opts.wordIds } } : {}),
+  };
 
   if (!opts.wordIds && !opts.force) {
     const agg = await tx.word.aggregate({ where, _count: true, _max: { updatedAt: true } });
@@ -78,7 +92,8 @@ export async function syncCards(userId: string, opts: { wordIds?: string[]; forc
   const words = await tx.word.findMany({ where, select: planSelect });
   const data: Prisma.CardCreateManyInput[] = [];
   for (const w of words) {
-    for (const kind of cardPlan(w, settings.enabledCardKinds).kinds) data.push({ userId, wordId: w.id, kind });
+    for (const kind of cardPlan(w, settings.enabledCardKinds).kinds)
+      data.push({ userId, wordId: w.id, kind });
   }
   if (!data.length) return 0;
   const res = await tx.card.createMany({ data, skipDuplicates: true });
@@ -179,7 +194,14 @@ export async function getWordDetail(userId: string, wordId: string) {
       where: { userId, card: { wordId } },
       orderBy: { reviewedAt: "desc" },
       take: 50,
-      select: { id: true, rating: true, verdict: true, reviewedAt: true, durationMs: true, card: { select: { kind: true } } },
+      select: {
+        id: true,
+        rating: true,
+        verdict: true,
+        reviewedAt: true,
+        durationMs: true,
+        card: { select: { kind: true } },
+      },
     }),
   ]);
   return { word, cards, note, logs, isOwn: word.scope === userId };
@@ -191,7 +213,10 @@ export async function listLeeches(userId: string) {
     orderBy: [{ lapses: "desc" }, { lastReview: "desc" }],
     include: {
       word: {
-        include: { ...wordWithLesson, notes: { where: { userId }, select: { mnemonic: true, ownSentence: true } } },
+        include: {
+          ...wordWithLesson,
+          notes: { where: { userId }, select: { mnemonic: true, ownSentence: true } },
+        },
       },
     },
   });
@@ -200,7 +225,9 @@ export async function listLeeches(userId: string) {
 // ───────────────────────────── Mutaciones ─────────────────────────────
 
 function isUniqueViolation(err: unknown) {
-  return typeof err === "object" && err !== null && "code" in err && (err as { code: string }).code === "P2002";
+  return (
+    typeof err === "object" && err !== null && "code" in err && (err as { code: string }).code === "P2002"
+  );
 }
 
 export async function createWord(userId: string, raw: unknown) {
@@ -213,7 +240,8 @@ export async function createWord(userId: string, raw: unknown) {
       return word;
     });
   } catch (err) {
-    if (isUniqueViolation(err)) throw new AppError(409, "DUPLICATE", "Ya tienes una palabra con ese lema y tipo");
+    if (isUniqueViolation(err))
+      throw new AppError(409, "DUPLICATE", "Ya tienes una palabra con ese lema y tipo");
     throw err;
   }
 }
@@ -222,7 +250,8 @@ export async function updateWord(userId: string, wordId: string, raw: unknown) {
   const input = wordInputSchema.parse(raw);
   const existing = await findVisibleWord(userId, wordId);
   if (!existing) throw notFound("Palabra no encontrada");
-  if (existing.scope !== userId) throw forbidden("Las palabras del catálogo global no se editan: crea una copia propia");
+  if (existing.scope !== userId)
+    throw forbidden("Las palabras del catálogo global no se editan: crea una copia propia");
   try {
     return await prisma.$transaction(async (tx) => {
       const lessonId = await requireLesson(tx, input.lessonNumber);
@@ -234,7 +263,8 @@ export async function updateWord(userId: string, wordId: string, raw: unknown) {
       return word;
     });
   } catch (err) {
-    if (isUniqueViolation(err)) throw new AppError(409, "DUPLICATE", "Ya tienes una palabra con ese lema y tipo");
+    if (isUniqueViolation(err))
+      throw new AppError(409, "DUPLICATE", "Ya tienes una palabra con ese lema y tipo");
     throw err;
   }
 }

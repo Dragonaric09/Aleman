@@ -4,27 +4,27 @@ import { ThemeToggle } from "@/components/layout/theme-toggle";
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="grid min-h-dvh lg:grid-cols-[1.1fr_1fr]">
-      <aside className="relative hidden overflow-hidden border-r border-line bg-surface-2 lg:flex lg:flex-col lg:justify-between lg:p-12">
+      <aside className="border-line bg-surface-2 relative hidden overflow-hidden border-r lg:flex lg:flex-col lg:justify-between lg:p-12">
         <Wordmark />
         <div className="max-w-md">
           <p className="font-serif text-5xl leading-[1.05] font-medium tracking-tight text-balance">
-            Cada palabra, <span className="italic text-accent">justo antes</span> de olvidarla.
+            Cada palabra, <span className="text-accent italic">justo antes</span> de olvidarla.
           </p>
-          <p className="mt-5 text-ink-2">
+          <p className="text-ink-2 mt-5">
             Recuperación activa y repaso espaciado para el vocabulario de tus lecciones 13–16 de alemán.
           </p>
         </div>
         <dl lang="de" className="grid grid-cols-3 gap-3 font-serif text-lg" aria-label="Ejemplos de género">
-          <div className="rounded-md border border-line bg-surface p-3">
-            <dt className="text-sm font-semibold text-der-text">der</dt>
+          <div className="border-line bg-surface rounded-md border p-3">
+            <dt className="text-der-text text-sm font-semibold">der</dt>
             <dd>Bahnhof</dd>
           </div>
-          <div className="rounded-md border border-line bg-surface p-3">
-            <dt className="text-sm font-semibold text-die-text">die</dt>
+          <div className="border-line bg-surface rounded-md border p-3">
+            <dt className="text-die-text text-sm font-semibold">die</dt>
             <dd>Ampel</dd>
           </div>
-          <div className="rounded-md border border-line bg-surface p-3">
-            <dt className="text-sm font-semibold text-das-text">das</dt>
+          <div className="border-line bg-surface rounded-md border p-3">
+            <dt className="text-das-text text-sm font-semibold">das</dt>
             <dd>Zimmer</dd>
           </div>
         </dl>

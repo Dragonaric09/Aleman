@@ -16,13 +16,16 @@ const VERDICT = {
 export function Diff({ typed, expected }: { typed: string; expected: string }) {
   const parts = charDiff(typed, expected);
   return (
-    <p className="font-mono text-sm break-words" aria-label={`Escribiste «${typed}»; se esperaba «${expected}»`}>
+    <p
+      className="font-mono text-sm break-words"
+      aria-label={`Escribiste «${typed}»; se esperaba «${expected}»`}
+    >
       {parts.map((p, i) => (
         <span
           key={i}
           className={cn(
-            p.type === "missing" && "rounded-[3px] bg-ok/15 text-ok underline decoration-dotted",
-            p.type === "extra" && "rounded-[3px] bg-bad/15 text-bad line-through",
+            p.type === "missing" && "bg-ok/15 text-ok rounded-[3px] underline decoration-dotted",
+            p.type === "extra" && "bg-bad/15 text-bad rounded-[3px] line-through",
           )}
         >
           {p.text}
@@ -52,7 +55,11 @@ export function AnswerFeedback({
   const showDiff = (verdict === "ALMOST" || verdict === "WRONG") && typed && item.card.kind !== "DE_TO_ES";
 
   return (
-    <section role="status" aria-live="polite" className={cn("animate-rise rounded-lg border p-4 sm:p-5", v.box)}>
+    <section
+      role="status"
+      aria-live="polite"
+      className={cn("animate-rise rounded-lg border p-4 sm:p-5", v.box)}
+    >
       <div className={cn("mb-3 flex items-center gap-2 font-medium", v.text)}>
         <Icon className="size-5" aria-hidden />
         {v.label}
@@ -73,22 +80,23 @@ export function AnswerFeedback({
             </p>
           )}
           {w.type === "NOUN" && item.card.kind !== "PLURAL" && (
-            <span lang="de" className="text-sm text-ink-2">
-              Plural: {w.noPlural ? "sin plural" : <span className="text-plural-text">die {w.pluralForm}</span>}
+            <span lang="de" className="text-ink-2 text-sm">
+              Plural:{" "}
+              {w.noPlural ? "sin plural" : <span className="text-plural-text">die {w.pluralForm}</span>}
             </span>
           )}
           {w.type === "VERB" && w.perfekt && item.card.kind !== "VERB_FORMS" && (
-            <span lang="de" className="text-sm text-ink-2">
+            <span lang="de" className="text-ink-2 text-sm">
               {w.thirdPerson} · {w.perfekt}
             </span>
           )}
         </div>
 
-        {item.card.kind !== "DE_TO_ES" && <p className="text-sm text-ink-2">{w.translationEs}</p>}
+        {item.card.kind !== "DE_TO_ES" && <p className="text-ink-2 text-sm">{w.translationEs}</p>}
         {showDiff && <Diff typed={typed} expected={expected} />}
 
         {(w.exampleDe || w.exampleEs) && (
-          <blockquote className="border-l-2 border-accent/60 pl-3 text-sm">
+          <blockquote className="border-accent/60 border-l-2 pl-3 text-sm">
             {w.exampleDe && (
               <p lang="de" className="font-serif text-base italic">
                 {w.exampleDe}
@@ -99,7 +107,7 @@ export function AnswerFeedback({
         )}
 
         {w.isFalseFriend && w.falseFriendNote && (
-          <p className="flex gap-2 rounded-md border border-almost/30 bg-almost-bg px-3 py-2 text-sm text-almost">
+          <p className="border-almost/30 bg-almost-bg text-almost flex gap-2 rounded-md border px-3 py-2 text-sm">
             <AlertTriangle className="mt-0.5 size-4 shrink-0" aria-hidden />
             <span>
               <strong>Falso amigo:</strong> {w.falseFriendNote}
@@ -109,7 +117,7 @@ export function AnswerFeedback({
 
         {item.note?.mnemonic && (
           <p className="flex gap-2 text-sm">
-            <Lightbulb className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden />
+            <Lightbulb className="text-accent mt-0.5 size-4 shrink-0" aria-hidden />
             <span>{item.note.mnemonic}</span>
           </p>
         )}

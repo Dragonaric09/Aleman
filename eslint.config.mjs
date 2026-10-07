@@ -34,7 +34,9 @@ const config = [
       "no-restricted-imports": [
         "error",
         {
-          paths: [{ name: "ts-fsrs", message: "ts-fsrs solo se importa en src/modules/srs/fsrs-scheduler.ts." }],
+          paths: [
+            { name: "ts-fsrs", message: "ts-fsrs solo se importa en src/modules/srs/fsrs-scheduler.ts." },
+          ],
           patterns: [
             {
               group: ["@/modules/*/*", "!@/modules/*/shared"],
@@ -51,10 +53,18 @@ const config = [
       "no-restricted-imports": [
         "error",
         {
-          paths: [{ name: "ts-fsrs", message: "ts-fsrs solo se importa en src/modules/srs/fsrs-scheduler.ts." }],
+          paths: [
+            { name: "ts-fsrs", message: "ts-fsrs solo se importa en src/modules/srs/fsrs-scheduler.ts." },
+          ],
           patterns: [
-            { group: ["@prisma/client", "@prisma/client/*"], message: "La UI no importa Prisma: usa los servicios de src/modules." },
-            { group: ["@/server/db", "**/server/db"], message: "La UI no importa la base de datos: usa los servicios de src/modules." },
+            {
+              group: ["@prisma/client", "@prisma/client/*"],
+              message: "La UI no importa Prisma: usa los servicios de src/modules.",
+            },
+            {
+              group: ["@/server/db", "**/server/db"],
+              message: "La UI no importa la base de datos: usa los servicios de src/modules.",
+            },
             {
               group: ["@/modules/*/*", "!@/modules/*/shared"],
               message: "Importa solo la API pública del módulo (index.ts) o su API de cliente (shared.ts).",

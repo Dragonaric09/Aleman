@@ -5,7 +5,9 @@ export const MAX_CSV_BYTES = 2 * 1024 * 1024;
 export const MAX_JSON_BYTES = 20 * 1024 * 1024;
 export const RESTORE_CONFIRMATION = "RESTAURAR";
 
-export const exportFormatSchema = z.enum(["csv", "anki", "json"], { message: "formato inválido (csv, anki o json)" });
+export const exportFormatSchema = z.enum(["csv", "anki", "json"], {
+  message: "formato inválido (csv, anki o json)",
+});
 
 /** Referencia estable a una palabra (los ids pueden cambiar entre instalaciones). */
 const wordRef = z.object({

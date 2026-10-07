@@ -1,5 +1,11 @@
 export * from "./shared";
-export { buildQueue, isEligibleNew, LEARNING_LOOKAHEAD_MS, type BuildQueueInput, type QueueCard } from "./queue";
+export {
+  buildQueue,
+  isEligibleNew,
+  LEARNING_LOOKAHEAD_MS,
+  type BuildQueueInput,
+  type QueueCard,
+} from "./queue";
 export { studyDay, dayBounds, shiftDay, dayRange } from "./study-day";
 export {
   getSummary,

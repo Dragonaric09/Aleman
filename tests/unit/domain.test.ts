@@ -3,10 +3,23 @@ import { computeStreak } from "@/modules/stats/streak";
 import { dayBounds, dayRange, shiftDay, studyDay } from "@/modules/study/study-day";
 import { cardPlan, possibleCardKinds, type CardKindWord } from "@/modules/vocabulary/card-kinds";
 import { compareForIntroduction, computePriority } from "@/modules/vocabulary/priority";
-import { CARD_KINDS, citationForm, displayLemma, splitAlternatives, typeHint } from "@/modules/vocabulary/shared";
+import {
+  CARD_KINDS,
+  citationForm,
+  displayLemma,
+  splitAlternatives,
+  typeHint,
+} from "@/modules/vocabulary/shared";
 
 describe("computePriority (7.2)", () => {
-  const base = { level: "A" as const, starred: false, isFalseFriend: false, isCognate: false, sources: [], frequencyRank: null };
+  const base = {
+    level: "A" as const,
+    starred: false,
+    isFalseFriend: false,
+    isCognate: false,
+    sources: [],
+    frequencyRank: null,
+  };
   it("base por nivel", () => {
     expect(computePriority(base)).toBe(300);
     expect(computePriority({ ...base, level: "B" })).toBe(200);
@@ -14,7 +27,14 @@ describe("computePriority (7.2)", () => {
   });
   it("bonificaciones y penalizaciones", () => {
     expect(
-      computePriority({ ...base, starred: true, isFalseFriend: true, isCognate: true, sources: ["a", "b", "c", "d", "e"], frequencyRank: 500 }),
+      computePriority({
+        ...base,
+        starred: true,
+        isFalseFriend: true,
+        isCognate: true,
+        sources: ["a", "b", "c", "d", "e"],
+        frequencyRank: 500,
+      }),
     ).toBe(300 + 50 + 20 - 20 + 20 + 10);
     expect(computePriority({ ...base, frequencyRank: 2000 })).toBe(300);
   });
@@ -22,8 +42,20 @@ describe("computePriority (7.2)", () => {
     const aStar = computePriority({ ...base, starred: true, isCognate: true, sources: ["1", "2", "3"] });
     const aMax = computePriority({ ...base, isFalseFriend: true, sources: ["1", "2", "3", "4"] });
     const aMin = computePriority({ ...base, isCognate: true });
-    const bMax = computePriority({ ...base, level: "B", isFalseFriend: true, sources: ["1", "2", "3", "4"], frequencyRank: 1 });
-    const cMax = computePriority({ ...base, level: "C", isFalseFriend: true, sources: ["1", "2", "3", "4"], frequencyRank: 1 });
+    const bMax = computePriority({
+      ...base,
+      level: "B",
+      isFalseFriend: true,
+      sources: ["1", "2", "3", "4"],
+      frequencyRank: 1,
+    });
+    const cMax = computePriority({
+      ...base,
+      level: "C",
+      isFalseFriend: true,
+      sources: ["1", "2", "3", "4"],
+      frequencyRank: 1,
+    });
     expect(aStar).toBeGreaterThan(aMax);
     expect(aMin).toBeGreaterThan(bMax);
     expect(computePriority({ ...base, level: "B", isCognate: true })).toBeGreaterThan(cMax);
@@ -57,14 +89,27 @@ describe("tipos de tarjeta (7.1)", () => {
   };
   it("sustantivo: ES_TO_DE, DE_TO_ES, PLURAL (sin plural → sin tarjeta PLURAL)", () => {
     expect(possibleCardKinds(noun)).toEqual(["ES_TO_DE", "DE_TO_ES", "PLURAL"]);
-    expect(possibleCardKinds({ ...noun, noPlural: true, pluralForm: null })).toEqual(["ES_TO_DE", "DE_TO_ES"]);
+    expect(possibleCardKinds({ ...noun, noPlural: true, pluralForm: null })).toEqual([
+      "ES_TO_DE",
+      "DE_TO_ES",
+    ]);
   });
   it("verbo: VERB_FORMS solo si irregular, separable o con SEIN; SEPARABLE_ORDER si separable con ejemplo", () => {
-    const verb = { ...noun, type: "VERB" as const, pluralForm: null, thirdPerson: "macht", perfekt: "hat gemacht" };
+    const verb = {
+      ...noun,
+      type: "VERB" as const,
+      pluralForm: null,
+      thirdPerson: "macht",
+      perfekt: "hat gemacht",
+    };
     expect(possibleCardKinds(verb)).toEqual(["ES_TO_DE", "DE_TO_ES"]);
     expect(possibleCardKinds({ ...verb, isIrregular: true })).toContain("VERB_FORMS");
     expect(possibleCardKinds({ ...verb, auxiliary: "SEIN" })).toContain("VERB_FORMS");
-    expect(possibleCardKinds({ ...verb, separablePrefix: "ab" })).toEqual(["ES_TO_DE", "DE_TO_ES", "VERB_FORMS"]);
+    expect(possibleCardKinds({ ...verb, separablePrefix: "ab" })).toEqual([
+      "ES_TO_DE",
+      "DE_TO_ES",
+      "VERB_FORMS",
+    ]);
     expect(possibleCardKinds({ ...verb, separablePrefix: "ab", exampleDe: "Sie biegen ab." })).toEqual([
       "ES_TO_DE",
       "DE_TO_ES",
@@ -73,14 +118,23 @@ describe("tipos de tarjeta (7.1)", () => {
     ]);
   });
   it("expresión: CLOZE principal; nivel C: solo DE_TO_ES; resto: ES_TO_DE y DE_TO_ES", () => {
-    expect(possibleCardKinds({ ...noun, type: "EXPRESSION", clozeText: "Wie {{komme}} ich?" })).toEqual(["CLOZE", "DE_TO_ES"]);
+    expect(possibleCardKinds({ ...noun, type: "EXPRESSION", clozeText: "Wie {{komme}} ich?" })).toEqual([
+      "CLOZE",
+      "DE_TO_ES",
+    ]);
     expect(possibleCardKinds({ ...noun, type: "EXPRESSION" })).toEqual(["DE_TO_ES"]);
     expect(possibleCardKinds({ ...noun, level: "C" })).toEqual(["DE_TO_ES"]);
     expect(possibleCardKinds({ ...noun, type: "ADJECTIVE" })).toEqual(["ES_TO_DE", "DE_TO_ES"]);
   });
   it("cardPlan filtra por tipos activados; la principal es la primera activada", () => {
-    expect(cardPlan(noun, CARD_KINDS)).toEqual({ primary: "ES_TO_DE", kinds: ["ES_TO_DE", "DE_TO_ES", "PLURAL"] });
-    expect(cardPlan(noun, ["DE_TO_ES", "PLURAL"])).toEqual({ primary: "DE_TO_ES", kinds: ["DE_TO_ES", "PLURAL"] });
+    expect(cardPlan(noun, CARD_KINDS)).toEqual({
+      primary: "ES_TO_DE",
+      kinds: ["ES_TO_DE", "DE_TO_ES", "PLURAL"],
+    });
+    expect(cardPlan(noun, ["DE_TO_ES", "PLURAL"])).toEqual({
+      primary: "DE_TO_ES",
+      kinds: ["DE_TO_ES", "PLURAL"],
+    });
     expect(cardPlan(noun, ["CLOZE"])).toEqual({ primary: null, kinds: [] });
   });
 });
@@ -109,8 +163,13 @@ describe("día de estudio (7.3)", () => {
 
 describe("racha", () => {
   it("cuenta días consecutivos con al menos un repaso; un día sin repasos la reinicia", () => {
-    expect(computeStreak(["2026-10-04", "2026-10-05", "2026-10-06"], "2026-10-06")).toEqual({ current: 3, max: 3 });
-    expect(computeStreak(["2026-10-01", "2026-10-02", "2026-10-03", "2026-10-05", "2026-10-06"], "2026-10-06")).toEqual({
+    expect(computeStreak(["2026-10-04", "2026-10-05", "2026-10-06"], "2026-10-06")).toEqual({
+      current: 3,
+      max: 3,
+    });
+    expect(
+      computeStreak(["2026-10-01", "2026-10-02", "2026-10-03", "2026-10-05", "2026-10-06"], "2026-10-06"),
+    ).toEqual({
       current: 2,
       max: 3,
     });

@@ -11,7 +11,11 @@ export default async function SettingsPage() {
   const settings = await getSettings(user.id);
   return (
     <>
-      <PageHeader eyebrow={user.email} title="Ajustes" description="Los valores por defecto son puntos de partida razonables: ajústalos con tu experiencia." />
+      <PageHeader
+        eyebrow={user.email}
+        title="Ajustes"
+        description="Los valores por defecto son puntos de partida razonables: ajústalos con tu experiencia."
+      />
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
         <SettingsForm settings={settings} />
         <div className="lg:sticky lg:top-20 lg:self-start">

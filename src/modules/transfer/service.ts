@@ -16,7 +16,11 @@ export interface ImportReport {
  * Importa un CSV a las palabras propias del usuario (upsert por scope, lema y tipo).
  * Con dryRun = true no guarda nada: solo devuelve la vista previa y los errores por fila.
  */
-export async function importVocabularyCsv(userId: string, text: string, dryRun: boolean): Promise<ImportReport> {
+export async function importVocabularyCsv(
+  userId: string,
+  text: string,
+  dryRun: boolean,
+): Promise<ImportReport> {
   const parsed = parseVocabularyCsv(text);
   const errors = [...parsed.errors];
 
@@ -58,7 +62,10 @@ export async function importVocabularyCsv(userId: string, text: string, dryRun: 
     async (tx) => {
       const ids: string[] = [];
       for (const { word } of rows) {
-        const data = toWordData(word, word.lessonNumber != null ? (lessonIds.get(word.lessonNumber) ?? null) : null);
+        const data = toWordData(
+          word,
+          word.lessonNumber != null ? (lessonIds.get(word.lessonNumber) ?? null) : null,
+        );
         const id = existingIds.get(`${word.lemma}\u0000${word.type}`);
         if (id) {
           await tx.word.update({ where: { id }, data });

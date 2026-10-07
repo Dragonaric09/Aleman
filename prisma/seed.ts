@@ -40,7 +40,9 @@ async function main() {
   }
 
   console.log(`Lecciones: ${lessons.rows.length}`);
-  console.log(`Palabras: ${counts.created} creadas, ${counts.updated} actualizadas, ${counts.unchanged} sin cambios`);
+  console.log(
+    `Palabras: ${counts.created} creadas, ${counts.updated} actualizadas, ${counts.unchanged} sin cambios`,
+  );
   for (const [key, e] of [...summary].sort()) {
     if (e.created || e.updated) console.log(`  ${key}: ${e.created} creadas, ${e.updated} actualizadas`);
   }

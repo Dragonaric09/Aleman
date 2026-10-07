@@ -85,7 +85,11 @@ function parseTable(text: string): string[][] {
   return result.data;
 }
 
-const cellError = (row: number, header: string, message: string): RowError => ({ row, field: header, message });
+const cellError = (row: number, header: string, message: string): RowError => ({
+  row,
+  field: header,
+  message,
+});
 
 /** Convierte una fila de texto en la entrada cruda del esquema; acumula errores de formato. */
 function rowToRaw(cells: Record<string, string>, row: number, errors: RowError[]): WordInputRaw {
@@ -169,7 +173,11 @@ export function parseVocabularyCsv(text: string): ParsedVocabulary {
     const rowNumber = i + 2;
     if (cells.length !== normalizedHeader.length) {
       errors.push(
-        cellError(rowNumber, "fila", `tiene ${cells.length} columnas y se esperaban ${normalizedHeader.length}`),
+        cellError(
+          rowNumber,
+          "fila",
+          `tiene ${cells.length} columnas y se esperaban ${normalizedHeader.length}`,
+        ),
       );
       return;
     }
@@ -267,7 +275,8 @@ export function parseLessonsCsv(text: string): { rows: LessonRow[]; errors: RowE
       sortOrder: cells[3],
     });
     if (!parsed.success) {
-      for (const issue of parsed.error.issues) errors.push(cellError(i + 2, String(issue.path[0]), issue.message));
+      for (const issue of parsed.error.issues)
+        errors.push(cellError(i + 2, String(issue.path[0]), issue.message));
     } else rows.push(parsed.data);
   });
   return { rows, errors };

@@ -65,10 +65,25 @@ describe("intervalLabel", () => {
 });
 
 describe("rebeldes", () => {
-  const base = { stateBefore: "REVIEW" as const, rating: "AGAIN" as const, wasLeech: false, wasSuspended: false, threshold: 6, autoSuspend: false };
+  const base = {
+    stateBefore: "REVIEW" as const,
+    rating: "AGAIN" as const,
+    wasLeech: false,
+    wasSuspended: false,
+    threshold: 6,
+    autoSuspend: false,
+  };
   it("al llegar a 6 lapses se marca rebelde", () => {
-    expect(applyLeechRules({ ...base, lapsesAfter: 5 })).toEqual({ isLeech: false, suspended: false, becameLeech: false });
-    expect(applyLeechRules({ ...base, lapsesAfter: 6 })).toEqual({ isLeech: true, suspended: false, becameLeech: true });
+    expect(applyLeechRules({ ...base, lapsesAfter: 5 })).toEqual({
+      isLeech: false,
+      suspended: false,
+      becameLeech: false,
+    });
+    expect(applyLeechRules({ ...base, lapsesAfter: 6 })).toEqual({
+      isLeech: true,
+      suspended: false,
+      becameLeech: true,
+    });
   });
   it("con autosuspensión, la tarjeta se suspende", () => {
     expect(applyLeechRules({ ...base, lapsesAfter: 6, autoSuspend: true }).suspended).toBe(true);
@@ -78,7 +93,11 @@ describe("rebeldes", () => {
     expect(applyLeechRules({ ...base, rating: "GOOD", lapsesAfter: 9 }).isLeech).toBe(false);
   });
   it("una rebelde sigue siéndolo", () => {
-    expect(applyLeechRules({ ...base, wasLeech: true, lapsesAfter: 7 })).toEqual({ isLeech: true, suspended: false, becameLeech: false });
+    expect(applyLeechRules({ ...base, wasLeech: true, lapsesAfter: 7 })).toEqual({
+      isLeech: true,
+      suspended: false,
+      becameLeech: false,
+    });
     expect(applyLeechRules({ ...base, rating: "GOOD", wasLeech: true, lapsesAfter: 7 }).isLeech).toBe(true);
   });
 });

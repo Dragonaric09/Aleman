@@ -1,5 +1,13 @@
 import { z } from "zod";
-import { AUXILIARIES, GENDERS, GOETHE_LEVELS, LEVELS, WORD_TYPES, normalizeText, splitAlternatives } from "./shared";
+import {
+  AUXILIARIES,
+  GENDERS,
+  GOETHE_LEVELS,
+  LEVELS,
+  WORD_TYPES,
+  normalizeText,
+  splitAlternatives,
+} from "./shared";
 
 /** Texto normalizado (NFC, sin espacios sobrantes); vacío → null. */
 const optText = (max = 500) =>
@@ -36,7 +44,10 @@ export const wordInputSchema = z
   .object({
     lemma: reqText(200),
     type: z.enum(WORD_TYPES, { message: "tipo de palabra inválido" }),
-    gender: z.enum(GENDERS, { message: "género inválido" }).nullish().transform((v) => v ?? null),
+    gender: z
+      .enum(GENDERS, { message: "género inválido" })
+      .nullish()
+      .transform((v) => v ?? null),
     pluralSuffix: optText(20),
     pluralForm: optText(100),
     noPlural: z.boolean().default(false),
@@ -46,9 +57,22 @@ export const wordInputSchema = z
     clozeText: optText(),
     level: z.enum(LEVELS, { message: "nivel inválido (A, B o C)" }),
     starred: z.boolean().default(false),
-    goetheLevel: z.enum(GOETHE_LEVELS, { message: "nivel Goethe inválido" }).nullish().transform((v) => v ?? null),
-    frequencyRank: z.number().int().positive("debe ser un entero positivo").nullish().transform((v) => v ?? null),
-    lessonNumber: z.number().int().positive().nullish().transform((v) => v ?? null),
+    goetheLevel: z
+      .enum(GOETHE_LEVELS, { message: "nivel Goethe inválido" })
+      .nullish()
+      .transform((v) => v ?? null),
+    frequencyRank: z
+      .number()
+      .int()
+      .positive("debe ser un entero positivo")
+      .nullish()
+      .transform((v) => v ?? null),
+    lessonNumber: z
+      .number()
+      .int()
+      .positive()
+      .nullish()
+      .transform((v) => v ?? null),
     sources: textList,
     isCognate: z.boolean().default(false),
     isFalseFriend: z.boolean().default(false),
@@ -56,7 +80,10 @@ export const wordInputSchema = z
     separablePrefix: optText(20),
     thirdPerson: optText(100),
     perfekt: optText(100),
-    auxiliary: z.enum(AUXILIARIES, { message: "auxiliar inválido" }).nullish().transform((v) => v ?? null),
+    auxiliary: z
+      .enum(AUXILIARIES, { message: "auxiliar inválido" })
+      .nullish()
+      .transform((v) => v ?? null),
     isIrregular: z.boolean().default(false),
     governsCase: optText(30),
     tags: textList,
@@ -86,7 +113,8 @@ export const wordInputSchema = z
 
     if (w.type === "EXPRESSION") {
       if (!w.clozeText) issue("clozeText", "una expresión necesita la frase con hueco {{...}}");
-      else if (clozeGaps(w.clozeText).length !== 1) issue("clozeText", "la frase debe tener exactamente un hueco {{...}}");
+      else if (clozeGaps(w.clozeText).length !== 1)
+        issue("clozeText", "la frase debe tener exactamente un hueco {{...}}");
     }
     if (w.clozeText && w.type !== "EXPRESSION" && clozeGaps(w.clozeText).length !== 1) {
       issue("clozeText", "la frase debe tener exactamente un hueco {{...}}");

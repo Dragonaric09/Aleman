@@ -27,7 +27,11 @@ export function handleRouteError(err: unknown) {
   if (err instanceof AppError) return errorResponse(err.status, err.code, err.message);
   if (err instanceof ZodError) {
     const first = err.issues[0];
-    return errorResponse(400, "VALIDATION", first ? `${first.path.join(".") || "entrada"}: ${first.message}` : "Entrada inválida");
+    return errorResponse(
+      400,
+      "VALIDATION",
+      first ? `${first.path.join(".") || "entrada"}: ${first.message}` : "Entrada inválida",
+    );
   }
   logger.error({ err }, "error no controlado en route handler");
   return errorResponse(500, "INTERNAL", "Ocurrió un error inesperado");

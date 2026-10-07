@@ -75,7 +75,11 @@ describe("buildQueue", () => {
     const q = buildQueue(
       input({
         learningDue: [card("LEARNING", "a", min(-1))],
-        reviewDue: [card("REVIEW", "a", min(-10)), card("REVIEW", "b", min(-10)), card("REVIEW", "b", min(-9))],
+        reviewDue: [
+          card("REVIEW", "a", min(-10)),
+          card("REVIEW", "b", min(-10)),
+          card("REVIEW", "b", min(-9)),
+        ],
         newCandidates: [card("NEW", "a"), card("NEW", "b"), card("NEW", "c")],
       }),
     );
@@ -89,7 +93,11 @@ describe("buildQueue", () => {
     const learning = card("LEARNING", "w", min(-1));
     const sibling = card("RELEARNING", "w", min(-1));
     const q = buildQueue(
-      input({ learningDue: [learning, sibling], wordsSeenToday: new Set(["w"]), cardsSeenToday: new Set([learning.id]) }),
+      input({
+        learningDue: [learning, sibling],
+        wordsSeenToday: new Set(["w"]),
+        cardsSeenToday: new Set([learning.id]),
+      }),
     );
     expect(q).toEqual([learning]);
   });

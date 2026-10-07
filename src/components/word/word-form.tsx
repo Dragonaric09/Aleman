@@ -86,7 +86,8 @@ export function WordForm({
 }) {
   const [state, formAction, pending] = useActionState<ActionState, FormData>(action, {});
   const [v, setV] = useState<WordFormValues>({ ...EMPTY, ...initial });
-  const set = <K extends keyof WordFormValues>(k: K, value: WordFormValues[K]) => setV((s) => ({ ...s, [k]: value }));
+  const set = <K extends keyof WordFormValues>(k: K, value: WordFormValues[K]) =>
+    setV((s) => ({ ...s, [k]: value }));
   const fe = state.fieldErrors ?? {};
   const err = (k: string) => fe[k];
   const isNoun = v.type === "NOUN";
@@ -94,7 +95,12 @@ export function WordForm({
   const isExpr = v.type === "EXPRESSION";
 
   const kinds = useMemo(() => possibleCardKinds({ ...v, pluralForm: v.noPlural ? null : v.pluralForm }), [v]);
-  const previewWord = { ...v, lemma: v.lemma || "…", translationEs: v.translationEs || "…", isFalseFriend: v.isFalseFriend };
+  const previewWord = {
+    ...v,
+    lemma: v.lemma || "…",
+    translationEs: v.translationEs || "…",
+    isFalseFriend: v.isFalseFriend,
+  };
   const firstKind = kinds[0]!;
   const prompt = buildPrompt(firstKind, previewWord);
 
@@ -102,7 +108,8 @@ export function WordForm({
     id: k,
     name: k,
     value: (v[k] as string | null) ?? "",
-    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => set(k, e.target.value as never),
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      set(k, e.target.value as never),
     "aria-invalid": !!err(k) || undefined,
     "aria-describedby": err(k) ? `${k}-error` : undefined,
   });
@@ -118,7 +125,12 @@ export function WordForm({
         <Card className="grid gap-5 p-5">
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="Tipo de palabra" htmlFor="type" error={err("type")}>
-              <Select id="type" name="type" value={v.type} onChange={(e) => set("type", e.target.value as WordType)}>
+              <Select
+                id="type"
+                name="type"
+                value={v.type}
+                onChange={(e) => set("type", e.target.value as WordType)}
+              >
                 {WORD_TYPES.map((t) => (
                   <option key={t} value={t}>
                     {WORD_TYPE_LABELS[t]}
@@ -130,14 +142,22 @@ export function WordForm({
               label="Lema (alemán)"
               htmlFor="lemma"
               error={err("lemma")}
-              hint={isNoun ? "Sin artículo y con mayúscula: Bahnhof" : isVerb ? "Separables con barra: ab|biegen" : isExpr ? "Wie komme ich zum ...?" : undefined}
+              hint={
+                isNoun
+                  ? "Sin artículo y con mayúscula: Bahnhof"
+                  : isVerb
+                    ? "Separables con barra: ab|biegen"
+                    : isExpr
+                      ? "Wie komme ich zum ...?"
+                      : undefined
+              }
             >
               <Input {...text("lemma")} lang="de" required autoComplete="off" />
             </Field>
           </div>
 
           {isNoun && (
-            <fieldset className="grid gap-5 rounded-md border border-line p-4">
+            <fieldset className="border-line grid gap-5 rounded-md border p-4">
               <legend className="px-1 text-sm font-medium">Sustantivo</legend>
               <div className="grid gap-1.5">
                 <span className="text-sm font-medium" id="gender-label">
@@ -147,15 +167,22 @@ export function WordForm({
                   {(["DER", "DIE", "DAS"] as const).map((g) => (
                     <label
                       key={g}
-                      className="flex cursor-pointer items-center gap-2 rounded-md border border-line-strong px-3 py-2 has-[:checked]:border-accent has-[:checked]:ring-2 has-[:checked]:ring-accent/25"
+                      className="border-line-strong has-[:checked]:border-accent has-[:checked]:ring-accent/25 flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 has-[:checked]:ring-2"
                     >
-                      <input type="radio" name="gender" value={g} checked={v.gender === g} onChange={() => set("gender", g)} className="sr-only" />
+                      <input
+                        type="radio"
+                        name="gender"
+                        value={g}
+                        checked={v.gender === g}
+                        onChange={() => set("gender", g)}
+                        className="sr-only"
+                      />
                       <GenderBadge gender={g} />
                     </label>
                   ))}
                 </div>
                 {err("gender") && (
-                  <p className="text-xs text-bad" role="alert">
+                  <p className="text-bad text-xs" role="alert">
                     {err("gender")}
                   </p>
                 )}
@@ -164,21 +191,37 @@ export function WordForm({
                 <Field label="Sufijo" htmlFor="pluralSuffix" hint="-¨e, -n, -s…">
                   <Input {...text("pluralSuffix")} disabled={v.noPlural} />
                 </Field>
-                <Field label="Plural" htmlFor="pluralForm" error={err("pluralForm")} hint="Forma completa: Bahnhöfe">
+                <Field
+                  label="Plural"
+                  htmlFor="pluralForm"
+                  error={err("pluralForm")}
+                  hint="Forma completa: Bahnhöfe"
+                >
                   <Input {...text("pluralForm")} lang="de" disabled={v.noPlural} />
                 </Field>
               </div>
               <label className="flex items-center gap-2 text-sm">
-                <input type="checkbox" name="noPlural" checked={v.noPlural} onChange={(e) => set("noPlural", e.target.checked)} className="size-4 accent-[var(--accent)]" />
+                <input
+                  type="checkbox"
+                  name="noPlural"
+                  checked={v.noPlural}
+                  onChange={(e) => set("noPlural", e.target.checked)}
+                  className="size-4 accent-[var(--accent)]"
+                />
                 Sin plural
               </label>
             </fieldset>
           )}
 
           {isVerb && (
-            <fieldset className="grid gap-5 rounded-md border border-line p-4 sm:grid-cols-2">
+            <fieldset className="border-line grid gap-5 rounded-md border p-4 sm:grid-cols-2">
               <legend className="px-1 text-sm font-medium">Verbo</legend>
-              <Field label="Prefijo separable" htmlFor="separablePrefix" error={err("separablePrefix")} hint="Solo si es separable: ab">
+              <Field
+                label="Prefijo separable"
+                htmlFor="separablePrefix"
+                error={err("separablePrefix")}
+                hint="Solo si es separable: ab"
+              >
                 <Input {...text("separablePrefix")} lang="de" />
               </Field>
               <Field label="Tercera persona" htmlFor="thirdPerson" error={err("thirdPerson")} hint="biegt ab">
@@ -188,25 +231,46 @@ export function WordForm({
                 <Input {...text("perfekt")} lang="de" />
               </Field>
               <Field label="Auxiliar" htmlFor="auxiliary" error={err("auxiliary")}>
-                <Select id="auxiliary" name="auxiliary" value={v.auxiliary ?? ""} onChange={(e) => set("auxiliary", (e.target.value || null) as WordFormValues["auxiliary"])}>
+                <Select
+                  id="auxiliary"
+                  name="auxiliary"
+                  value={v.auxiliary ?? ""}
+                  onChange={(e) => set("auxiliary", (e.target.value || null) as WordFormValues["auxiliary"])}
+                >
                   <option value="">—</option>
                   <option value="HABEN">haben</option>
                   <option value="SEIN">sein</option>
                 </Select>
               </Field>
               <label className="flex items-center gap-2 text-sm sm:col-span-2">
-                <input type="checkbox" name="isIrregular" checked={v.isIrregular} onChange={(e) => set("isIrregular", e.target.checked)} className="size-4 accent-[var(--accent)]" />
+                <input
+                  type="checkbox"
+                  name="isIrregular"
+                  checked={v.isIrregular}
+                  onChange={(e) => set("isIrregular", e.target.checked)}
+                  className="size-4 accent-[var(--accent)]"
+                />
                 Irregular
               </label>
             </fieldset>
           )}
 
-          <Field label="Traducción al español" htmlFor="translationEs" error={err("translationEs")} hint="Alternativas separadas por « / » (máx. 5). Lo que va entre paréntesis es aclaración.">
+          <Field
+            label="Traducción al español"
+            htmlFor="translationEs"
+            error={err("translationEs")}
+            hint="Alternativas separadas por « / » (máx. 5). Lo que va entre paréntesis es aclaración."
+          >
             <Input {...text("translationEs")} required />
           </Field>
 
           {(isExpr || v.clozeText) && (
-            <Field label="Frase con hueco" htmlFor="clozeText" error={err("clozeText")} hint="Marca exactamente un hueco: Wie {{komme}} ich zum Bahnhof?">
+            <Field
+              label="Frase con hueco"
+              htmlFor="clozeText"
+              error={err("clozeText")}
+              hint="Marca exactamente un hueco: Wie {{komme}} ich zum Bahnhof?"
+            >
               <Input {...text("clozeText")} lang="de" />
             </Field>
           )}
@@ -224,14 +288,24 @@ export function WordForm({
         <Card className="grid gap-5 p-5">
           <div className="grid gap-5 sm:grid-cols-3">
             <Field label="Nivel" htmlFor="level" error={err("level")}>
-              <Select id="level" name="level" value={v.level} onChange={(e) => set("level", e.target.value as WordFormValues["level"])}>
+              <Select
+                id="level"
+                name="level"
+                value={v.level}
+                onChange={(e) => set("level", e.target.value as WordFormValues["level"])}
+              >
                 <option value="A">A · alta frecuencia</option>
                 <option value="B">B · clave en los textos</option>
                 <option value="C">C · específico</option>
               </Select>
             </Field>
             <Field label="Lección" htmlFor="lessonNumber" error={err("lessonNumber")}>
-              <Select id="lessonNumber" name="lessonNumber" value={v.lessonNumber ?? ""} onChange={(e) => set("lessonNumber", e.target.value ? Number(e.target.value) : null)}>
+              <Select
+                id="lessonNumber"
+                name="lessonNumber"
+                value={v.lessonNumber ?? ""}
+                onChange={(e) => set("lessonNumber", e.target.value ? Number(e.target.value) : null)}
+              >
                 <option value="">Sin lección</option>
                 {lessons.map((l) => (
                   <option key={l.number} value={l.number}>
@@ -246,15 +320,33 @@ export function WordForm({
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
             <label className="flex items-center gap-2">
-              <input type="checkbox" name="starred" checked={v.starred} onChange={(e) => set("starred", e.target.checked)} className="size-4 accent-[var(--accent)]" />
+              <input
+                type="checkbox"
+                name="starred"
+                checked={v.starred}
+                onChange={(e) => set("starred", e.target.checked)}
+                className="size-4 accent-[var(--accent)]"
+              />
               Prioritaria (★)
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" name="isCognate" checked={v.isCognate} onChange={(e) => set("isCognate", e.target.checked)} className="size-4 accent-[var(--accent)]" />
+              <input
+                type="checkbox"
+                name="isCognate"
+                checked={v.isCognate}
+                onChange={(e) => set("isCognate", e.target.checked)}
+                className="size-4 accent-[var(--accent)]"
+              />
               Cognado transparente
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" name="isFalseFriend" checked={v.isFalseFriend} onChange={(e) => set("isFalseFriend", e.target.checked)} className="size-4 accent-[var(--accent)]" />
+              <input
+                type="checkbox"
+                name="isFalseFriend"
+                checked={v.isFalseFriend}
+                onChange={(e) => set("isFalseFriend", e.target.checked)}
+                className="size-4 accent-[var(--accent)]"
+              />
               Falso amigo
             </label>
           </div>
@@ -265,10 +357,30 @@ export function WordForm({
           )}
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="Etiquetas" htmlFor="tags" hint="Separadas por comas">
-              <Input id="tags" name="tags" value={v.tags.join(", ")} onChange={(e) => set("tags", e.target.value.split(",").map((s) => s.trimStart()))} />
+              <Input
+                id="tags"
+                name="tags"
+                value={v.tags.join(", ")}
+                onChange={(e) =>
+                  set(
+                    "tags",
+                    e.target.value.split(",").map((s) => s.trimStart()),
+                  )
+                }
+              />
             </Field>
             <Field label="Fuentes" htmlFor="sources" hint="KB13, AB13, CLASE3…">
-              <Input id="sources" name="sources" value={v.sources.join(", ")} onChange={(e) => set("sources", e.target.value.split(",").map((s) => s.trimStart()))} />
+              <Input
+                id="sources"
+                name="sources"
+                value={v.sources.join(", ")}
+                onChange={(e) =>
+                  set(
+                    "sources",
+                    e.target.value.split(",").map((s) => s.trimStart()),
+                  )
+                }
+              />
             </Field>
           </div>
         </Card>
@@ -281,25 +393,27 @@ export function WordForm({
       </div>
 
       <aside className="lg:sticky lg:top-20 lg:self-start">
-        <Label className="mb-2 block text-ink-2">Vista previa de la tarjeta</Label>
+        <Label className="text-ink-2 mb-2 block">Vista previa de la tarjeta</Label>
         <Card raised className="overflow-hidden">
-          <p className="border-b border-line px-4 py-2 text-xs text-ink-2">{CARD_KIND_LABELS[firstKind]}</p>
+          <p className="border-line text-ink-2 border-b px-4 py-2 text-xs">{CARD_KIND_LABELS[firstKind]}</p>
           <div className="flex min-h-32 flex-col items-center justify-center gap-1 px-4 py-6 text-center">
             {prompt.showGender && v.gender ? (
               <WordDisplay word={previewWord} size="lg" />
             ) : (
               <p className="font-serif text-2xl">{prompt.title}</p>
             )}
-            {prompt.subtitle && <p className="text-xs text-ink-2">{prompt.subtitle}</p>}
+            {prompt.subtitle && <p className="text-ink-2 text-xs">{prompt.subtitle}</p>}
           </div>
-          <div className="border-t border-line bg-surface-2 px-4 py-3 text-sm">
+          <div className="border-line bg-surface-2 border-t px-4 py-3 text-sm">
             <span className="text-ink-2">Respuesta: </span>
             <span lang="de" className="font-serif">
               {expectedAnswer(firstKind, previewWord) || "…"}
             </span>
           </div>
         </Card>
-        <p className="mt-3 text-xs text-ink-2">Tarjetas que se generarán: {kinds.map((k) => CARD_KIND_LABELS[k]).join(" · ")}</p>
+        <p className="text-ink-2 mt-3 text-xs">
+          Tarjetas que se generarán: {kinds.map((k) => CARD_KIND_LABELS[k]).join(" · ")}
+        </p>
       </aside>
     </form>
   );

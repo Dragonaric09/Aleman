@@ -30,7 +30,11 @@ const themeScript = `(function(){try{var t=localStorage.getItem("wz-theme");var 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable} ${fraunces.variable}`}>
+    <html
+      lang="es"
+      suppressHydrationWarning
+      className={`${geist.variable} ${geistMono.variable} ${fraunces.variable}`}
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

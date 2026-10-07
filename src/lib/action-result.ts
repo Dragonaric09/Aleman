@@ -23,7 +23,12 @@ export function toActionError(err: unknown): ActionState {
   }
   if (err instanceof AppError) return { error: err.message };
   // Las redirecciones de Next.js se propagan.
-  if (err && typeof err === "object" && "digest" in err && String((err as { digest: unknown }).digest).startsWith("NEXT_")) {
+  if (
+    err &&
+    typeof err === "object" &&
+    "digest" in err &&
+    String((err as { digest: unknown }).digest).startsWith("NEXT_")
+  ) {
     throw err;
   }
   logger.error({ err }, "error no controlado en server action");

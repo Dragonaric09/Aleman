@@ -36,7 +36,10 @@ async function wordProgress(userId: string): Promise<WordProgressRow[]> {
       exampleDe: true,
       clozeText: true,
       lesson: { select: { number: true } },
-      cards: { where: { userId }, select: { kind: true, introducedAt: true, state: true, scheduledDays: true } },
+      cards: {
+        where: { userId },
+        select: { kind: true, introducedAt: true, state: true, scheduledDays: true },
+      },
     },
   });
   return words.map((w) => {
@@ -52,7 +55,10 @@ async function wordProgress(userId: string): Promise<WordProgressRow[]> {
   });
 }
 
-function progressBy<K extends string | number>(rows: WordProgressRow[], key: (r: WordProgressRow) => K | null) {
+function progressBy<K extends string | number>(
+  rows: WordProgressRow[],
+  key: (r: WordProgressRow) => K | null,
+) {
   const map = new Map<K, { total: number; introduced: number; mature: number }>();
   for (const r of rows) {
     const k = key(r);
@@ -98,7 +104,10 @@ export async function getDashboard(userId: string, now: Date) {
       days.map((d) => d.studyDay),
       summary.studyDay,
     ),
-    levels: LEVELS.map((level) => ({ level, ...(byLevel.get(level) ?? { total: 0, introduced: 0, mature: 0 }) })),
+    levels: LEVELS.map((level) => ({
+      level,
+      ...(byLevel.get(level) ?? { total: 0, introduced: 0, mature: 0 }),
+    })),
     forecast: next7,
   };
 }
@@ -138,7 +147,9 @@ export async function getStats(userId: string, rawRange: unknown, now: Date) {
   const matureReviews = logs.filter((l) => l.studyDay >= since30 && l.stateBefore === "REVIEW");
   const retained = matureReviews.filter((l) => l.rating !== "AGAIN").length;
   const inRange = logs.filter((l) => l.studyDay >= shiftDay(today, -(range - 1)));
-  const avgMs = inRange.length ? Math.round(inRange.reduce((s, l) => s + l.durationMs, 0) / inRange.length) : null;
+  const avgMs = inRange.length
+    ? Math.round(inRange.reduce((s, l) => s + l.durationMs, 0) / inRange.length)
+    : null;
 
   const byLevel = progressBy(rows, (r) => r.level);
   const byLesson = progressBy(rows, (r) => r.lessonNumber);
@@ -158,7 +169,10 @@ export async function getStats(userId: string, rawRange: unknown, now: Date) {
       retained,
     },
     forecast: next30,
-    levels: LEVELS.map((level) => ({ level, ...(byLevel.get(level) ?? { total: 0, introduced: 0, mature: 0 }) })),
+    levels: LEVELS.map((level) => ({
+      level,
+      ...(byLevel.get(level) ?? { total: 0, introduced: 0, mature: 0 }),
+    })),
     lessons: lessons
       .map((l) => ({ ...l, ...(byLesson.get(l.number) ?? { total: 0, introduced: 0, mature: 0 }) }))
       .filter((l) => l.total > 0),

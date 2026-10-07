@@ -22,8 +22,18 @@ export function word(overrides: Partial<CardWord> = {}): CardWord {
 }
 
 export const bahnhof = word();
-export const strasse = word({ lemma: "Straße", gender: "DIE", pluralForm: "Straßen", translationEs: "calle" });
-export const bruecke = word({ lemma: "Brücke", gender: "DIE", pluralForm: "Brücken", translationEs: "puente" });
+export const strasse = word({
+  lemma: "Straße",
+  gender: "DIE",
+  pluralForm: "Straßen",
+  translationEs: "calle",
+});
+export const bruecke = word({
+  lemma: "Brücke",
+  gender: "DIE",
+  pluralForm: "Brücken",
+  translationEs: "puente",
+});
 export const abbiegen = word({
   lemma: "ab|biegen",
   type: "VERB",

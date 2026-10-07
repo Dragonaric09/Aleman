@@ -16,12 +16,25 @@ export async function patchSettings(userId: string, patch: Record<string, unknow
 /** Respuesta correcta para una tarjeta de la cola. */
 export function correctAnswer(item: QueueItem): string {
   const exp = expectedAnswer(item.card.kind, item.word);
-  if (item.card.kind === "DE_TO_ES") return exp.split(" / ")[0]!.replace(/\(.*?\)/g, "").trim();
+  if (item.card.kind === "DE_TO_ES")
+    return exp
+      .split(" / ")[0]!
+      .replace(/\(.*?\)/g, "")
+      .trim();
   return exp;
 }
 
-export async function answer(userId: string, item: QueueItem, rating: "AGAIN" | "HARD" | "GOOD" | "EASY", now: Date) {
-  return submitReview(userId, { cardId: item.card.id, rating, typedAnswer: correctAnswer(item), durationMs: 4000 }, now);
+export async function answer(
+  userId: string,
+  item: QueueItem,
+  rating: "AGAIN" | "HARD" | "GOOD" | "EASY",
+  now: Date,
+) {
+  return submitReview(
+    userId,
+    { cardId: item.card.id, rating, typedAnswer: correctAnswer(item), durationMs: 4000 },
+    now,
+  );
 }
 
 /** Estudia todo lo que ofrece la cola en este instante. */

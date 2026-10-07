@@ -12,7 +12,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
   return (
     <>
       <h1 className="font-serif text-3xl font-semibold tracking-tight">Willkommen zurück</h1>
-      <p className="mt-2 mb-8 text-ink-2">Entra para seguir con tus repasos de hoy.</p>
+      <p className="text-ink-2 mt-2 mb-8">Entra para seguir con tus repasos de hoy.</p>
       <LoginForm next={next ?? "/"} allowRegistration={registrationAllowed()} />
     </>
   );

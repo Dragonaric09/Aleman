@@ -41,7 +41,15 @@ export interface StudySummary {
 
 export interface ReviewResult {
   verdict: AnswerVerdict;
-  card: { id: string; state: CardState; due: string; reps: number; lapses: number; isLeech: boolean; suspended: boolean };
+  card: {
+    id: string;
+    state: CardState;
+    due: string;
+    reps: number;
+    lapses: number;
+    isLeech: boolean;
+    suspended: boolean;
+  };
   isLeech: boolean;
   becameLeech: boolean;
   /** Tras el tercer repaso correcto se invita a escribir «mi frase». */

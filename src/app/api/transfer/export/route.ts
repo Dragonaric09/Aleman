@@ -24,9 +24,14 @@ export async function GET(req: NextRequest) {
     const stamp = now.toISOString().slice(0, 10);
     if (format === "csv") {
       const includeGlobal = req.nextUrl.searchParams.get("includeGlobal") === "1";
-      return download(await exportVocabularyCsv(user.id, includeGlobal), `wortschatz_${stamp}.csv`, "text/csv");
+      return download(
+        await exportVocabularyCsv(user.id, includeGlobal),
+        `wortschatz_${stamp}.csv`,
+        "text/csv",
+      );
     }
-    if (format === "anki") return download(await exportAnkiCsv(user.id), `wortschatz_anki_${stamp}.csv`, "text/csv");
+    if (format === "anki")
+      return download(await exportAnkiCsv(user.id), `wortschatz_anki_${stamp}.csv`, "text/csv");
     const backup = await buildBackup(user.id, now);
     return download(JSON.stringify(backup), `wortschatz_copia_${stamp}.json`, "application/json");
   } catch (err) {

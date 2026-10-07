@@ -53,7 +53,10 @@ test("producción exige escribir antes de comprobar; el feedback muestra la resp
   await page.locator("main form input").first().fill("xyz");
   await check.click();
   await expect(page.getByRole("status").filter({ hasText: /Incorrecto|Casi|Correcto/ })).toBeVisible();
-  await expect(page.getByRole("button", { name: /^Otra vez/ })).toHaveAttribute("aria-describedby", "suggested-hint");
+  await expect(page.getByRole("button", { name: /^Otra vez/ })).toHaveAttribute(
+    "aria-describedby",
+    "suggested-hint",
+  );
 });
 
 test("sin desplazamiento horizontal en la sesión de estudio", async ({ page }) => {

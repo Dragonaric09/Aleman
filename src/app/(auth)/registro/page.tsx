@@ -12,7 +12,7 @@ export default async function RegisterPage() {
     return (
       <>
         <h1 className="font-serif text-3xl font-semibold tracking-tight">Registro cerrado</h1>
-        <p className="mt-2 text-ink-2">
+        <p className="text-ink-2 mt-2">
           Esta instalación no admite cuentas nuevas.{" "}
           <Link href="/login" className="text-accent underline-offset-4 hover:underline">
             Volver a entrar
@@ -25,7 +25,7 @@ export default async function RegisterPage() {
   return (
     <>
       <h1 className="font-serif text-3xl font-semibold tracking-tight">Crea tu cuaderno</h1>
-      <p className="mt-2 mb-8 text-ink-2">Tus palabras, notas y repasos quedan solo en tu cuenta.</p>
+      <p className="text-ink-2 mt-2 mb-8">Tus palabras, notas y repasos quedan solo en tu cuenta.</p>
       <RegisterForm />
     </>
   );

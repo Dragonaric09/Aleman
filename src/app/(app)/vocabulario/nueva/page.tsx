@@ -12,7 +12,11 @@ export default async function NewWordPage() {
   const lessons = await listLessons();
   return (
     <>
-      <PageHeader eyebrow="Vocabulario" title="Nueva palabra" description="Los campos obligatorios cambian según el tipo de palabra." />
+      <PageHeader
+        eyebrow="Vocabulario"
+        title="Nueva palabra"
+        description="Los campos obligatorios cambian según el tipo de palabra."
+      />
       <WordForm action={createWordAction} lessons={lessons} submitLabel="Crear palabra" />
     </>
   );

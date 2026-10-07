@@ -1,7 +1,17 @@
 "use client";
 
 import * as Dialog from "@radix-ui/react-dialog";
-import { CheckCircle2, ExternalLink, Flame, Keyboard, Lightbulb, PenLine, Undo2, Volume2, X } from "lucide-react";
+import {
+  CheckCircle2,
+  ExternalLink,
+  Flame,
+  Keyboard,
+  Lightbulb,
+  PenLine,
+  Undo2,
+  Volume2,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { saveNoteAction } from "@/app/(app)/vocabulario/actions";
@@ -58,16 +68,22 @@ interface SessionStats {
 function spokenText(item: QueueItem) {
   const w = item.word;
   if (item.card.kind === "PLURAL" && w.pluralForm) return `die ${w.pluralForm}`;
-  if (item.card.kind === "SEPARABLE_ORDER" || item.card.kind === "CLOZE") return w.exampleDe ?? displayLemma(w.lemma);
+  if (item.card.kind === "SEPARABLE_ORDER" || item.card.kind === "CLOZE")
+    return w.exampleDe ?? displayLemma(w.lemma);
   return citationForm(w);
 }
 
 function isTypingTarget(el: EventTarget | null) {
-  return el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el instanceof HTMLSelectElement;
+  return (
+    el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el instanceof HTMLSelectElement
+  );
 }
 
 async function api<T>(url: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(url, { ...init, headers: { "Content-Type": "application/json", ...init?.headers } });
+  const res = await fetch(url, {
+    ...init,
+    headers: { "Content-Type": "application/json", ...init?.headers },
+  });
   const body = (await res.json().catch(() => ({}))) as T & { error?: { message: string } };
   if (!res.ok) throw new Error(body.error?.message ?? "Error de red");
   return body;
@@ -128,7 +144,9 @@ export function StudySession({ initial, prefs }: { initial: QueueItem[]; prefs: 
   // Al terminar, pide el resumen (para saber si quedan tarjetas en aprendizaje).
   useEffect(() => {
     if (item) return;
-    api<StudySummary>("/api/study/summary").then(setSummary).catch(() => undefined);
+    api<StudySummary>("/api/study/summary")
+      .then(setSummary)
+      .catch(() => undefined);
   }, [item]);
 
   const production = item ? item.card.kind !== "DE_TO_ES" : false;
@@ -142,7 +160,11 @@ export function StudySession({ initial, prefs }: { initial: QueueItem[]; prefs: 
     return typed;
   }, [item, isOrder, isVerbForms, tiles, typed, typed2]);
 
-  const hasAnswer = isOrder ? tiles.length > 0 : isVerbForms ? !!(typed.trim() && typed2.trim()) : !!typed.trim();
+  const hasAnswer = isOrder
+    ? tiles.length > 0
+    : isVerbForms
+      ? !!(typed.trim() && typed2.trim())
+      : !!typed.trim();
 
   const check = useCallback(() => {
     if (!item || answered) return;
@@ -157,11 +179,28 @@ export function StudySession({ initial, prefs }: { initial: QueueItem[]; prefs: 
     if (!hasAnswer) {
       setAnswered({ verdict: "SELF_GRADED", typed: "", expected, hints: [], suggested: null });
     } else {
-      const r = checkAnswer(item.card.kind, item.word, typedAnswer, { strictCapitalization: prefs.strictCapitalization });
-      setAnswered({ verdict: r.verdict, typed: typedAnswer, expected: r.expected, hints: r.hints, suggested: suggestedRating(r.verdict) });
+      const r = checkAnswer(item.card.kind, item.word, typedAnswer, {
+        strictCapitalization: prefs.strictCapitalization,
+      });
+      setAnswered({
+        verdict: r.verdict,
+        typed: typedAnswer,
+        expected: r.expected,
+        hints: r.hints,
+        suggested: suggestedRating(r.verdict),
+      });
     }
     if (prefs.ttsAutoplay) tts.speak(spokenText(item));
-  }, [item, answered, hasAnswer, production, typedAnswer, prefs.strictCapitalization, prefs.ttsAutoplay, tts]);
+  }, [
+    item,
+    answered,
+    hasAnswer,
+    production,
+    typedAnswer,
+    prefs.strictCapitalization,
+    prefs.ttsAutoplay,
+    tts,
+  ]);
 
   const rate = useCallback(
     async (rating: Rating) => {
@@ -222,7 +261,11 @@ export function StudySession({ initial, prefs }: { initial: QueueItem[]; prefs: 
     function onKey(e: KeyboardEvent) {
       if (shortcutsOpen || e.ctrlKey || e.metaKey || e.altKey) return;
       const typing = isTypingTarget(e.target) && !(e.target as HTMLInputElement).disabled;
-      if (e.key === "Enter" && !(e.target instanceof HTMLTextAreaElement) && !(e.target instanceof HTMLButtonElement)) {
+      if (
+        e.key === "Enter" &&
+        !(e.target instanceof HTMLTextAreaElement) &&
+        !(e.target instanceof HTMLButtonElement)
+      ) {
         if (!item) return;
         e.preventDefault();
         if (!answered) check();
@@ -270,46 +313,77 @@ export function StudySession({ initial, prefs }: { initial: QueueItem[]; prefs: 
       {/* Barra de progreso de la sesión */}
       <div className="mb-6 flex items-center gap-3">
         <div
-          className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface-2"
+          className="bg-surface-2 h-1.5 flex-1 overflow-hidden rounded-full"
           role="progressbar"
           aria-label="Progreso de la sesión"
           aria-valuenow={progress}
           aria-valuemin={0}
           aria-valuemax={100}
         >
-          <div className="h-full rounded-full bg-accent transition-[width] duration-300" style={{ width: `${progress}%` }} />
+          <div
+            className="bg-accent h-full rounded-full transition-[width] duration-300"
+            style={{ width: `${progress}%` }}
+          />
         </div>
-        <span className="tabular text-xs text-ink-2">
+        <span className="tabular text-ink-2 text-xs">
           {stats.reviewed} / {total}
         </span>
-        <Button variant="ghost" size="icon" className="size-8" onClick={undo} disabled={busy || stats.reviewed === 0} aria-label="Deshacer (U)" title="Deshacer (U)">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-8"
+          onClick={undo}
+          disabled={busy || stats.reviewed === 0}
+          aria-label="Deshacer (U)"
+          title="Deshacer (U)"
+        >
           <Undo2 aria-hidden />
         </Button>
-        <Button variant="ghost" size="icon" className="size-8" onClick={() => setShortcutsOpen(true)} aria-label="Atajos de teclado (?)" title="Atajos (?)">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-8"
+          onClick={() => setShortcutsOpen(true)}
+          aria-label="Atajos de teclado (?)"
+          title="Atajos (?)"
+        >
           <Keyboard aria-hidden />
         </Button>
       </div>
 
       {ttsNotice && (
-        <p className="mb-4 rounded-md border border-line bg-surface-2 px-3 py-2 text-sm text-ink-2" role="status">
+        <p
+          className="border-line bg-surface-2 text-ink-2 mb-4 rounded-md border px-3 py-2 text-sm"
+          role="status"
+        >
           Tu navegador no tiene una voz alemana instalada, así que el botón de audio está oculto.
         </p>
       )}
 
       {leech && <LeechPrompt key={leech.wordId} {...leech} onDone={() => setLeech(null)} />}
-      {inviteSentence && <SentencePrompt key={inviteSentence.wordId} {...inviteSentence} onDone={() => setInviteSentence(null)} />}
+      {inviteSentence && (
+        <SentencePrompt
+          key={inviteSentence.wordId}
+          {...inviteSentence}
+          onDone={() => setInviteSentence(null)}
+        />
+      )}
 
       {!item ? (
         <SessionDone stats={stats} summary={summary} />
       ) : (
         <div className="grid gap-5">
           <Card raised className="relative overflow-hidden">
-            <div className="flex items-center justify-between gap-2 border-b border-line px-5 py-2.5 text-xs text-ink-2">
+            <div className="border-line text-ink-2 flex items-center justify-between gap-2 border-b px-5 py-2.5 text-xs">
               <span className="flex items-center gap-2">
-                <span className="font-medium text-ink">{CARD_KIND_LABELS[item.card.kind]}</span>
-                {item.card.state === "NEW" && <span className="rounded-sm bg-accent-soft px-1.5 py-0.5 font-medium text-accent">nueva</span>}
+                <span className="text-ink font-medium">{CARD_KIND_LABELS[item.card.kind]}</span>
+                {item.card.state === "NEW" && (
+                  <span className="bg-accent-soft text-accent rounded-sm px-1.5 py-0.5 font-medium">
+                    nueva
+                  </span>
+                )}
                 {item.card.isLeech && (
-                  <span className="inline-flex items-center gap-1 text-bad">
+                  <span className="text-bad inline-flex items-center gap-1">
                     <Flame className="size-3" aria-hidden />
                     rebelde
                   </span>
@@ -340,9 +414,14 @@ export function StudySession({ initial, prefs }: { initial: QueueItem[]; prefs: 
                   {item.prompt.title}
                 </p>
               )}
-              {item.prompt.subtitle && <p className="text-sm text-ink-2">{item.prompt.subtitle}</p>}
+              {item.prompt.subtitle && <p className="text-ink-2 text-sm">{item.prompt.subtitle}</p>}
               {tts.available && (item.card.kind === "DE_TO_ES" || answered) && (
-                <Button variant="ghost" size="sm" onClick={() => tts.speak(spokenText(item))} aria-label="Escuchar pronunciación (P)">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => tts.speak(spokenText(item))}
+                  aria-label="Escuchar pronunciación (P)"
+                >
                   <Volume2 aria-hidden />
                   Escuchar
                 </Button>
@@ -406,13 +485,14 @@ export function StudySession({ initial, prefs }: { initial: QueueItem[]; prefs: 
                 </>
               )}
               {error && (
-                <p role="alert" className="text-center text-sm text-bad">
+                <p role="alert" className="text-bad text-center text-sm">
                   {error}
                 </p>
               )}
               <div className="flex flex-wrap justify-center gap-2">
                 <Button type="submit" size="lg" disabled={production && !hasAnswer}>
-                  Comprobar <span className="kbd ml-1 hidden bg-transparent text-paper/70 sm:inline">Enter</span>
+                  Comprobar{" "}
+                  <span className="kbd text-paper/70 ml-1 hidden bg-transparent sm:inline">Enter</span>
                 </Button>
                 {!production && (
                   <Button type="button" size="lg" variant="secondary" onClick={check}>
@@ -425,15 +505,30 @@ export function StudySession({ initial, prefs }: { initial: QueueItem[]; prefs: 
 
           {answered && (
             <div className="grid gap-4">
-              <AnswerFeedback item={item} verdict={answered.verdict} typed={answered.typed} expected={answered.expected} hints={answered.hints} />
-              <RatingBar preview={item.preview} suggested={answered.suggested} onRate={rate} disabled={busy} />
+              <AnswerFeedback
+                item={item}
+                verdict={answered.verdict}
+                typed={answered.typed}
+                expected={answered.expected}
+                hints={answered.hints}
+              />
+              <RatingBar
+                preview={item.preview}
+                suggested={answered.suggested}
+                onRate={rate}
+                disabled={busy}
+              />
               {error && (
-                <p role="alert" className="text-center text-sm text-bad">
+                <p role="alert" className="text-bad text-center text-sm">
                   {error}
                 </p>
               )}
-              <p className="text-center text-xs text-ink-2">
-                <Link href={`/vocabulario/${item.word.id}`} target="_blank" className="inline-flex items-center gap-1 hover:text-ink">
+              <p className="text-ink-2 text-center text-xs">
+                <Link
+                  href={`/vocabulario/${item.word.id}`}
+                  target="_blank"
+                  className="hover:text-ink inline-flex items-center gap-1"
+                >
                   Abrir ficha <ExternalLink className="size-3" aria-hidden />
                 </Link>
               </p>
@@ -443,7 +538,10 @@ export function StudySession({ initial, prefs }: { initial: QueueItem[]; prefs: 
       )}
 
       {toast && (
-        <div role="status" className="animate-rise fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-md bg-ink px-4 py-2 text-sm text-paper shadow-lift">
+        <div
+          role="status"
+          className="animate-rise bg-ink text-paper shadow-lift fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-md px-4 py-2 text-sm"
+        >
           {toast}
         </div>
       )}
@@ -456,30 +554,32 @@ export function StudySession({ initial, prefs }: { initial: QueueItem[]; prefs: 
 function SessionDone({ stats, summary }: { stats: SessionStats; summary: StudySummary | null }) {
   const minutes = Math.max(1, Math.round(stats.ms / 60_000));
   const accuracy = stats.reviewed ? Math.round((stats.correct / stats.reviewed) * 100) : 0;
-  const waitMin = summary?.nextLearningDue ? Math.max(1, Math.ceil((Date.parse(summary.nextLearningDue) - Date.now()) / 60_000)) : null;
+  const waitMin = summary?.nextLearningDue
+    ? Math.max(1, Math.ceil((Date.parse(summary.nextLearningDue) - Date.now()) / 60_000))
+    : null;
   return (
     <Card raised className="animate-rise p-8 text-center">
-      <CheckCircle2 className="mx-auto mb-4 size-10 text-accent" aria-hidden />
+      <CheckCircle2 className="text-accent mx-auto mb-4 size-10" aria-hidden />
       <h2 className="font-serif text-3xl font-semibold tracking-tight">
         {stats.reviewed ? "Sesión terminada. Super!" : "No hay tarjetas pendientes"}
       </h2>
       {stats.reviewed > 0 && (
         <dl className="mx-auto mt-6 grid max-w-sm grid-cols-3 gap-4">
           <div>
-            <dt className="text-xs text-ink-2">Repasadas</dt>
+            <dt className="text-ink-2 text-xs">Repasadas</dt>
             <dd className="tabular font-serif text-3xl">{stats.reviewed}</dd>
           </div>
           <div>
-            <dt className="text-xs text-ink-2">Aciertos</dt>
+            <dt className="text-ink-2 text-xs">Aciertos</dt>
             <dd className="tabular font-serif text-3xl">{accuracy}%</dd>
           </div>
           <div>
-            <dt className="text-xs text-ink-2">Tiempo</dt>
+            <dt className="text-ink-2 text-xs">Tiempo</dt>
             <dd className="tabular font-serif text-3xl">{minutes} min</dd>
           </div>
         </dl>
       )}
-      <p className="mt-6 text-ink-2">
+      <p className="text-ink-2 mt-6">
         {waitMin
           ? `Te quedan tarjetas en aprendizaje: vuelve en ${waitMin} ${waitMin === 1 ? "minuto" : "minutos"}.`
           : "Las próximas tarjetas llegarán en tu siguiente día de estudio."}
@@ -500,8 +600,8 @@ function LeechPrompt({ wordId, lemma, onDone }: { wordId: string; lemma: string;
   const [value, setValue] = useState("");
   const [saving, setSaving] = useState(false);
   return (
-    <div className="animate-rise mb-5 rounded-lg border border-bad/30 bg-bad-bg p-4" role="alert">
-      <p className="flex items-center gap-2 font-medium text-bad">
+    <div className="animate-rise border-bad/30 bg-bad-bg mb-5 rounded-lg border p-4" role="alert">
+      <p className="text-bad flex items-center gap-2 font-medium">
         <Flame className="size-4" aria-hidden />
         Esta palabra es rebelde: escribe un truco para recordarla.
       </p>
@@ -519,7 +619,12 @@ function LeechPrompt({ wordId, lemma, onDone }: { wordId: string; lemma: string;
         <label htmlFor="leech-mnemonic" className="sr-only">
           Mnemotecnia para {lemma}
         </label>
-        <Input id="leech-mnemonic" value={value} onChange={(e) => setValue(e.target.value)} placeholder={`Truco para «${lemma}»`} />
+        <Input
+          id="leech-mnemonic"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder={`Truco para «${lemma}»`}
+        />
         <div className="flex gap-2">
           <Button type="submit" variant="primary" loading={saving}>
             <Lightbulb aria-hidden /> Guardar
@@ -537,9 +642,9 @@ function SentencePrompt({ wordId, lemma, onDone }: { wordId: string; lemma: stri
   const [value, setValue] = useState("");
   const [saving, setSaving] = useState(false);
   return (
-    <div className="animate-rise mb-5 rounded-lg border border-accent/30 bg-accent-soft p-4">
+    <div className="animate-rise border-accent/30 bg-accent-soft mb-5 rounded-lg border p-4">
       <p className="flex items-center gap-2 font-medium">
-        <PenLine className="size-4 text-accent" aria-hidden />
+        <PenLine className="text-accent size-4" aria-hidden />
         Ya dominas «{lemma}». ¿Escribes tu propia frase con ella?
       </p>
       <form
@@ -556,7 +661,14 @@ function SentencePrompt({ wordId, lemma, onDone }: { wordId: string; lemma: stri
         <label htmlFor="own-sentence" className="sr-only">
           Mi frase con {lemma}
         </label>
-        <Textarea id="own-sentence" lang="de" rows={2} value={value} onChange={(e) => setValue(e.target.value)} placeholder="Ich …" />
+        <Textarea
+          id="own-sentence"
+          lang="de"
+          rows={2}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Ich …"
+        />
         <div className="flex gap-2">
           <Button type="submit" size="sm" loading={saving}>
             Guardar mi frase
@@ -585,17 +697,19 @@ function ShortcutsDialog({ open, onOpenChange }: { open: boolean; onOpenChange: 
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-ink/30 backdrop-blur-[2px]" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 z-50 w-[min(440px,calc(100vw-32px))] -translate-x-1/2 -translate-y-1/2 rounded-lg border border-line bg-surface p-6 shadow-lift">
+        <Dialog.Overlay className="bg-ink/30 fixed inset-0 z-50 backdrop-blur-[2px]" />
+        <Dialog.Content className="border-line bg-surface shadow-lift fixed top-1/2 left-1/2 z-50 w-[min(440px,calc(100vw-32px))] -translate-x-1/2 -translate-y-1/2 rounded-lg border p-6">
           <Dialog.Title className="font-serif text-xl font-semibold">Atajos de teclado</Dialog.Title>
-          <Dialog.Description className="mt-1 text-sm text-ink-2">Las letras no actúan mientras escribes en un campo.</Dialog.Description>
+          <Dialog.Description className="text-ink-2 mt-1 text-sm">
+            Las letras no actúan mientras escribes en un campo.
+          </Dialog.Description>
           <dl className="mt-4 grid gap-2 text-sm">
             {SHORTCUTS.map(([k, d]) => (
               <div key={k} className="flex items-center justify-between gap-4">
                 <dt>
                   <span className="kbd">{k}</span>
                 </dt>
-                <dd className="text-right text-ink-2">{d}</dd>
+                <dd className="text-ink-2 text-right">{d}</dd>
               </div>
             ))}
           </dl>

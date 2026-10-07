@@ -48,7 +48,11 @@ export async function login(input: unknown, ip: string, now: Date) {
   const okEmail = loginLimiterByEmail.attempt(data.email, t);
   if (!okIp || !okEmail) {
     logger.warn({ ip }, "límite de intentos de login");
-    throw new AppError(429, "TOO_MANY_ATTEMPTS", "Demasiados intentos. Espera un minuto e inténtalo de nuevo.");
+    throw new AppError(
+      429,
+      "TOO_MANY_ATTEMPTS",
+      "Demasiados intentos. Espera un minuto e inténtalo de nuevo.",
+    );
   }
   const user = await findUserByEmail(data.email);
   const valid = user ? await verify(user.passwordHash, data.password).catch(() => false) : false;

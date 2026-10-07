@@ -19,7 +19,8 @@ export default async function StatsPage({ searchParams }: { searchParams: Promis
   const { range } = await searchParams;
   const s = await getStats(user.id, range, clock.now());
   const retention = s.retention.rate === null ? "—" : `${Math.round(s.retention.rate * 100)}%`;
-  const avg = s.averageMsPerCard === null ? "—" : `${(s.averageMsPerCard / 1000).toFixed(1).replace(".", ",")} s`;
+  const avg =
+    s.averageMsPerCard === null ? "—" : `${(s.averageMsPerCard / 1000).toFixed(1).replace(".", ",")} s`;
 
   return (
     <>
@@ -28,13 +29,16 @@ export default async function StatsPage({ searchParams }: { searchParams: Promis
         title="Estadísticas"
         description="Tu constancia y lo que viene."
         actions={
-          <nav aria-label="Rango" className="inline-flex rounded-md border border-line bg-surface-2 p-0.5">
+          <nav aria-label="Rango" className="border-line bg-surface-2 inline-flex rounded-md border p-0.5">
             {RANGES.map((r) => (
               <Link
                 key={r}
                 href={`/estadisticas?range=${r}`}
                 aria-current={s.range === r ? "true" : undefined}
-                className={cn("rounded-[7px] px-3 py-1 text-sm text-ink-2", s.range === r && "bg-surface text-ink shadow-paper")}
+                className={cn(
+                  "text-ink-2 rounded-[7px] px-3 py-1 text-sm",
+                  s.range === r && "bg-surface text-ink shadow-paper",
+                )}
               >
                 {r} d
               </Link>
@@ -44,10 +48,26 @@ export default async function StatsPage({ searchParams }: { searchParams: Promis
       />
 
       <section className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatCard label="Racha actual" value={s.streak.current} icon={Flame} tone="accent" hint={s.streak.current === 1 ? "día" : "días"} />
+        <StatCard
+          label="Racha actual"
+          value={s.streak.current}
+          icon={Flame}
+          tone="accent"
+          hint={s.streak.current === 1 ? "día" : "días"}
+        />
         <StatCard label="Racha máxima" value={s.streak.max} icon={Trophy} hint="días seguidos" />
-        <StatCard label="Retención real" value={retention} icon={Target} hint={`${s.retention.retained} de ${s.retention.reviews} repasos (30 d)`} />
-        <StatCard label="Tiempo por tarjeta" value={avg} icon={Clock} hint={`${s.totals.reviews} repasos en ${s.range} d`} />
+        <StatCard
+          label="Retención real"
+          value={retention}
+          icon={Target}
+          hint={`${s.retention.retained} de ${s.retention.reviews} repasos (30 d)`}
+        />
+        <StatCard
+          label="Tiempo por tarjeta"
+          value={avg}
+          icon={Clock}
+          hint={`${s.totals.reviews} repasos en ${s.range} d`}
+        />
       </section>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
@@ -87,7 +107,13 @@ export default async function StatsPage({ searchParams }: { searchParams: Promis
           </CardHeader>
           <CardContent className="grid gap-5">
             {s.levels.map((l) => (
-              <ProgressStack key={l.level} label={LEVEL_LABELS[l.level]} total={l.total} introduced={l.introduced} mature={l.mature} />
+              <ProgressStack
+                key={l.level}
+                label={LEVEL_LABELS[l.level]}
+                total={l.total}
+                introduced={l.introduced}
+                mature={l.mature}
+              />
             ))}
           </CardContent>
         </Card>
@@ -98,7 +124,13 @@ export default async function StatsPage({ searchParams }: { searchParams: Promis
           </CardHeader>
           <CardContent className="grid gap-5">
             {s.lessons.map((l) => (
-              <ProgressStack key={l.number} label={`${l.number} · ${l.title}`} total={l.total} introduced={l.introduced} mature={l.mature} />
+              <ProgressStack
+                key={l.number}
+                label={`${l.number} · ${l.title}`}
+                total={l.total}
+                introduced={l.introduced}
+                mature={l.mature}
+              />
             ))}
           </CardContent>
         </Card>

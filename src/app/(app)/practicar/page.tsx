@@ -17,7 +17,10 @@ export default async function PracticePage() {
         title="Practicar"
         description="Practica sin afectar tu programación: nada de lo que hagas aquí cambia tus tarjetas."
       />
-      <PracticeHub lessons={lessons} tts={{ enabled: settings.ttsEnabled, rate: settings.ttsRate, voice: settings.ttsVoice }} />
+      <PracticeHub
+        lessons={lessons}
+        tts={{ enabled: settings.ttsEnabled, rate: settings.ttsRate, voice: settings.ttsVoice }}
+      />
     </>
   );
 }

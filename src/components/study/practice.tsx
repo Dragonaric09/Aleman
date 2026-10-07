@@ -12,24 +12,32 @@ import { useSpeech } from "./use-speech";
 
 type LessonInfo = { number: number; title: string; topic: string | null; words: number };
 type TtsPrefs = { enabled: boolean; rate: number; voice: string | null };
-type Noun = { wordId: string; lemma: string; gender: Gender; translationEs: string; pluralForm: string | null };
+type Noun = {
+  wordId: string;
+  lemma: string;
+  gender: Gender;
+  translationEs: string;
+  pluralForm: string | null;
+};
 
 export function PracticeHub({ lessons, tts }: { lessons: LessonInfo[]; tts: TtsPrefs }) {
   const [mode, setMode] = useState<"menu" | "gender" | { lesson: number }>("menu");
   if (mode === "gender") return <GenderDrill onExit={() => setMode("menu")} tts={tts} />;
-  if (typeof mode === "object") return <LessonCards lesson={mode.lesson} onExit={() => setMode("menu")} tts={tts} />;
+  if (typeof mode === "object")
+    return <LessonCards lesson={mode.lesson} onExit={() => setMode("menu")} tts={tts} />;
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr]">
       <Card raised className="flex flex-col justify-between gap-6 p-6">
         <div>
           <p className="mb-3 flex gap-1.5" aria-hidden>
-            <span className="rounded-sm bg-der/12 px-2 py-0.5 text-sm font-semibold text-der-text">der</span>
-            <span className="rounded-sm bg-die/12 px-2 py-0.5 text-sm font-semibold text-die-text">die</span>
-            <span className="rounded-sm bg-das/12 px-2 py-0.5 text-sm font-semibold text-das-text">das</span>
+            <span className="bg-der/12 text-der-text rounded-sm px-2 py-0.5 text-sm font-semibold">der</span>
+            <span className="bg-die/12 text-die-text rounded-sm px-2 py-0.5 text-sm font-semibold">die</span>
+            <span className="bg-das/12 text-das-text rounded-sm px-2 py-0.5 text-sm font-semibold">das</span>
           </p>
           <h2 className="font-serif text-2xl font-semibold">Drill de género</h2>
-          <p className="mt-2 text-sm text-ink-2">
-            Rondas de 20 sustantivos que ya has visto. Elige el artículo con los botones o las teclas 1, 2 y 3. Los que fallas vuelven en la siguiente ronda.
+          <p className="text-ink-2 mt-2 text-sm">
+            Rondas de 20 sustantivos que ya has visto. Elige el artículo con los botones o las teclas 1, 2 y
+            3. Los que fallas vuelven en la siguiente ronda.
           </p>
         </div>
         <Button size="lg" onClick={() => setMode("gender")}>
@@ -38,9 +46,11 @@ export function PracticeHub({ lessons, tts }: { lessons: LessonInfo[]; tts: TtsP
       </Card>
       <Card className="p-6">
         <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold">
-          <BookOpen className="size-5 text-accent" aria-hidden /> Por lección
+          <BookOpen className="text-accent size-5" aria-hidden /> Por lección
         </h2>
-        <p className="mt-2 mb-4 text-sm text-ink-2">Recorre todas las palabras de una lección en modo tarjeta, ideal antes de una clase o un examen.</p>
+        <p className="text-ink-2 mt-2 mb-4 text-sm">
+          Recorre todas las palabras de una lección en modo tarjeta, ideal antes de una clase o un examen.
+        </p>
         <ul className="grid gap-2">
           {lessons.map((l) => (
             <li key={l.number}>
@@ -48,14 +58,14 @@ export function PracticeHub({ lessons, tts }: { lessons: LessonInfo[]; tts: TtsP
                 type="button"
                 onClick={() => setMode({ lesson: l.number })}
                 disabled={l.words === 0}
-                className="flex w-full items-center gap-3 rounded-md border border-line px-3 py-2.5 text-left transition-colors hover:border-accent hover:bg-surface-2 disabled:opacity-40"
+                className="border-line hover:border-accent hover:bg-surface-2 flex w-full items-center gap-3 rounded-md border px-3 py-2.5 text-left transition-colors disabled:opacity-40"
               >
-                <span className="tabular w-10 shrink-0 font-serif text-lg text-accent">{l.number}</span>
+                <span className="tabular text-accent w-10 shrink-0 font-serif text-lg">{l.number}</span>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-sm font-medium">{l.title}</span>
-                  {l.topic && <span className="block truncate text-xs text-ink-2">{l.topic}</span>}
+                  {l.topic && <span className="text-ink-2 block truncate text-xs">{l.topic}</span>}
                 </span>
-                <span className="tabular shrink-0 text-xs text-ink-2">{l.words} palabras</span>
+                <span className="tabular text-ink-2 shrink-0 text-xs">{l.words} palabras</span>
               </button>
             </li>
           ))}
@@ -144,19 +154,36 @@ function GenderDrill({ onExit, tts }: { onExit: () => void; tts: TtsPrefs }) {
       <Button variant="ghost" size="sm" onClick={onExit}>
         <ArrowLeft aria-hidden /> Práctica
       </Button>
-      <p className="tabular text-sm text-ink-2" aria-live="polite">
-        <span className="text-ok">{score.right} aciertos</span> · <span className="text-bad">{score.wrong} fallos</span>
+      <p className="tabular text-ink-2 text-sm" aria-live="polite">
+        <span className="text-ok">{score.right} aciertos</span> ·{" "}
+        <span className="text-bad">{score.wrong} fallos</span>
       </p>
     </div>
   );
 
-  if (error) return <div className="mx-auto max-w-[640px]">{header}<p role="alert" className="text-bad">{error}</p></div>;
-  if (!round) return <div className="mx-auto max-w-[640px]">{header}<p className="text-ink-2">Cargando…</p></div>;
+  if (error)
+    return (
+      <div className="mx-auto max-w-[640px]">
+        {header}
+        <p role="alert" className="text-bad">
+          {error}
+        </p>
+      </div>
+    );
+  if (!round)
+    return (
+      <div className="mx-auto max-w-[640px]">
+        {header}
+        <p className="text-ink-2">Cargando…</p>
+      </div>
+    );
   if (round.length === 0)
     return (
       <div className="mx-auto max-w-[640px]">
         {header}
-        <EmptyState title="Aún no hay sustantivos introducidos">Estudia algunas palabras nuevas y vuelve al drill.</EmptyState>
+        <EmptyState title="Aún no hay sustantivos introducidos">
+          Estudia algunas palabras nuevas y vuelve al drill.
+        </EmptyState>
       </div>
     );
 
@@ -166,8 +193,10 @@ function GenderDrill({ onExit, tts }: { onExit: () => void; tts: TtsPrefs }) {
         {header}
         <Card raised className="p-8 text-center">
           <h2 className="font-serif text-3xl font-semibold">Ronda terminada</h2>
-          <p className="mt-2 text-ink-2">
-            {misses.size > 0 ? `${misses.size} sustantivos volverán en la siguiente ronda.` : "¡Sin fallos pendientes!"}
+          <p className="text-ink-2 mt-2">
+            {misses.size > 0
+              ? `${misses.size} sustantivos volverán en la siguiente ronda.`
+              : "¡Sin fallos pendientes!"}
           </p>
           <Button className="mt-6" size="lg" onClick={loadRound}>
             <Shuffle aria-hidden /> Otra ronda
@@ -180,7 +209,7 @@ function GenderDrill({ onExit, tts }: { onExit: () => void; tts: TtsPrefs }) {
   return (
     <div className="mx-auto max-w-[640px]">
       {header}
-      <p className="mb-2 text-center text-xs text-ink-2">
+      <p className="text-ink-2 mb-2 text-center text-xs">
         {index + 1} / {round.length}
       </p>
       <Card raised className="flex min-h-56 flex-col items-center justify-center gap-2 p-8 text-center">
@@ -191,9 +220,12 @@ function GenderDrill({ onExit, tts }: { onExit: () => void; tts: TtsPrefs }) {
             {current.lemma}
           </p>
         )}
-        <p className="text-sm text-ink-2">{current.translationEs}</p>
+        <p className="text-ink-2 text-sm">{current.translationEs}</p>
         {picked && (
-          <p role="status" className={cn("mt-2 flex items-center gap-1.5 font-medium", ok ? "text-ok" : "text-bad")}>
+          <p
+            role="status"
+            className={cn("mt-2 flex items-center gap-1.5 font-medium", ok ? "text-ok" : "text-bad")}
+          >
             {ok ? <Check className="size-4" aria-hidden /> : <X className="size-4" aria-hidden />}
             {ok ? "¡Correcto!" : `Es «${ARTICLES[current.gender]}»`}
           </p>
@@ -208,11 +240,11 @@ function GenderDrill({ onExit, tts }: { onExit: () => void; tts: TtsPrefs }) {
             onClick={() => choose(g)}
             aria-keyshortcuts={String(i + 1)}
             className={cn(
-              "relative flex h-16 items-center justify-center rounded-md border-2 bg-surface font-serif text-2xl font-semibold transition-colors disabled:cursor-default",
+              "bg-surface relative flex h-16 items-center justify-center rounded-md border-2 font-serif text-2xl font-semibold transition-colors disabled:cursor-default",
               g === "DER" && "border-der/40 text-der-text hover:bg-der/10",
               g === "DIE" && "border-die/40 text-die-text hover:bg-die/10",
               g === "DAS" && "border-das/40 text-das-text hover:bg-das/10",
-              picked && g === current.gender && "ring-4 ring-accent/40",
+              picked && g === current.gender && "ring-accent/40 ring-4",
               picked && g !== current.gender && "opacity-40",
             )}
           >
@@ -224,7 +256,10 @@ function GenderDrill({ onExit, tts }: { onExit: () => void; tts: TtsPrefs }) {
       {picked && (
         <div className="mt-4 flex justify-center gap-2">
           {speech.available && (
-            <Button variant="ghost" onClick={() => speech.speak(`${ARTICLES[current.gender]} ${current.lemma}`)}>
+            <Button
+              variant="ghost"
+              onClick={() => speech.speak(`${ARTICLES[current.gender]} ${current.lemma}`)}
+            >
               <Volume2 aria-hidden /> Escuchar
             </Button>
           )}
@@ -238,7 +273,10 @@ function GenderDrill({ onExit, tts }: { onExit: () => void; tts: TtsPrefs }) {
 }
 
 function LessonCards({ lesson, onExit, tts }: { lesson: number; onExit: () => void; tts: TtsPrefs }) {
-  const [data, setData] = useState<{ lesson: { number: number; title: string }; words: QueueItem["word"][] } | null>(null);
+  const [data, setData] = useState<{
+    lesson: { number: number; title: string };
+    words: QueueItem["word"][];
+  } | null>(null);
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [direction, setDirection] = useState<"de" | "es">("de");
@@ -289,8 +327,11 @@ function LessonCards({ lesson, onExit, tts }: { lesson: number; onExit: () => vo
         <EmptyState title="Lección sin palabras" />
       ) : (
         <>
-          <p className="mb-2 text-center text-sm text-ink-2">
-            Lección {data.lesson.number} · {data.lesson.title} · <span className="tabular">{index + 1} / {words.length}</span>
+          <p className="text-ink-2 mb-2 text-center text-sm">
+            Lección {data.lesson.number} · {data.lesson.title} ·{" "}
+            <span className="tabular">
+              {index + 1} / {words.length}
+            </span>
           </p>
           <button
             type="button"
@@ -299,28 +340,32 @@ function LessonCards({ lesson, onExit, tts }: { lesson: number; onExit: () => vo
             aria-label={flipped ? "Ocultar respuesta" : "Mostrar respuesta"}
           >
             <Card raised className="flex min-h-64 flex-col items-center justify-center gap-3 p-8 text-center">
-              {direction === "de" || flipped ? <WordDisplay word={w} size="xl" /> : <p className="font-serif text-4xl">{w.translationEs}</p>}
+              {direction === "de" || flipped ? (
+                <WordDisplay word={w} size="xl" />
+              ) : (
+                <p className="font-serif text-4xl">{w.translationEs}</p>
+              )}
               {flipped && (
                 <div className="animate-rise grid gap-2">
                   {direction === "de" && <p className="text-lg">{w.translationEs}</p>}
                   {w.type === "NOUN" && (
-                    <p lang="de" className="text-sm text-plural-text">
+                    <p lang="de" className="text-plural-text text-sm">
                       {w.noPlural ? "sin plural" : `die ${w.pluralForm}`}
                     </p>
                   )}
                   {w.perfekt && (
-                    <p lang="de" className="text-sm text-ink-2">
+                    <p lang="de" className="text-ink-2 text-sm">
                       {w.thirdPerson} · {w.perfekt}
                     </p>
                   )}
                   {w.exampleDe && (
-                    <p lang="de" className="font-serif italic text-ink-2">
+                    <p lang="de" className="text-ink-2 font-serif italic">
                       {w.exampleDe}
                     </p>
                   )}
                 </div>
               )}
-              {!flipped && <p className="text-xs text-ink-2">Pulsa la tarjeta o Espacio para girarla</p>}
+              {!flipped && <p className="text-ink-2 text-xs">Pulsa la tarjeta o Espacio para girarla</p>}
             </Card>
           </button>
           <div className="mt-5 flex items-center justify-between gap-2">

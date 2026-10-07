@@ -29,7 +29,10 @@ export const settingsSchema = z.object({
   enabledCardKinds: z
     .array(z.enum(CARD_KINDS))
     .min(1, "activa al menos un tipo de tarjeta")
-    .refine((k) => k.includes("ES_TO_DE") || k.includes("DE_TO_ES") || k.includes("CLOZE"), "activa al menos una tarjeta principal"),
+    .refine(
+      (k) => k.includes("ES_TO_DE") || k.includes("DE_TO_ES") || k.includes("CLOZE"),
+      "activa al menos una tarjeta principal",
+    ),
   ttsEnabled: z.boolean(),
   ttsAutoplay: z.boolean(),
   ttsRate: range("ttsRate", false),

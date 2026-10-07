@@ -27,7 +27,7 @@ export function SeparableOrder({
     <div className="grid gap-3">
       <div
         className={cn(
-          "flex min-h-14 flex-wrap items-center gap-2 rounded-md border border-dashed border-line-strong bg-surface-2/60 p-2",
+          "border-line-strong bg-surface-2/60 flex min-h-14 flex-wrap items-center gap-2 rounded-md border border-dashed p-2",
           dragging !== null && "border-accent",
         )}
         onDragOver={(e) => e.preventDefault()}
@@ -40,7 +40,9 @@ export function SeparableOrder({
         aria-live="polite"
         lang="de"
       >
-        {value.length === 0 && <span className="px-2 text-sm text-ink-2">Pulsa o arrastra las fichas aquí…</span>}
+        {value.length === 0 && (
+          <span className="text-ink-2 px-2 text-sm">Pulsa o arrastra las fichas aquí…</span>
+        )}
         {value.map((i, pos) => (
           <button
             key={`${i}-${pos}`}
@@ -73,7 +75,7 @@ export function SeparableOrder({
           type="button"
           disabled={disabled || value.length === 0}
           onClick={() => onChange(value.slice(0, -1))}
-          className="ml-auto inline-flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm text-ink-2 hover:bg-surface-2 hover:text-ink disabled:opacity-40"
+          className="text-ink-2 hover:bg-surface-2 hover:text-ink ml-auto inline-flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm disabled:opacity-40"
         >
           <Delete className="size-4" aria-hidden />
           Borrar última

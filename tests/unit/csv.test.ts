@@ -1,7 +1,12 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { ankiBack, serializeAnkiCsv } from "@/modules/transfer/anki";
-import { VOCAB_HEADERS, parseLessonsCsv, parseVocabularyCsv, serializeVocabularyCsv } from "@/modules/transfer/csv";
+import {
+  VOCAB_HEADERS,
+  parseLessonsCsv,
+  parseVocabularyCsv,
+  serializeVocabularyCsv,
+} from "@/modules/transfer/csv";
 import { wordInputSchema } from "@/modules/vocabulary/schemas";
 
 const header = VOCAB_HEADERS.join(";");
@@ -16,9 +21,21 @@ describe("parseVocabularyCsv", () => {
     expect(r.errors).toEqual([]);
     expect(r.rows).toHaveLength(2);
     const [b, v] = r.rows.map((x) => x.word);
-    expect(b).toMatchObject({ lemma: "Bahnhof", type: "NOUN", gender: "DER", pluralForm: "Bahnhöfe", starred: true, lessonNumber: 13 });
+    expect(b).toMatchObject({
+      lemma: "Bahnhof",
+      type: "NOUN",
+      gender: "DER",
+      pluralForm: "Bahnhöfe",
+      starred: true,
+      lessonNumber: 13,
+    });
     expect(b!.sources).toEqual(["KB13", "AB13"]);
-    expect(v).toMatchObject({ separablePrefix: "ab", auxiliary: "SEIN", isIrregular: true, goetheLevel: "A2" });
+    expect(v).toMatchObject({
+      separablePrefix: "ab",
+      auxiliary: "SEIN",
+      isIrregular: true,
+      goetheLevel: "A2",
+    });
   });
 
   it("dos filas inválidas: errores con número de fila y campo, sin afectar a las válidas", () => {
@@ -37,8 +54,14 @@ describe("parseVocabularyCsv", () => {
   it("detecta cabeceras incorrectas, columnas de más y duplicados", () => {
     expect(parseVocabularyCsv("lemma;type\nx;noun").errors[0]).toMatchObject({ row: 1, field: "cabecera" });
     expect(parseVocabularyCsv("").errors[0]).toMatchObject({ row: 1 });
-    expect(parseVocabularyCsv(`${header}\n${bahnhof};extra`).errors[0]).toMatchObject({ row: 2, field: "fila" });
-    expect(parseVocabularyCsv(`${header}\n${bahnhof}\n${bahnhof}`).errors[0]).toMatchObject({ row: 3, field: "lemma" });
+    expect(parseVocabularyCsv(`${header}\n${bahnhof};extra`).errors[0]).toMatchObject({
+      row: 2,
+      field: "fila",
+    });
+    expect(parseVocabularyCsv(`${header}\n${bahnhof}\n${bahnhof}`).errors[0]).toMatchObject({
+      row: 3,
+      field: "lemma",
+    });
   });
 
   it("valida booleanos y enteros", () => {
@@ -74,7 +97,14 @@ describe("parseLessonsCsv", () => {
 });
 
 describe("reglas de integridad (6.2)", () => {
-  const base = { lemma: "Bahnhof", type: "NOUN", gender: "DER", pluralForm: "Bahnhöfe", translationEs: "estación", level: "A" };
+  const base = {
+    lemma: "Bahnhof",
+    type: "NOUN",
+    gender: "DER",
+    pluralForm: "Bahnhöfe",
+    translationEs: "estación",
+    level: "A",
+  };
   const issues = (raw: object) => (wordInputSchema.safeParse(raw).error?.issues ?? []).map((i) => i.path[0]);
 
   it("sustantivo: género, plural o «sin plural», mayúscula inicial", () => {
@@ -86,14 +116,27 @@ describe("reglas de integridad (6.2)", () => {
     expect(issues({ ...base, type: "ADJECTIVE", lemma: "groß" })).toContain("gender");
   });
   it("verbo separable: barra en el lema y tercera persona", () => {
-    const v = { lemma: "ab|biegen", type: "VERB", translationEs: "girar", level: "A", separablePrefix: "ab", thirdPerson: "biegt ab" };
+    const v = {
+      lemma: "ab|biegen",
+      type: "VERB",
+      translationEs: "girar",
+      level: "A",
+      separablePrefix: "ab",
+      thirdPerson: "biegt ab",
+    };
     expect(issues(v)).toEqual([]);
     expect(issues({ ...v, lemma: "abbiegen" })).toContain("lemma");
     expect(issues({ ...v, thirdPerson: null })).toContain("thirdPerson");
     expect(issues({ ...v, separablePrefix: null })).toContain("separablePrefix");
   });
   it("expresión: exactamente un hueco; traducción con máximo 5 alternativas; nota de falso amigo", () => {
-    const e = { lemma: "Wie geht's?", type: "EXPRESSION", translationEs: "¿qué tal?", level: "A", clozeText: "Wie {{geht's}}?" };
+    const e = {
+      lemma: "Wie geht's?",
+      type: "EXPRESSION",
+      translationEs: "¿qué tal?",
+      level: "A",
+      clozeText: "Wie {{geht's}}?",
+    };
     expect(issues(e)).toEqual([]);
     expect(issues({ ...e, clozeText: "Wie {{geht}} {{es}}?" })).toContain("clozeText");
     expect(issues({ ...e, translationEs: "a / b / c / d / e / f" })).toContain("translationEs");
@@ -101,7 +144,11 @@ describe("reglas de integridad (6.2)", () => {
   });
   it("normaliza a NFC y quita espacios sobrantes", () => {
     const decomposed = "Brücke";
-    const r = wordInputSchema.parse({ ...base, lemma: `  ${decomposed}  `, translationEs: "puente   de  piedra" });
+    const r = wordInputSchema.parse({
+      ...base,
+      lemma: `  ${decomposed}  `,
+      translationEs: "puente   de  piedra",
+    });
     expect(r.lemma).toBe("Brücke");
     expect(r.translationEs).toBe("puente de piedra");
   });
@@ -127,7 +174,9 @@ describe("exportación para Anki", () => {
     expect(back).toContain("die Bahnhöfe");
     expect(back).toContain("Ich bin am Bahnhof.");
     expect(ankiBack({ ...w, noPlural: true })).toContain("sin plural");
-    expect(ankiBack({ ...w, type: "VERB", gender: null, lemma: "ab|biegen", perfekt: "ist <ab>" })).toContain("ist &lt;ab&gt;");
+    expect(ankiBack({ ...w, type: "VERB", gender: null, lemma: "ab|biegen", perfekt: "ist <ab>" })).toContain(
+      "ist &lt;ab&gt;",
+    );
   });
   it("cabeceras #separator y #html, columnas Front;Back;Tags", () => {
     const csv = serializeAnkiCsv([w]);

@@ -40,9 +40,9 @@ export function Wordmark() {
     <Link href="/" className="group inline-flex items-baseline gap-1.5 rounded-sm">
       <span className="font-serif text-xl font-semibold tracking-tight">Wortschatz</span>
       <span className="flex gap-[2px] self-center" aria-hidden>
-        <span className="h-3 w-[3px] rounded-full bg-ink" />
-        <span className="h-3 w-[3px] rounded-full bg-die" />
-        <span className="h-3 w-[3px] rounded-full bg-accent" />
+        <span className="bg-ink h-3 w-[3px] rounded-full" />
+        <span className="bg-die h-3 w-[3px] rounded-full" />
+        <span className="bg-accent h-3 w-[3px] rounded-full" />
       </span>
     </Link>
   );
@@ -54,7 +54,7 @@ export function AppNav({ displayName, logout }: { displayName: string; logout: (
   const primary = LINKS.slice(0, 6);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur supports-[backdrop-filter]:bg-paper/70">
+    <header className="border-line bg-paper/85 supports-[backdrop-filter]:bg-paper/70 sticky top-0 z-40 border-b backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-4 px-4 sm:px-6">
         <Wordmark />
         <nav aria-label="Principal" className="ml-4 hidden items-center gap-0.5 lg:flex">
@@ -64,7 +64,7 @@ export function AppNav({ displayName, logout }: { displayName: string; logout: (
               href={href}
               aria-current={isActive(pathname, href) ? "page" : undefined}
               className={cn(
-                "rounded-md px-3 py-1.5 text-sm text-ink-2 transition-colors hover:text-ink",
+                "text-ink-2 hover:text-ink rounded-md px-3 py-1.5 text-sm transition-colors",
                 isActive(pathname, href) && "bg-surface text-ink shadow-paper",
               )}
             >
@@ -78,18 +78,23 @@ export function AppNav({ displayName, logout }: { displayName: string; logout: (
             <Dialog.Trigger asChild>
               <button
                 type="button"
-                className="inline-flex size-9 items-center justify-center rounded-md border border-line bg-surface text-ink-2 hover:text-ink"
+                className="border-line bg-surface text-ink-2 hover:text-ink inline-flex size-9 items-center justify-center rounded-md border"
                 aria-label="Abrir menú"
               >
                 <Menu className="size-4" aria-hidden />
               </button>
             </Dialog.Trigger>
             <Dialog.Portal>
-              <Dialog.Overlay className="fixed inset-0 z-50 bg-ink/30 backdrop-blur-[2px]" />
-              <Dialog.Content className="fixed inset-y-0 right-0 z-50 flex w-[min(320px,88vw)] flex-col border-l border-line bg-paper p-5 shadow-lift">
+              <Dialog.Overlay className="bg-ink/30 fixed inset-0 z-50 backdrop-blur-[2px]" />
+              <Dialog.Content className="border-line bg-paper shadow-lift fixed inset-y-0 right-0 z-50 flex w-[min(320px,88vw)] flex-col border-l p-5">
                 <div className="mb-6 flex items-center justify-between">
-                  <Dialog.Title className="font-serif text-lg font-semibold">Hallo, {displayName}</Dialog.Title>
-                  <Dialog.Close className="inline-flex size-8 items-center justify-center rounded-md text-ink-2 hover:bg-surface-2" aria-label="Cerrar menú">
+                  <Dialog.Title className="font-serif text-lg font-semibold">
+                    Hallo, {displayName}
+                  </Dialog.Title>
+                  <Dialog.Close
+                    className="text-ink-2 hover:bg-surface-2 inline-flex size-8 items-center justify-center rounded-md"
+                    aria-label="Cerrar menú"
+                  >
                     <X className="size-4" aria-hidden />
                   </Dialog.Close>
                 </div>
@@ -102,7 +107,7 @@ export function AppNav({ displayName, logout }: { displayName: string; logout: (
                       onClick={() => setOpen(false)}
                       aria-current={isActive(pathname, href) ? "page" : undefined}
                       className={cn(
-                        "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm text-ink-2 hover:bg-surface-2 hover:text-ink",
+                        "text-ink-2 hover:bg-surface-2 hover:text-ink flex items-center gap-3 rounded-md px-3 py-2.5 text-sm",
                         isActive(pathname, href) && "bg-surface text-ink shadow-paper",
                       )}
                     >
@@ -111,10 +116,13 @@ export function AppNav({ displayName, logout }: { displayName: string; logout: (
                     </Link>
                   ))}
                 </nav>
-                <div className="mt-auto flex items-center justify-between gap-3 border-t border-line pt-4">
+                <div className="border-line mt-auto flex items-center justify-between gap-3 border-t pt-4">
                   <ThemeToggle />
                   <form action={logout}>
-                    <button type="submit" className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm text-ink-2 hover:bg-surface-2 hover:text-ink">
+                    <button
+                      type="submit"
+                      className="text-ink-2 hover:bg-surface-2 hover:text-ink inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm"
+                    >
                       <LogOut className="size-4" aria-hidden />
                       Salir
                     </button>

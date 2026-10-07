@@ -101,7 +101,11 @@ export interface EligibilityCard {
  * Elegibilidad de nuevas: una principal NEW es elegible si no está suspendida;
  * una secundaria NEW solo si la principal de su palabra está en REVIEW.
  */
-export function isEligibleNew(card: EligibilityCard, primaryKind: string | null, primaryState: CardState | null) {
+export function isEligibleNew(
+  card: EligibilityCard,
+  primaryKind: string | null,
+  primaryState: CardState | null,
+) {
   if (card.state !== "NEW" || card.suspended) return false;
   if (primaryKind === null) return false;
   if (card.kind === primaryKind) return true;

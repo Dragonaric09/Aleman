@@ -22,7 +22,9 @@ for (const e of vocab.errors) console.error(`✗ vocabulario.csv fila ${e.row} �
 let unknownLessons = 0;
 for (const { row, word } of vocab.rows) {
   if (word.lessonNumber != null && !lessonNumbers.has(word.lessonNumber)) {
-    console.error(`✗ vocabulario.csv fila ${row} · lesson: la lección ${word.lessonNumber} no está en lecciones.csv`);
+    console.error(
+      `✗ vocabulario.csv fila ${row} · lesson: la lección ${word.lessonNumber} no está en lecciones.csv`,
+    );
     unknownLessons++;
   }
 }
@@ -38,5 +40,9 @@ const byLevel = vocab.rows.reduce<Record<string, number>>((acc, { word }) => {
   return acc;
 }, {});
 console.log(`✓ ${lessons.rows.length} lecciones y ${vocab.rows.length} palabras válidas`);
-console.log(`  por nivel: ${Object.entries(byLevel).map(([k, v]) => `${k}=${v}`).join(", ")}`);
+console.log(
+  `  por nivel: ${Object.entries(byLevel)
+    .map(([k, v]) => `${k}=${v}`)
+    .join(", ")}`,
+);
 console.log(`  ★: ${vocab.rows.filter((r) => r.word.starred).length}`);

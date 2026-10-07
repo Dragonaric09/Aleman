@@ -48,7 +48,11 @@ export function ThemeToggle({ className }: { className?: string }) {
   }
 
   return (
-    <div role="group" aria-label="Tema" className={cn("inline-flex rounded-md border border-line bg-surface-2 p-0.5", className)}>
+    <div
+      role="group"
+      aria-label="Tema"
+      className={cn("border-line bg-surface-2 inline-flex rounded-md border p-0.5", className)}
+    >
       {OPTIONS.map(({ value, label, icon: Icon }) => (
         <button
           key={value}
@@ -58,7 +62,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           title={label}
           onClick={() => choose(value)}
           className={cn(
-            "inline-flex size-7 items-center justify-center rounded-[7px] text-ink-2 transition-colors",
+            "text-ink-2 inline-flex size-7 items-center justify-center rounded-[7px] transition-colors",
             theme === value ? "bg-surface text-ink shadow-paper" : "hover:text-ink",
           )}
         >

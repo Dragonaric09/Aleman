@@ -20,7 +20,12 @@ export function insertAtCursor(el: HTMLInputElement, char: string, onChange: (va
 /** Atajos Alt+a/o/u/s (con Mayús para mayúsculas). Devuelve el carácter o null. */
 export function umlautFromKey(e: React.KeyboardEvent): string | null {
   if (!e.altKey || e.ctrlKey || e.metaKey) return null;
-  const map: Record<string, [string, string]> = { KeyA: ["ä", "Ä"], KeyO: ["ö", "Ö"], KeyU: ["ü", "Ü"], KeyS: ["ß", "ß"] };
+  const map: Record<string, [string, string]> = {
+    KeyA: ["ä", "Ä"],
+    KeyO: ["ö", "Ö"],
+    KeyU: ["ü", "Ü"],
+    KeyS: ["ß", "ß"],
+  };
   const pair = map[e.code];
   return pair ? pair[e.shiftKey ? 1 : 0] : null;
 }
@@ -47,7 +52,7 @@ export function UmlautBar({
           aria-label={`Insertar ${c}`}
           onMouseDown={(e) => e.preventDefault()}
           onClick={() => targetRef.current && insertAtCursor(targetRef.current, c, onInsert)}
-          className="h-9 min-w-9 rounded-md border border-line-strong bg-surface px-2 font-serif text-base text-ink transition-colors hover:border-accent hover:text-accent disabled:opacity-40"
+          className="border-line-strong bg-surface text-ink hover:border-accent hover:text-accent h-9 min-w-9 rounded-md border px-2 font-serif text-base transition-colors disabled:opacity-40"
         >
           {c}
         </button>

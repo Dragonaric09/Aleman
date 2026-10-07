@@ -139,8 +139,18 @@ async function gatherQueue(userId: string, ctx: DayContext) {
     .filter((c) => isEligibleNew(c, primaryKind.get(c.wordId) ?? null, primaryState.get(c.wordId) ?? null))
     .sort((a, b) => {
       const byWord = compareForIntroduction(
-        { id: a.wordId, priority: a.word.priority, lessonSortOrder: a.word.lesson?.sortOrder ?? null, createdAt: a.word.createdAt },
-        { id: b.wordId, priority: b.word.priority, lessonSortOrder: b.word.lesson?.sortOrder ?? null, createdAt: b.word.createdAt },
+        {
+          id: a.wordId,
+          priority: a.word.priority,
+          lessonSortOrder: a.word.lesson?.sortOrder ?? null,
+          createdAt: a.word.createdAt,
+        },
+        {
+          id: b.wordId,
+          priority: b.word.priority,
+          lessonSortOrder: b.word.lesson?.sortOrder ?? null,
+          createdAt: b.word.createdAt,
+        },
       );
       return byWord !== 0 ? byWord : kindOrder(a.kind) - kindOrder(b.kind);
     });
@@ -192,7 +202,12 @@ async function notesFor(userId: string, wordIds: string[]) {
   return new Map(notes.map((n) => [n.wordId, { mnemonic: n.mnemonic, ownSentence: n.ownSentence }]));
 }
 
-function toQueueItems(cards: CardRow[], settings: Settings, now: Date, notes: Map<string, QueueItem["note"]>) {
+function toQueueItems(
+  cards: CardRow[],
+  settings: Settings,
+  now: Date,
+  notes: Map<string, QueueItem["note"]>,
+) {
   const scheduler = schedulerFor(settings);
   return cards.map((c): QueueItem => {
     const preview = scheduler.preview(snapshotOf(c), now);
@@ -323,7 +338,9 @@ export async function submitReview(userId: string, raw: unknown, now: Date): Pro
         where: { userId, card: { wordId: card.wordId }, rating: { in: ["GOOD", "EASY"] } },
       });
       if (correct === 3) {
-        const note = await tx.wordNote.findUnique({ where: { userId_wordId: { userId, wordId: card.wordId } } });
+        const note = await tx.wordNote.findUnique({
+          where: { userId_wordId: { userId, wordId: card.wordId } },
+        });
         inviteOwnSentence = !note?.ownSentence;
       }
     }
@@ -446,7 +463,10 @@ export async function lessonPractice(userId: string, lessonNumber: number) {
     include: { lesson: { select: { number: true, title: true, sortOrder: true } } },
     orderBy: [{ priority: "desc" }, { lemma: "asc" }],
   });
-  return { lesson: { number: lesson.number, title: lesson.title, topic: lesson.topic }, words: words.map(toQueueWord) };
+  return {
+    lesson: { number: lesson.number, title: lesson.title, topic: lesson.topic },
+    words: words.map(toQueueWord),
+  };
 }
 
 export async function lessonsWithCounts(userId: string) {

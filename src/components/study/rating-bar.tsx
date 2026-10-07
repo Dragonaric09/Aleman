@@ -35,13 +35,13 @@ export function RatingBar({
             aria-keyshortcuts={`${i + 1}${isSuggested ? " Enter" : ""}`}
             aria-describedby={isSuggested ? "suggested-hint" : undefined}
             className={cn(
-              "group relative flex flex-col items-center gap-0.5 rounded-md border border-line-strong bg-surface px-1 py-2.5 text-ink transition-colors disabled:opacity-50",
+              "group border-line-strong bg-surface text-ink relative flex flex-col items-center gap-0.5 rounded-md border px-1 py-2.5 transition-colors disabled:opacity-50",
               TONE[r],
-              isSuggested && "border-accent ring-2 ring-accent/35",
+              isSuggested && "border-accent ring-accent/35 ring-2",
             )}
           >
             <span className="text-sm font-medium">{RATING_LABELS[r]}</span>
-            <span className="tabular text-xs text-ink-2">{preview[r].label}</span>
+            <span className="tabular text-ink-2 text-xs">{preview[r].label}</span>
             <span className="kbd absolute top-1.5 left-1.5 hidden sm:inline" aria-hidden>
               {i + 1}
             </span>

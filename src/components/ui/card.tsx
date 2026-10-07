@@ -1,11 +1,15 @@
 import * as React from "react";
 import { cn } from "@/lib/cn";
 
-export function Card({ className, raised, ...props }: React.HTMLAttributes<HTMLDivElement> & { raised?: boolean }) {
+export function Card({
+  className,
+  raised,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & { raised?: boolean }) {
   return (
     <div
       className={cn(
-        "rounded-lg border border-line bg-surface",
+        "border-line bg-surface rounded-lg border",
         raised ? "shadow-lift" : "shadow-paper",
         className,
       )}
@@ -23,7 +27,7 @@ export function CardTitle({ className, ...props }: React.HTMLAttributes<HTMLHead
 }
 
 export function CardDescription({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
-  return <p className={cn("text-sm text-ink-2", className)} {...props} />;
+  return <p className={cn("text-ink-2 text-sm", className)} {...props} />;
 }
 
 export function CardContent({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
@@ -44,9 +48,11 @@ export function PageHeader({
   return (
     <header className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div className="min-w-0">
-        {eyebrow && <p className="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-accent">{eyebrow}</p>}
+        {eyebrow && (
+          <p className="text-accent mb-1 text-xs font-medium tracking-[0.14em] uppercase">{eyebrow}</p>
+        )}
         <h1 className="font-serif text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h1>
-        {description && <p className="mt-2 max-w-2xl text-ink-2 text-pretty">{description}</p>}
+        {description && <p className="text-ink-2 mt-2 max-w-2xl text-pretty">{description}</p>}
       </div>
       {actions && <div className="flex shrink-0 flex-wrap gap-2">{actions}</div>}
     </header>
@@ -68,7 +74,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1 rounded-sm border px-1.5 py-0.5 text-xs font-medium leading-none",
+        "inline-flex items-center gap-1 rounded-sm border px-1.5 py-0.5 text-xs leading-none font-medium",
         tones[tone],
         className,
       )}
@@ -77,12 +83,20 @@ export function Badge({
   );
 }
 
-export function EmptyState({ icon, title, children }: { icon?: React.ReactNode; title: string; children?: React.ReactNode }) {
+export function EmptyState({
+  icon,
+  title,
+  children,
+}: {
+  icon?: React.ReactNode;
+  title: string;
+  children?: React.ReactNode;
+}) {
   return (
-    <div className="flex flex-col items-center gap-3 rounded-lg border border-dashed border-line-strong px-6 py-14 text-center">
+    <div className="border-line-strong flex flex-col items-center gap-3 rounded-lg border border-dashed px-6 py-14 text-center">
       {icon && <div className="text-accent [&_svg]:size-8">{icon}</div>}
       <p className="font-serif text-xl font-semibold">{title}</p>
-      {children && <div className="max-w-md text-sm text-ink-2">{children}</div>}
+      {children && <div className="text-ink-2 max-w-md text-sm">{children}</div>}
     </div>
   );
 }

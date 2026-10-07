@@ -31,28 +31,43 @@ const ownNoun = {
 
 describe("autenticación y sesiones", () => {
   it("registro, login, sesión con SHA-256 y renovación deslizante", async () => {
-    const reg = await register({ email: "Ana@Test.dev", password: "una-clave-larga", displayName: "Ana", timezone: "Europe/Berlin" }, now);
+    const reg = await register(
+      { email: "Ana@Test.dev", password: "una-clave-larga", displayName: "Ana", timezone: "Europe/Berlin" },
+      now,
+    );
     expect(reg.user.email).toBe("ana@test.dev");
     const stored = await prisma.session.findUniqueOrThrow({ where: { id: hashToken(reg.token) } });
     expect(stored.id).not.toBe(reg.token);
-    expect((await prisma.userSettings.findUniqueOrThrow({ where: { userId: reg.user.id } })).timezone).toBe("Europe/Berlin");
+    expect((await prisma.userSettings.findUniqueOrThrow({ where: { userId: reg.user.id } })).timezone).toBe(
+      "Europe/Berlin",
+    );
 
     const session = await login({ email: "ana@test.dev", password: "una-clave-larga" }, "1.1.1.1", now);
-    expect((await validateSessionToken(session.token, new Date(now.getTime() + 10 * DAY)))?.renewed).toBe(false);
+    expect((await validateSessionToken(session.token, new Date(now.getTime() + 10 * DAY)))?.renewed).toBe(
+      false,
+    );
     const renewed = await validateSessionToken(session.token, new Date(now.getTime() + 20 * DAY));
     expect(renewed?.renewed).toBe(true);
     expect(await validateSessionToken(session.token, new Date(now.getTime() + 60 * DAY))).toBeNull();
   });
 
   it("contraseña mínima de 10, email duplicado y error de login genérico", async () => {
-    await expect(register({ email: "b@test.dev", password: "corta", displayName: "B" }, now)).rejects.toThrow();
+    await expect(
+      register({ email: "b@test.dev", password: "corta", displayName: "B" }, now),
+    ).rejects.toThrow();
     await register({ email: "b@test.dev", password: "una-clave-larga", displayName: "B" }, now);
-    await expect(register({ email: "b@test.dev", password: "una-clave-larga", displayName: "B" }, now)).rejects.toMatchObject({ status: 409 });
-    await expect(login({ email: "b@test.dev", password: "incorrecta!!" }, "2.2.2.2", now)).rejects.toMatchObject({
+    await expect(
+      register({ email: "b@test.dev", password: "una-clave-larga", displayName: "B" }, now),
+    ).rejects.toMatchObject({ status: 409 });
+    await expect(
+      login({ email: "b@test.dev", password: "incorrecta!!" }, "2.2.2.2", now),
+    ).rejects.toMatchObject({
       status: 401,
       message: "Email o contraseña incorrectos",
     });
-    await expect(login({ email: "nadie@test.dev", password: "incorrecta!!" }, "2.2.2.3", now)).rejects.toMatchObject({
+    await expect(
+      login({ email: "nadie@test.dev", password: "incorrecta!!" }, "2.2.2.3", now),
+    ).rejects.toMatchObject({
       message: "Email o contraseña incorrectos",
     });
   });
@@ -60,17 +75,31 @@ describe("autenticación y sesiones", () => {
   it("límite de intentos: 5 por minuto por email", async () => {
     await register({ email: "c@test.dev", password: "una-clave-larga", displayName: "C" }, now);
     for (let i = 0; i < 5; i++) {
-      await expect(login({ email: "c@test.dev", password: "mala-clave-xx" }, `9.9.9.${i}`, now)).rejects.toMatchObject({ status: 401 });
+      await expect(
+        login({ email: "c@test.dev", password: "mala-clave-xx" }, `9.9.9.${i}`, now),
+      ).rejects.toMatchObject({ status: 401 });
     }
-    await expect(login({ email: "c@test.dev", password: "una-clave-larga" }, "9.9.9.9", now)).rejects.toMatchObject({ status: 429 });
+    await expect(
+      login({ email: "c@test.dev", password: "una-clave-larga" }, "9.9.9.9", now),
+    ).rejects.toMatchObject({ status: 429 });
     const later = new Date(now.getTime() + 61_000);
-    await expect(login({ email: "c@test.dev", password: "una-clave-larga" }, "9.9.9.9", later)).resolves.toBeTruthy();
+    await expect(
+      login({ email: "c@test.dev", password: "una-clave-larga" }, "9.9.9.9", later),
+    ).resolves.toBeTruthy();
   });
 
   it("cambiar la contraseña cierra las demás sesiones", async () => {
     const a = await register({ email: "d@test.dev", password: "una-clave-larga", displayName: "D" }, now);
     const other = await login({ email: "d@test.dev", password: "una-clave-larga" }, "3.3.3.3", now);
-    await changePassword(a.user.id, { currentPassword: "una-clave-larga", newPassword: "otra-clave-larga", confirmPassword: "otra-clave-larga" }, a.token);
+    await changePassword(
+      a.user.id,
+      {
+        currentPassword: "una-clave-larga",
+        newPassword: "otra-clave-larga",
+        confirmPassword: "otra-clave-larga",
+      },
+      a.token,
+    );
     expect(await validateSessionToken(other.token, now)).toBeNull();
     expect(await validateSessionToken(a.token, now)).not.toBeNull();
   });
@@ -86,10 +115,14 @@ describe("aislamiento entre usuarios", () => {
     const cardA = item!.card.id;
 
     await expect(getWordDetail(b.id, word.id)).rejects.toMatchObject({ status: 404 });
-    await expect(updateWord(b.id, word.id, { ...ownNoun, translationEs: "hack" })).rejects.toMatchObject({ status: 404 });
+    await expect(updateWord(b.id, word.id, { ...ownNoun, translationEs: "hack" })).rejects.toMatchObject({
+      status: 404,
+    });
     await expect(deleteWord(b.id, word.id)).rejects.toMatchObject({ status: 404 });
     await expect(saveNote(b.id, word.id, { mnemonic: "x" })).rejects.toMatchObject({ status: 404 });
-    await expect(submitReview(b.id, { cardId: cardA, rating: "GOOD", typedAnswer: "x", durationMs: 1 }, now)).rejects.toMatchObject({ status: 404 });
+    await expect(
+      submitReview(b.id, { cardId: cardA, rating: "GOOD", typedAnswer: "x", durationMs: 1 }, now),
+    ).rejects.toMatchObject({ status: 404 });
     await expect(setCardSuspended(b.id, cardA, true)).rejects.toMatchObject({ status: 404 });
 
     const bQueue = await getQueue(b.id, now, 50);
@@ -97,13 +130,17 @@ describe("aislamiento entre usuarios", () => {
     const backupB = await buildBackup(b.id, now);
     expect(backupB.ownWords).toHaveLength(0);
     expect(backupB.notes).toHaveLength(0);
-    expect((await prisma.wordNote.findFirstOrThrow({ where: { wordId: word.id } })).mnemonic).toBe("truco de A");
+    expect((await prisma.wordNote.findFirstOrThrow({ where: { wordId: word.id } })).mnemonic).toBe(
+      "truco de A",
+    );
   });
 
   it("las globales son de solo lectura; «crear copia propia» oculta la global", async () => {
     const a = await makeUser();
     const global = await globalWord("Bahnhof");
-    await expect(updateWord(a.id, global.id, { ...ownNoun, lemma: "Bahnhof" })).rejects.toMatchObject({ status: 403 });
+    await expect(updateWord(a.id, global.id, { ...ownNoun, lemma: "Bahnhof" })).rejects.toMatchObject({
+      status: 403,
+    });
     await expect(deleteWord(a.id, global.id)).rejects.toMatchObject({ status: 403 });
     const copy = await copyGlobalWord(a.id, global.id);
     const detail = await getWordDetail(a.id, copy.id);
@@ -117,7 +154,9 @@ describe("aislamiento entre usuarios", () => {
     const a = await makeUser();
     await expect(createWord(a.id, { ...ownNoun, gender: null })).rejects.toThrow(/género/);
     const w = await createWord(a.id, ownNoun);
-    const kinds = (await prisma.card.findMany({ where: { userId: a.id, wordId: w.id } })).map((c) => c.kind).sort();
+    const kinds = (await prisma.card.findMany({ where: { userId: a.id, wordId: w.id } }))
+      .map((c) => c.kind)
+      .sort();
     expect(kinds).toEqual(["DE_TO_ES", "ES_TO_DE", "PLURAL"]);
   });
 });
@@ -125,7 +164,8 @@ describe("aislamiento entre usuarios", () => {
 describe("transferencia", () => {
   const header = VOCAB_HEADERS.join(";");
   const ok1 = "Kreuzung;noun;die;-en;Kreuzungen;0;cruce;;;;B;0;;;13;;0;0;;;;;;0;;";
-  const ok2 = "geradeaus gehen;verb;;;;0;seguir recto;;;;B;0;;;13;;0;0;;;geht geradeaus;ist geradeaus gegangen;sein;1;;";
+  const ok2 =
+    "geradeaus gehen;verb;;;;0;seguir recto;;;;B;0;;;13;;0;0;;;geht geradeaus;ist geradeaus gegangen;sein;1;;";
   const bad1 = "Zug;noun;;;Züge;0;tren;;;;A;0;;;13;;0;0;;;;;;0;;";
   const bad2 = "Hallo;expression;;;;0;hola;;;;A;0;;;999;;0;0;;;;;;0;;";
 
@@ -161,15 +201,30 @@ describe("transferencia", () => {
 
     const backup = JSON.parse(JSON.stringify(await buildBackup(a.id, now)));
     const strip = async () => ({
-      cards: (await prisma.card.findMany({ where: { userId: a.id }, include: { word: { select: { lemma: true, type: true, scope: true } } } }))
-        .map(({ id: _id, wordId: _w, word, ...c }) => ({ ...c, word: `${word.scope === "global" ? "g" : "o"}:${word.lemma}:${word.type}` }))
+      cards: (
+        await prisma.card.findMany({
+          where: { userId: a.id },
+          include: { word: { select: { lemma: true, type: true, scope: true } } },
+        })
+      )
+        .map(({ id: _id, wordId: _w, word, ...c }) => ({
+          ...c,
+          word: `${word.scope === "global" ? "g" : "o"}:${word.lemma}:${word.type}`,
+        }))
         .sort((x, y) => (x.word + x.kind).localeCompare(y.word + y.kind)),
-      logs: (await prisma.reviewLog.findMany({ where: { userId: a.id }, orderBy: { reviewedAt: "asc" } })).map(
-        ({ id: _id, cardId: _c, ...l }) => l,
+      logs: (
+        await prisma.reviewLog.findMany({ where: { userId: a.id }, orderBy: { reviewedAt: "asc" } })
+      ).map(({ id: _id, cardId: _c, ...l }) => l),
+      notes: (await prisma.wordNote.findMany({ where: { userId: a.id } })).map(
+        ({ mnemonic, ownSentence }) => ({ mnemonic, ownSentence }),
       ),
-      notes: (await prisma.wordNote.findMany({ where: { userId: a.id } })).map(({ mnemonic, ownSentence }) => ({ mnemonic, ownSentence })),
-      words: (await prisma.word.findMany({ where: { scope: a.id } })).map(({ lemma, translationEs, priority }) => ({ lemma, translationEs, priority })),
-      settings: await prisma.userSettings.findUniqueOrThrow({ where: { userId: a.id }, omit: { updatedAt: true } }),
+      words: (await prisma.word.findMany({ where: { scope: a.id } })).map(
+        ({ lemma, translationEs, priority }) => ({ lemma, translationEs, priority }),
+      ),
+      settings: await prisma.userSettings.findUniqueOrThrow({
+        where: { userId: a.id },
+        omit: { updatedAt: true },
+      }),
     });
     const before = await strip();
     expect(before.logs.length).toBeGreaterThan(0);

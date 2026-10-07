@@ -22,7 +22,11 @@ export async function loginAction(_prev: ActionState, form: FormData): Promise<A
   let token: string;
   let expiresAt: Date;
   try {
-    ({ token, expiresAt } = await login({ email: str(form, "email"), password: str(form, "password") }, await clientIp(), clock.now()));
+    ({ token, expiresAt } = await login(
+      { email: str(form, "email"), password: str(form, "password") },
+      await clientIp(),
+      clock.now(),
+    ));
   } catch (err) {
     return toActionError(err);
   }

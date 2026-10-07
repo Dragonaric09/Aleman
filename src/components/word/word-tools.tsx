@@ -13,7 +13,15 @@ import { Button } from "@/components/ui/button";
 import { FormMessage, Label, Textarea } from "@/components/ui/form";
 import { useSpeech } from "../study/use-speech";
 
-export function SpeakButton({ text, rate = 0.9, voice = null }: { text: string; rate?: number; voice?: string | null }) {
+export function SpeakButton({
+  text,
+  rate = 0.9,
+  voice = null,
+}: {
+  text: string;
+  rate?: number;
+  voice?: string | null;
+}) {
   const tts = useSpeech({ enabled: true, rate, voiceName: voice });
   if (!tts.available) return null;
   return (
@@ -50,18 +58,37 @@ export function NoteEditor({
         });
       }}
     >
-      <div className={highlightMnemonic ? "grid gap-1.5 rounded-md border border-bad/30 bg-bad-bg p-3" : "grid gap-1.5"}>
+      <div
+        className={
+          highlightMnemonic ? "border-bad/30 bg-bad-bg grid gap-1.5 rounded-md border p-3" : "grid gap-1.5"
+        }
+      >
         <Label htmlFor={`m-${wordId}`} className="flex items-center gap-1.5">
-          <Lightbulb className="size-4 text-accent" aria-hidden /> Mnemotecnia
+          <Lightbulb className="text-accent size-4" aria-hidden /> Mnemotecnia
         </Label>
-        {highlightMnemonic && <p className="text-xs text-bad">Esta palabra es rebelde: escribe un truco para recordarla.</p>}
-        <Textarea id={`m-${wordId}`} rows={2} value={m} onChange={(e) => setM(e.target.value)} placeholder="Un truco, una imagen, una rima…" />
+        {highlightMnemonic && (
+          <p className="text-bad text-xs">Esta palabra es rebelde: escribe un truco para recordarla.</p>
+        )}
+        <Textarea
+          id={`m-${wordId}`}
+          rows={2}
+          value={m}
+          onChange={(e) => setM(e.target.value)}
+          placeholder="Un truco, una imagen, una rima…"
+        />
       </div>
       <div className="grid gap-1.5">
         <Label htmlFor={`s-${wordId}`} className="flex items-center gap-1.5">
-          <PenLine className="size-4 text-accent" aria-hidden /> Mi frase
+          <PenLine className="text-accent size-4" aria-hidden /> Mi frase
         </Label>
-        <Textarea id={`s-${wordId}`} lang="de" rows={2} value={s} onChange={(e) => setS(e.target.value)} placeholder="Escribe una frase tuya en alemán" />
+        <Textarea
+          id={`s-${wordId}`}
+          lang="de"
+          rows={2}
+          value={s}
+          onChange={(e) => setS(e.target.value)}
+          placeholder="Escribe una frase tuya en alemán"
+        />
       </div>
       {msg && <FormMessage tone={msg.tone}>{msg.text}</FormMessage>}
       <div>
@@ -73,7 +100,15 @@ export function NoteEditor({
   );
 }
 
-export function WordActions({ wordId, isOwn, suspended }: { wordId: string; isOwn: boolean; suspended: boolean }) {
+export function WordActions({
+  wordId,
+  isOwn,
+  suspended,
+}: {
+  wordId: string;
+  isOwn: boolean;
+  suspended: boolean;
+}) {
   const [pending, start] = useTransition();
   const [confirmDelete, setConfirmDelete] = useState(false);
   return (
@@ -97,7 +132,7 @@ export function WordActions({ wordId, isOwn, suspended }: { wordId: string; isOw
       {isOwn &&
         (confirmDelete ? (
           <form action={deleteWordAction.bind(null, wordId)} className="flex items-center gap-2">
-            <span className="text-sm text-bad">¿Borrar la palabra y su historial?</span>
+            <span className="text-bad text-sm">¿Borrar la palabra y su historial?</span>
             <Button type="submit" variant="danger" size="sm">
               Sí, borrar
             </Button>

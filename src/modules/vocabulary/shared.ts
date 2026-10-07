@@ -3,7 +3,16 @@
  * Los tipos replican los enums de Prisma como uniones de texto.
  */
 
-export const WORD_TYPES = ["NOUN", "VERB", "ADJECTIVE", "ADVERB", "PREPOSITION", "PRONOUN", "EXPRESSION", "OTHER"] as const;
+export const WORD_TYPES = [
+  "NOUN",
+  "VERB",
+  "ADJECTIVE",
+  "ADVERB",
+  "PREPOSITION",
+  "PRONOUN",
+  "EXPRESSION",
+  "OTHER",
+] as const;
 export type WordType = (typeof WORD_TYPES)[number];
 
 export const GENDERS = ["DER", "DIE", "DAS"] as const;
@@ -18,7 +27,14 @@ export type GoetheLevel = (typeof GOETHE_LEVELS)[number];
 export const AUXILIARIES = ["HABEN", "SEIN"] as const;
 export type Auxiliary = (typeof AUXILIARIES)[number];
 
-export const CARD_KINDS = ["ES_TO_DE", "DE_TO_ES", "PLURAL", "VERB_FORMS", "SEPARABLE_ORDER", "CLOZE"] as const;
+export const CARD_KINDS = [
+  "ES_TO_DE",
+  "DE_TO_ES",
+  "PLURAL",
+  "VERB_FORMS",
+  "SEPARABLE_ORDER",
+  "CLOZE",
+] as const;
 export type CardKind = (typeof CARD_KINDS)[number];
 
 export const CARD_STATES = ["NEW", "LEARNING", "REVIEW", "RELEARNING"] as const;

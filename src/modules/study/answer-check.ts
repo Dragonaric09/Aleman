@@ -1,4 +1,10 @@
-import { ARTICLES, displayLemma, splitAlternatives, type CardKind, type Rating } from "@/modules/vocabulary/shared";
+import {
+  ARTICLES,
+  displayLemma,
+  splitAlternatives,
+  type CardKind,
+  type Rating,
+} from "@/modules/vocabulary/shared";
 import { clozeAnswer, sentenceTiles, type CardWord } from "./card-content";
 
 export type CheckVerdict = "CORRECT" | "ALMOST" | "WRONG";
@@ -69,11 +75,13 @@ function compareGerman(typed: string, expected: string, opts: CheckOptions, isNo
   if (typed === expected) return { verdict: "CORRECT", expected, hints };
   // 3. Solo difiere en mayúsculas
   if (typed.toLowerCase() === expected.toLowerCase()) {
-    if (opts.strictCapitalization) return { verdict: "ALMOST", expected, hints: [isNoun ? HINT_NOUN_CAPS : HINT_CAPS] };
+    if (opts.strictCapitalization)
+      return { verdict: "ALMOST", expected, hints: [isNoun ? HINT_NOUN_CAPS : HINT_CAPS] };
     return { verdict: "CORRECT", expected, hints: [isNoun ? HINT_NOUN_CAPS : HINT_CAPS] };
   }
   // 4. Escribió ae/oe/ue/ss en lugar de ä/ö/ü/ß
-  if (transliterate(typed) === transliterate(expected)) return { verdict: "ALMOST", expected, hints: [HINT_UMLAUT] };
+  if (transliterate(typed) === transliterate(expected))
+    return { verdict: "ALMOST", expected, hints: [HINT_UMLAUT] };
   // 5. Distancia de Levenshtein
   const tol = germanTolerance(expected);
   if (tol > 0 && levenshtein(typed.toLowerCase(), expected.toLowerCase()) <= tol) {
@@ -114,7 +122,8 @@ function checkVerbForms(typed: string, w: CardWord, opts: CheckOptions): CheckRe
   const perfekt = w.perfekt ?? "";
   const expected = `${third} / ${perfekt}`;
   const parts = typed.split("/").map((p) => normalizeAnswer(p));
-  if (parts.length !== 2 || !parts[0] || !parts[1]) return { verdict: "WRONG", expected, hints: ["Escribe las dos formas"] };
+  if (parts.length !== 2 || !parts[0] || !parts[1])
+    return { verdict: "WRONG", expected, hints: ["Escribe las dos formas"] };
 
   const r1 = compareGerman(parts[0].replace(PRONOUN_RE, ""), third, opts, false);
   const hints = [...r1.hints];
@@ -157,7 +166,12 @@ function checkSpanish(typed: string, w: CardWord): CheckResult {
 }
 
 /** Corrige una respuesta escrita. Función pura compartida por cliente y servidor (sección 7.6). */
-export function checkAnswer(kind: CardKind, word: CardWord, typedRaw: string, opts: CheckOptions): CheckResult {
+export function checkAnswer(
+  kind: CardKind,
+  word: CardWord,
+  typedRaw: string,
+  opts: CheckOptions,
+): CheckResult {
   const typed = normalizeAnswer(typedRaw);
   switch (kind) {
     case "DE_TO_ES":

@@ -70,7 +70,11 @@ export async function createWordAction(_prev: ActionState, form: FormData): Prom
   redirect(`/vocabulario/${id}`);
 }
 
-export async function updateWordAction(wordId: string, _prev: ActionState, form: FormData): Promise<ActionState> {
+export async function updateWordAction(
+  wordId: string,
+  _prev: ActionState,
+  form: FormData,
+): Promise<ActionState> {
   const user = await requireUser();
   try {
     await updateWord(user.id, wordId, formToWord(form));
@@ -107,7 +111,11 @@ export async function setWordSuspendedAction(wordId: string, suspended: boolean)
   return { ok: true, message: suspended ? "Palabra suspendida" : "Palabra reactivada" };
 }
 
-export async function setCardSuspendedAction(cardId: string, suspended: boolean, path?: string): Promise<ActionState> {
+export async function setCardSuspendedAction(
+  cardId: string,
+  suspended: boolean,
+  path?: string,
+): Promise<ActionState> {
   const user = await requireUser();
   try {
     await setCardSuspended(user.id, cardId, suspended);

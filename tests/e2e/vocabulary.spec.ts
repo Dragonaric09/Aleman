@@ -1,7 +1,9 @@
 import { expect, test } from "@playwright/test";
 import { registerFreshUser } from "./helpers";
 
-test("crear un sustantivo sin género falla con mensaje claro; con género genera sus tarjetas", async ({ page }) => {
+test("crear un sustantivo sin género falla con mensaje claro; con género genera sus tarjetas", async ({
+  page,
+}) => {
   await registerFreshUser(page);
   await page.goto("/vocabulario/nueva");
   await page.getByLabel("Lema (alemán)").fill("Kreuzung");

@@ -24,20 +24,26 @@ export default async function DashboardPage() {
   const { summary, streak, levels, forecast } = await getDashboard(user.id, clock.now());
   const pending = summary.newAvailable + summary.reviewsDue;
   const { timezone } = await getSettings(user.id);
-  const hour = Number(new Intl.DateTimeFormat("es", { hour: "numeric", hourCycle: "h23", timeZone: timezone }).format(clock.now()));
+  const hour = Number(
+    new Intl.DateTimeFormat("es", { hour: "numeric", hourCycle: "h23", timeZone: timezone }).format(
+      clock.now(),
+    ),
+  );
 
   return (
     <div className="grid gap-8">
       <section className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-stretch">
         <Card raised className="relative overflow-hidden">
           <div className="absolute inset-x-0 top-0 flex h-1" aria-hidden>
-            <span className="flex-1 bg-ink" />
-            <span className="flex-1 bg-die" />
-            <span className="flex-1 bg-accent" />
+            <span className="bg-ink flex-1" />
+            <span className="bg-die flex-1" />
+            <span className="bg-accent flex-1" />
           </div>
           <div className="flex h-full flex-col justify-between gap-8 p-6 sm:p-8">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-accent">{greeting(hour)}, {user.displayName}</p>
+              <p className="text-accent text-xs font-medium tracking-[0.14em] uppercase">
+                {greeting(hour)}, {user.displayName}
+              </p>
               <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
                 {pending > 0 ? (
                   <>
@@ -49,8 +55,9 @@ export default async function DashboardPage() {
                   "Todo al día. Gut gemacht!"
                 )}
               </h1>
-              <p className="mt-3 text-ink-2">
-                {summary.newAvailable} nuevas · {summary.reviewsDue} repasos · {summary.learning} en aprendizaje
+              <p className="text-ink-2 mt-3">
+                {summary.newAvailable} nuevas · {summary.reviewsDue} repasos · {summary.learning} en
+                aprendizaje
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
@@ -67,8 +74,19 @@ export default async function DashboardPage() {
           </div>
         </Card>
         <div className="grid grid-cols-2 gap-4">
-          <StatCard label="Nuevas hoy" value={summary.newAvailable} icon={Sparkles} tone="accent" hint={`${summary.newIntroducedToday} ya introducidas`} />
-          <StatCard label="Repasos" value={summary.reviewsDue} icon={RotateCcw} hint={`${summary.reviewsDoneToday} hechos hoy`} />
+          <StatCard
+            label="Nuevas hoy"
+            value={summary.newAvailable}
+            icon={Sparkles}
+            tone="accent"
+            hint={`${summary.newIntroducedToday} ya introducidas`}
+          />
+          <StatCard
+            label="Repasos"
+            value={summary.reviewsDue}
+            icon={RotateCcw}
+            hint={`${summary.reviewsDoneToday} hechos hoy`}
+          />
           <StatCard label="Aprendiendo" value={summary.learning} icon={Hourglass} hint="pasos cortos" />
           <StatCard
             label="Racha"
@@ -84,11 +102,19 @@ export default async function DashboardPage() {
         <Card>
           <CardHeader>
             <CardTitle>Progreso por nivel</CardTitle>
-            <CardDescription>Introducidas sobre el total; maduras = intervalo de 21 días o más.</CardDescription>
+            <CardDescription>
+              Introducidas sobre el total; maduras = intervalo de 21 días o más.
+            </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-5">
             {levels.map((l) => (
-              <ProgressStack key={l.level} label={LEVEL_LABELS[l.level]} total={l.total} introduced={l.introduced} mature={l.mature} />
+              <ProgressStack
+                key={l.level}
+                label={LEVEL_LABELS[l.level]}
+                total={l.total}
+                introduced={l.introduced}
+                mature={l.mature}
+              />
             ))}
           </CardContent>
         </Card>
