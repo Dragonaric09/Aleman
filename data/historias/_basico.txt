@@ -1,0 +1,36 @@
+# Palabras que se dan por conocidas al calcular la cobertura de una historia (además del catálogo).
+# Palabras funcionales, vocabulario básico de A1.1 y nombres del elenco. Una o varias por línea.
+
+# Artículos y determinantes
+der die das den dem des ein eine einen einem einer eines kein keine keinen keinem keiner
+dieser diese dieses diesen diesem jeder jede jedes alle
+# Pronombres
+ich du er sie es wir ihr Sie mich dich ihn uns euch mir dir ihm ihnen Ihnen man
+mein meine meinen meinem meiner dein deine deinen sein seine seinen ihr ihre ihren unser Ihr Ihre
+was wer wo wie woher wohin wann warum
+# Verbos auxiliares y muy frecuentes (formas conjugadas)
+bin bist ist sind seid war waren hat habe hast haben habt hatte
+kann kannst können muss musst müssen will willst möchte möchtest möchten
+gibt gib sagt sagen sage geht gehst gehe komm komme kommst kommt fahr fahre fährst
+sieht siehst sehe schau liegt liegen liegst sitzt sitzen hängt hängen steigt
+denkt denken weiß nimmt nehmen nimm ruft klingelt zeigt
+# Preposiciones y adverbios
+zum zur vom beim im am ins ans aufs bis gegenüber durch um ohne aus bei
+und oder aber denn dass wenn weil also so nur noch auch nicht nein ja doch mal schon
+hier da dort jetzt dann heute morgen abends morgens mittags immer wieder oft gern sehr ganz zu
+viel viele etwas nichts alles ein bisschen bitte danke Dank vielen endlich plötzlich wirklich
+gut super toll klar okay richtig falsch genau perfekt
+links rechts oben unten vorn hinten weit nah nahe neben
+# Números
+eins zwei drei vier fünf sechs sieben acht neun zehn zwanzig dreißig hundert zweihundert dreihundert erste ersten zweite zweiten dritte dritten
+# Vocabulario básico de A1.1
+Mann Frau Herr Mama Papa Kind Leute Freundin
+Tür Zeit Bild Foto Uhr Minute Minuten Euro Nummer Name Tag Morgen
+Fahrrad Koffer Wand Dach Theke Tasse Teller Glas Brief Karte
+alt neu groß klein schön lang kurz offen zu groß
+heißen wohnen arbeiten lernen spielen hören lesen schreiben essen trinken schlafen kaufen machen finden
+fragt antwortet antworten lacht lachen wartet warten hilft helfen
+Hallo Tschüs Danke Bitte Guten Morgen Tag Abend Entschuldigung Herzlich willkommen
+Sonntag Montag Samstag Wochenende
+# Elenco y lugares de Lindenau
+Lucía Lucías Jonas Weber Webers Öztürk Öztürks Lindenau Linde Krone Bolivien Tarija Marienkirche

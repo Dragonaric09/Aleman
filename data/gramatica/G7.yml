@@ -1,0 +1,10 @@
+id: G7
+slug: verbos-separables
+title: "Verbos separables"
+titleDe: "Trennbare Verben"
+summary: "El prefijo va al final de la frase: Ich stehe um 7 Uhr auf."
+lessons: []
+prerequisites: [G6]
+order: 7
+status: planned
+plannedStories: 7

@@ -58,3 +58,18 @@ El texto del artículo usa un tono AA del mismo matiz que el color fijo de géne
 
 ## D-18 · Cliente de Prisma en la imagen standalone
 Con pnpm, el cliente generado vive en `node_modules/.pnpm/@prisma+client*/node_modules/.prisma/client` y Next.js no lo incluía en `.next/standalone` (la app respondía 500 en Docker). Se añadieron esas rutas a `outputFileTracingIncludes` en `next.config.ts`, como prevé la sección 10.1.
+
+## D-19 · Mini historias y Gramática: piloto G1 con las opciones recomendadas
+Se implementó la fase A de `docs/PROPUESTA_HISTORIAS_GRAMATICA.md` con las opciones recomendadas, al no indicarse otras: piloto del tema G1 (11 historias y su página de Gramática), elenco ficticio en Lindenau, historias marcadas `reviewed: false` («en revisión») hasta que el estudiante o su profesor las revisen, y lectura **sin efecto en FSRS** (los intentos van a `StoryAttempt`; nunca se tocan `Card` ni `ReviewLog`). Los otros nueve temas aparecen como «en preparación».
+
+## D-20 · Contenido como archivos validados
+Temas en `data/gramatica/*.yml` e historias en `data/historias/*.md` (frontmatter YAML + texto con marcado propio). La semilla los valida y los carga de forma idempotente con comparación estable (jsonb reordena claves). Guía de autoría en `docs/CONTENIDO.md`; validación con `pnpm content:validate`.
+
+## D-21 · Desbloqueo secuencial; la cobertura léxica no bloquea
+Las historias de un tema se desbloquean en orden (leer la anterior abre la siguiente). La propuesta sugería exigir ≥ 90 % de palabras conocidas para cada usuario; como las palabras clave llevan glosa emergente y un usuario nuevo no conocería ninguna, la cobertura se muestra como información («16 palabras clave, 3 ya en tus tarjetas») y no bloquea. La cobertura **del texto** frente al catálogo sí se exige (≥ 95 %) al validar el contenido.
+
+## D-22 · Medición de comprensión y dominio
+Comprensión = media de «encuentra las formas» y richtig/falsch; producción = media de huecos (CORRECT 1, ALMOST 0,5) y orden de frases, corregidos con las mismas reglas que las tarjetas. «Encuentra las formas»: una forma cuenta al tocar cualquiera de sus palabras y cada toque de más resta media forma. El tema se da por **comprendido** con ≥ 80 % en la primera lectura de una historia que no sea de descubrimiento, y por **dominado** con ≥ 80 % de producción en historias de contraste o aplicación en dos días de estudio distintos. Los ejercicios de la página de Gramática son práctica libre y no se guardan.
+
+## D-23 · Resultado del control léxico del piloto
+Las 11 historias tienen 88–117 palabras, 6–14 formas meta y una cobertura del 98,9–100 %. De las ~80 palabras activas de la lección 13, 42 aparecen en menos de 3 historias (la mayoría en 2). Forzarlas todas habría dañado la naturalidad de los textos; se deja como aviso del validador y como dato para calibrar el supuesto «23 palabras recicladas por historia» de la propuesta (§ 2.4).

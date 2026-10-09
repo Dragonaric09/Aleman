@@ -29,6 +29,11 @@
 - Los PDF tienen OCR ruidoso: corrige (Caf6 -> Café, lch -> Ich) y, si dudas, mira la página como imagen.
 - Nunca guardes un sustantivo sin género. Anota toda duda en data/REVISION.md.
 
+## Historias y Gramática
+- Contenido en data/gramatica/*.yml y data/historias/*.md (guía: docs/CONTENIDO.md). Valida con `pnpm content:validate`.
+- Historias originales (nunca copiar el libro), elenco fijo en Lindenau, cobertura léxica ≥ 95 %.
+- Leer historias NUNCA modifica Card ni ReviewLog (no afecta FSRS).
+
 ## Pedagogía (no romper)
 - Producción (español -> alemán) exige escribir antes de ver la respuesta.
 - Orden de nuevas: A★ -> A -> B -> C. Máx. 1 tarjeta por palabra al día.

@@ -8,6 +8,7 @@ import {
   FileUp,
   Flame,
   GraduationCap,
+  Languages,
   Home,
   LogOut,
   Menu,
@@ -23,6 +24,7 @@ import { ThemeToggle } from "./theme-toggle";
 const LINKS = [
   { href: "/", label: "Panel", icon: Home },
   { href: "/estudiar", label: "Estudiar", icon: GraduationCap },
+  { href: "/gramatica", label: "Gramática", icon: Languages },
   { href: "/practicar", label: "Practicar", icon: Dumbbell },
   { href: "/vocabulario", label: "Vocabulario", icon: BookOpen },
   { href: "/rebeldes", label: "Rebeldes", icon: Flame },

@@ -59,6 +59,11 @@ Escala: 12 · 14 · 16 (base) · 18 · 22 · 28 · 36 · 48 (lema en estudio). I
 | `AnswerFeedback` | Panel de corrección | CORRECT / ALMOST / WRONG / SELF_GRADED | `role="status"`, icono + texto, diff carácter a carácter |
 | `StatCard` | Cifra destacada | con icono, con tendencia | cifra en serif tabular |
 
+| `StoryText` | Texto de una historia en tres modos: leer (palabras clave subrayadas con el color de su género, punteadas si aún no están en tus tarjetas, glosa emergente; formas meta resaltadas en dorado), encontrar formas (cada palabra es un botón conmutable) y revisión (encontradas en verde, no encontradas con borde discontinuo, de más tachadas) | modo, resaltado activable | `lang="de"`, botones con `aria-pressed`, glosas con Radix Popover |
+| `StoryReader` | Flujo leer → ejercicios → resultado | fases Entdecken / Üben / Kontrast / Anwenden | `role="radiogroup"` en richtig/falsch; resultados con icono + texto |
+| `PrepositionsDiagram` | Caja y pelota para las 9 preposiciones (doble codificación) | — | cada panel `role="img"` con nombre «auf: sobre (con contacto)» |
+| `StudyTabs` | Pestañas «Tarjetas / Historias» dentro de Estudiar | — | `aria-current="page"` |
+
 ### Patrones
 - **Navegación:** cabecera fija con marca, enlaces y conmutador de tema; en móvil, menú en panel lateral (Radix Dialog).
 - **Pantalla de estudio:** columna centrada de máx. 640 px; barra de progreso fina dorada; tarjeta elevada; campo grande con autofocus; retroalimentación debajo; calificación al pie.

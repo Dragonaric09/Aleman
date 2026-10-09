@@ -1,4 +1,4 @@
-import { ArrowRight, Flame, Hourglass, RotateCcw, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpenText, Flame, Hourglass, RotateCcw, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ForecastBars } from "@/components/stats/charts";
@@ -6,6 +6,8 @@ import { ProgressStack, StatCard } from "@/components/stats/stat-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { requireUser } from "@/modules/auth";
+import { nextStory } from "@/modules/reading";
+import { PHASE_LABELS } from "@/modules/reading/shared";
 import { getSettings } from "@/modules/settings";
 import { getDashboard } from "@/modules/stats";
 import { LEVEL_LABELS } from "@/modules/vocabulary/shared";
@@ -23,6 +25,7 @@ export default async function DashboardPage() {
   const user = await requireUser();
   const { summary, streak, levels, forecast } = await getDashboard(user.id, clock.now());
   const pending = summary.newAvailable + summary.reviewsDue;
+  const story = await nextStory(user.id);
   const { timezone } = await getSettings(user.id);
   const hour = Number(
     new Intl.DateTimeFormat("es", { hour: "numeric", hourCycle: "h23", timeZone: timezone }).format(
@@ -97,6 +100,33 @@ export default async function DashboardPage() {
           />
         </div>
       </section>
+
+      {story && (
+        <Card className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-start gap-4">
+            <span className="bg-accent-soft text-accent inline-flex size-11 shrink-0 items-center justify-center rounded-full">
+              <BookOpenText className="size-5" aria-hidden />
+            </span>
+            <div>
+              <p className="text-ink-2 text-xs font-medium tracking-[0.12em] uppercase">
+                {pending > 0 ? "Después de tus repasos" : "Tu próxima historia"} · {story.topic.id} ·{" "}
+                {PHASE_LABELS[story.phase].de}
+              </p>
+              <p lang="de" className="font-serif text-2xl font-semibold">
+                {story.title}
+              </p>
+              <p className="text-ink-2 text-sm">
+                {story.titleEs} · {story.topic.title}
+              </p>
+            </div>
+          </div>
+          <Button asChild variant="secondary">
+            <Link href={`/estudiar/historias/${story.id}`}>
+              Leer la historia <ArrowRight aria-hidden />
+            </Link>
+          </Button>
+        </Card>
+      )}
 
       <section className="grid gap-6 lg:grid-cols-2">
         <Card>

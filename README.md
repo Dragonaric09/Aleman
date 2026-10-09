@@ -44,6 +44,8 @@ Además, cada usuario puede descargar su propia copia JSON en **Importar / expor
 |---|---|
 | **Panel** (`/`) | Nuevas disponibles, repasos pendientes, racha, progreso por nivel y previsión de 7 días |
 | **Estudiar** | Sesión con corrección inmediata, diff carácter a carácter, audio y calificación 1–4 |
+| **Estudiar → Historias** | Mini historias por tema gramatical: glosas, forma resaltada y ejercicios (encontrar formas, richtig/falsch, huecos, ordenar); no afectan a la programación |
+| **Gramática** | Mapa de temas; cada uno con regla breve, tabla con colores de género, trampas del español, trucos, ejemplos, ejercicios y sus historias |
 | **Practicar** | Drill der/die/das y repaso por lección **sin afectar** la programación |
 | **Vocabulario** | Buscar y filtrar, ver fichas, crear palabras propias, «crear copia propia» de una global |
 | **Rebeldes** | Tarjetas que olvidas a menudo, con espacio para tu truco (mnemotecnia) |
@@ -92,6 +94,7 @@ Si los puertos 5432/5433 están ocupados: `DEV_DB_PORT=55432 docker compose -f d
 | `pnpm test:e2e` | Playwright contra la app en marcha (`E2E_BASE_URL`, `PW_CHANNEL=chrome` para usar Chrome instalado) |
 | `pnpm db:migrate` / `db:seed` / `db:studio` | Migraciones, semilla idempotente, Prisma Studio |
 | `pnpm vocab:validate` | Valida `data/vocabulario.csv` con el esquema de importación |
+| `pnpm content:validate` | Valida temas de Gramática e historias (`--verbose` lista palabras desconocidas y reciclaje léxico) |
 
 ### Arquitectura
 
@@ -99,7 +102,7 @@ Monolito modular: una sola app Next.js 15 (App Router) + PostgreSQL 16 vía Pris
 
 ```
 src/app          páginas, Server Actions y Route Handlers (/api)
-src/modules      auth · vocabulary · srs · study · stats · transfer · settings
+src/modules      auth · vocabulary · srs · study · stats · transfer · settings · reading · grammar
 src/server       Prisma, logger (pino), reloj inyectable, entorno (Zod)
 ```
 
@@ -115,6 +118,12 @@ src/server       Prisma, logger (pino), reloj inyectable, entorno (Zod)
 - `docs/DISENO.md` — sistema de diseño «Cuaderno» (tokens y componentes)
 - `docs/ACCESIBILIDAD.md` — auditoría WCAG 2.1 AA
 - `data/REVISION.md` — dudas de la extracción del vocabulario **(revísalas)**
+- `docs/PROPUESTA_HISTORIAS_GRAMATICA.md` — concepción de Historias y Gramática y análisis de cuántas historias necesita cada tema
+- `docs/CONTENIDO.md` — cómo escribir temas e historias
+
+## Historias y Gramática
+
+Piloto disponible: tema **G1 · Preposiciones de lugar con dativo** (lección 13) con 11 historias en cuatro fases. Los otros nueve temas aparecen «en preparación». Las historias son textos originales (personajes en el pueblo ficticio de Lindenau) y están marcadas «en revisión» hasta que tú o tu profesor las reviséis: cambia `reviewed: true` en su archivo. Para escribir más, sigue `docs/CONTENIDO.md` y ejecuta `pnpm content:validate`.
 
 ## Vocabulario
 

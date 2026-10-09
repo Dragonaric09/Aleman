@@ -1,0 +1,90 @@
+id: G1
+slug: dativo-local
+title: Preposiciones de lugar con dativo
+titleDe: Lokale Präpositionen mit Dativ
+summary: Decir dónde está algo (Wo?) con an, auf, hinter, in, neben, über, unter, vor y zwischen + dativo.
+lessons: [13]
+prerequisites: []
+order: 1
+status: available
+plannedStories: 11
+minTargets: 6
+targetLabel: preposición + dativo
+findPrompt: Toca todas las expresiones que dicen DÓNDE está algo (preposición + dativo).
+content:
+  rule: Para decir DÓNDE está algo (Wo?), estas nueve preposiciones van con dativo, y el artículo cambia.
+  rulePoints:
+    - "Pregunta: Wo? (¿dónde?) → respuesta con preposición + dativo."
+    - "Las nueve: an, auf, hinter, in, neben, über, unter, vor, zwischen."
+    - "der → dem · die → der · das → dem · die (plural) → den + n"
+    - "Contracciones: in dem = im · an dem = am"
+  table:
+    caption: El artículo después de la preposición (Wo?)
+    headers: ["Género", "Nominativo", "Dativo", "Indefinido en dativo", "Ejemplo"]
+    rows:
+      - gender: DER
+        cells: ["masculino", "der Dom", "dem Dom", "einem Dom", "neben dem Dom"]
+      - gender: DIE
+        cells: ["femenino", "die Post", "der Post", "einer Post", "vor der Post"]
+      - gender: DAS
+        cells: ["neutro", "das Hotel", "dem Hotel", "einem Hotel", "im Hotel"]
+      - gender: PLURAL
+        cells: ["plural", "die Tische", "den Tischen", "—", "auf den Tischen"]
+  notes:
+    - "El color de la palabra sigue siendo el de su género: die Ampel es roja también en «an der Ampel». Lo que cambia es el artículo."
+    - "«Wie komme ich zum Bahnhof?» usa zu + dativo, pero indica dirección, no lugar."
+  diagram: prepositions
+  traps:
+    - wrong: Das Café ist neben der Dom.
+      right: Das Café ist neben dem Dom.
+      note: En español el artículo no cambia («al lado de la catedral»). En alemán, después de la preposición, el artículo pasa a dativo.
+    - wrong: Der Hund liegt in die Küche.
+      right: Der Hund liegt in der Küche.
+      note: Con Wo? (lugar) se usa dativo. «In die Küche» indica dirección (¿adónde?) y lo verás más adelante.
+    - wrong: Die Blumen sind auf den Tische.
+      right: Die Blumen sind auf den Tischen.
+      note: En dativo plural el sustantivo añade -n (si no termina ya en -n o -s).
+  mnemonics:
+    - "¿Wo? → dem, der, dem, den-n. Recítalo como un ritmo: «dem – der – dem – den‑n»."
+    - "Las nueve de la caja: imagina una caja y una pelota que va a cada sitio: an, auf, hinter, in, neben, über, unter, vor, zwischen."
+    - "La «r» de der (femenino en dativo) es la r de «reina»: die Königin → der Königin."
+  examples:
+    - de: Das Café ist neben dem Dom.
+      es: El café está al lado de la catedral.
+      story: G1-01
+    - de: Die Brücke ist über dem Fluss.
+      es: El puente está sobre el río.
+      story: G1-02
+    - de: Auf den Tischen sind Blumen.
+      es: Sobre las mesas hay flores.
+      story: G1-07
+  exercises:
+    - type: choice
+      prompt: "«Die Katze schläft unter dem Stuhl.» ¿Dónde está la gata?"
+      options: ["encima de la silla", "debajo de la silla", "detrás de la silla"]
+      answer: 1
+      explanation: unter = debajo de.
+    - type: choice
+      prompt: "Das Hotel ist neben ___ Bahnhof."
+      options: ["der", "dem", "den"]
+      answer: 1
+      explanation: der Bahnhof es masculino → en dativo, dem.
+    - type: choice
+      prompt: "Die Bank ist vor ___ Post."
+      options: ["die", "dem", "der"]
+      answer: 2
+      explanation: die Post es femenino → en dativo, der.
+    - type: choice
+      prompt: "En «Der Hund liegt in der Küche», ¿qué «der» es dativo?"
+      options: ["el primero (Der Hund)", "el segundo (in der Küche)", "los dos"]
+      answer: 1
+      explanation: El primero es nominativo masculino (sujeto); el segundo es dativo femenino (después de «in»).
+    - type: cloze
+      text: Das Café ist {{neben}} dem Dom.
+      es: El café está al lado de la catedral.
+    - type: cloze
+      text: Lucía trinkt einen Kaffee {{am}} Fenster.
+      es: Lucía toma un café junto a la ventana.
+    - type: cloze
+      text: Die Polizei ist hinter {{dem}} Hotel.
+      es: La policía está detrás del hotel.

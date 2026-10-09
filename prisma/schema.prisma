@@ -73,16 +73,17 @@ enum AnswerVerdict {
 }
 
 model User {
-  id           String        @id @default(cuid())
-  email        String        @unique
-  passwordHash String
-  displayName  String
-  createdAt    DateTime      @default(now())
-  sessions     Session[]
-  settings     UserSettings?
-  cards        Card[]
-  reviewLogs   ReviewLog[]
-  notes        WordNote[]
+  id            String         @id @default(cuid())
+  email         String         @unique
+  passwordHash  String
+  displayName   String
+  createdAt     DateTime       @default(now())
+  sessions      Session[]
+  settings      UserSettings?
+  cards         Card[]
+  reviewLogs    ReviewLog[]
+  notes         WordNote[]
+  storyAttempts StoryAttempt[]
 }
 
 model Session {
@@ -214,14 +215,77 @@ model ReviewLog {
 }
 
 model WordNote {
-  id           String   @id @default(cuid())
-  userId       String
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  wordId       String
-  word         Word     @relation(fields: [wordId], references: [id], onDelete: Cascade)
-  mnemonic     String?
-  ownSentence  String?
-  updatedAt    DateTime @updatedAt
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  wordId      String
+  word        Word     @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  mnemonic    String?
+  ownSentence String?
+  updatedAt   DateTime @updatedAt
 
   @@unique([userId, wordId])
+}
+
+// ───────────── Mini historias y Gramática (docs/PROPUESTA_HISTORIAS_GRAMATICA.md) ─────────────
+
+enum TopicStatus {
+  AVAILABLE
+  PLANNED
+}
+
+enum StoryPhase {
+  DISCOVER // Entdecken
+  PRACTICE // Üben
+  CONTRAST // Kontrast
+  APPLY // Anwenden
+}
+
+model GrammarTopic {
+  id             String      @id // "G1"
+  slug           String      @unique
+  title          String
+  summary        String
+  lessonNumbers  Int[]
+  prerequisites  String[]
+  sortOrder      Int
+  status         TopicStatus @default(PLANNED)
+  plannedStories Int         @default(0)
+  content        Json // regla, tabla, trampas, ganchos, ejemplos y ejercicios
+  stories        Story[]
+}
+
+model Story {
+  id        String         @id // "G1-01"
+  topicId   String
+  topic     GrammarTopic   @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  phase     StoryPhase
+  sortOrder Int
+  title     String
+  titleEs   String
+  body      String // texto con marcado: [[palabra clave]], {dat:forma meta}, {err:error}
+  keywords  String[] // lemas del catálogo global
+  highlight Boolean        @default(true) // resaltar la forma meta por defecto
+  wordCount Int
+  reviewed  Boolean        @default(false)
+  exercises Json
+  attempts  StoryAttempt[]
+
+  @@unique([topicId, sortOrder])
+}
+
+/// Intento de ejercicios de una historia. Nunca modifica Card ni ReviewLog.
+model StoryAttempt {
+  id                 String   @id @default(cuid())
+  userId             String
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  storyId            String
+  story              Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  comprehensionScore Float? // 0..1 (verdadero/falso + encontrar formas)
+  productionScore    Float? // 0..1 (huecos + ordenar)
+  isProbe            Boolean // primera lectura de esta historia
+  studyDay           String
+  createdAt          DateTime @default(now())
+
+  @@index([userId, storyId])
 }
